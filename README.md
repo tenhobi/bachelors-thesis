@@ -1,7 +1,7 @@
 # Kooperativní mobilní multiplatformní hra
 
 [![Actions status](https://github.com/tenhobi/bachelor-thesis/workflows/build/badge.svg)](https://github.com/tenhobi/bachelor-thesis/actions)
-[![License: MIT](https://img.shields.io/badge/License-CC%20BY--SA%204.0-blue.svg)](https://creativecommons.org/licenses/by-sa/4.0)
+[![License: MIT](https://img.shields.io/badge/license-CC%20BY--SA%204.0-blue.svg)](https://creativecommons.org/licenses/by-sa/4.0)
 
 ## Bakalářská práce
 
