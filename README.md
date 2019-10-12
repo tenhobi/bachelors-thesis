@@ -1,10 +1,9 @@
 # Bakalářská práce
 
 [![Actions status](https://github.com/tenhobi/bachelor-thesis/workflows/build/badge.svg)](https://github.com/tenhobi/bachelor-thesis/actions)
-[![GitHub stars](https://img.shields.io/github/stars/tenhobi/bachelor-thesis.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/tenhobi/bachelor-thesis/stargazers/)
 [![License: MIT](https://img.shields.io/badge/License-CC%20BY--SA%204.0-blue.svg)](https://creativecommons.org/licenses/by-sa/4.0)
 
-Zdrojové kódy implementace jsou na samostatném [repozitáři](https://github.com/tenhobi/bachelor_game).
+Zdrojové kódy implementace jsou v samostatném [repozitáři](https://github.com/tenhobi/bachelor_game).
 
 ## Zadání
 
@@ -17,14 +16,6 @@ Cílem práce je navrhnout a vyvinout multiplatformní mobilní hru, která bude
 - Implementujte a otestujte aplikaci dle návrhu.
 - Vytvořte uživatelskou a vývojářskou dokumentaci.
 - Zhodnoťte výslednou aplikaci a popište námět na rozšíření.
-
-## Závislosti
-
-Mám nainstalované následující balíčky (na Ubuntu):
-
-```txt
-...
-```
 
 ## Licence
 
