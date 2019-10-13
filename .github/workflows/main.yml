@@ -36,6 +36,7 @@ jobs:
 
       - name: Rename PDF
         run: mv main.pdf BP_Jan_Bittner.pdf
+        if: startsWith(github.ref, 'refs/tags/')
 
       - name: Upload PDF to release assets
         uses: softprops/action-gh-release@v1
