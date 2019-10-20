@@ -9,7 +9,7 @@ PDF najdete v záložce [releases](https://github.com/tenhobi/bachelors-thesis/r
 
 Zdrojové kódy implementace jsou v samostatném [repozitáři](https://github.com/tenhobi/bachelor_game).
 
-### Zadání
+### 📚 Zadání
 
 Cílem práce je navrhnout a vyvinout multiplatformní mobilní hru, která bude klást důraz na kooperaci více hráčů připojených z různých zařízeních přes síť. Ve hře bude využito specifik moderních mobilních zařízení (například různé typy senzorů a možnosti ovládání). Při práci budou uplatněny tradiční postupy softwarového inženýrství.
 
@@ -21,7 +21,7 @@ Cílem práce je navrhnout a vyvinout multiplatformní mobilní hru, která bude
 - Vytvořte uživatelskou a vývojářskou dokumentaci.
 - Zhodnoťte výslednou aplikaci a popište námět na rozšíření.
 
-### Závislosti
+### 📦 Závislosti
 
 ```txt
 // TODO
@@ -31,6 +31,6 @@ xelatex
 texlive-xetex
 ```
 
-## Licence
+## 📃 Licence
 
 Licencováno pod [CC BY-SA 4.0](LICENSE).
