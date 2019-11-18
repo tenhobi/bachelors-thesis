@@ -5,7 +5,7 @@
 
 ## Bakalářská práce
 
-PDF najdete v záložce [releases](https://github.com/tenhobi/bachelors-thesis/releases).
+PDF najdete u dané verze v záložce [releases](https://github.com/tenhobi/bachelors-thesis/releases).
 
 Zdrojové kódy implementace jsou v samostatném [repozitáři](https://github.com/tenhobi/bachelor_game).
 
