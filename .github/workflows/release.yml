@@ -1,0 +1,51 @@
+name: build
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v1
+
+      - name: Compile XeLaTeX document - 1
+        uses: xu-cheng/latex-action@master
+        with:
+          root_file: main.tex
+          args: -pdf -xelatex -file-line-error -interaction=nonstopmode
+
+      - name: Run bibtex
+        run: bibtex main.tex
+
+      - name: Compile XeLaTeX document - 2
+        uses: xu-cheng/latex-action@master
+        with:
+          root_file: main.tex
+          args: -pdf -xelatex -file-line-error -interaction=nonstopmode
+
+      - name: Compile XeLaTeX document - 3
+        uses: xu-cheng/latex-action@master
+        with:
+          root_file: main.tex
+          args: -pdf -xelatex -file-line-error -interaction=nonstopmode
+
+      - name: Rename PDF
+        run: mv main.pdf BP_Jan_Bittner.pdf
+
+      - name: Semver Release
+        uses: K-Phoen/semver-release-action@v1.0.3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          release_branch: master
+
+      - name: Upload PDF to release assets
+        uses: softprops/action-gh-release@v1
+        with:
+          files: BP_Jan_Bittner.pdf
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,6 +1,7 @@
 name: build
 
-on: push
+on:
+  push:
 
 jobs:
   build:
@@ -10,38 +11,8 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v1
 
-      - name: Compile XeLaTeX document - 1
+      - name: Compile XeLaTeX document
         uses: xu-cheng/latex-action@master
         with:
           root_file: main.tex
           args: -pdf -xelatex -file-line-error -interaction=nonstopmode
-
-      - name: Run bibtex
-        run: bibtex main.tex
-        if: startsWith(github.ref, 'refs/tags/')
-
-      - name: Compile XeLaTeX document - 2
-        uses: xu-cheng/latex-action@master
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          root_file: main.tex
-          args: -pdf -xelatex -file-line-error -interaction=nonstopmode
-
-      - name: Compile XeLaTeX document - 3
-        uses: xu-cheng/latex-action@master
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          root_file: main.tex
-          args: -pdf -xelatex -file-line-error -interaction=nonstopmode
-
-      - name: Rename PDF
-        run: mv main.pdf BP_Jan_Bittner.pdf
-        if: startsWith(github.ref, 'refs/tags/')
-
-      - name: Upload PDF to release assets
-        uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          files: BP_Jan_Bittner.pdf
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
