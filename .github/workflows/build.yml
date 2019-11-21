@@ -18,10 +18,10 @@ jobs:
           args: -pdf -xelatex -file-line-error -interaction=nonstopmode
 
       - name: Rename PDF
-        run: mv main.pdf BP_Jan_Bittner.pdf
+        run: mv main.pdf BP_Bittner_Jan.pdf
 
       - name: Upload Data
         uses: actions/upload-artifact@master
         with:
           name: bp-pdf
-          path: BP_Jan_Bittner.pdf
+          path: BP_Bittner_Jan.pdf

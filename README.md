@@ -28,10 +28,8 @@ Cílem práce je navrhnout a vyvinout multiplatformní mobilní hru, která bude
 ### 📦 Závislosti
 
 ```txt
-// TODO
-
 biber
-xelatex
+texlive
 texlive-xetex
 ```
 
