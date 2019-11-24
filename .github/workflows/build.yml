@@ -11,11 +11,14 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v1
 
+      - name: Install pygments
+        run: sudo apt-get install python-pygments
+
       - name: Compile XeLaTeX document
         uses: xu-cheng/latex-action@1.2.0
         with:
           root_file: main.tex
-          args: -pdf -xelatex -file-line-error -interaction=nonstopmode
+          args: -pdf -xelatex -shell-escape -file-line-error -interaction=nonstopmode
 
       - name: Rename PDF
         run: mv main.pdf BP_Bittner_Jan.pdf
