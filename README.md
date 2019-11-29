@@ -1,3 +1,5 @@
+[English description is below](#cooperative-mobile-multi-platform-game)
+
 # Kooperativní mobilní multiplatformní hra
 
 [![Actions status](https://github.com/tenhobi/bachelor-thesis/workflows/build/badge.svg)](https://github.com/tenhobi/bachelor-thesis/actions)
@@ -36,3 +38,40 @@ texlive-xetex
 ## 📃 Licence
 
 Licencováno pod [CC BY-SA 4.0](LICENSE).
+
+# Cooperative Mobile Multi-Platform Game
+
+[![Actions status](https://github.com/tenhobi/bachelor-thesis/workflows/build/badge.svg)](https://github.com/tenhobi/bachelor-thesis/actions)
+[![License: MIT](https://img.shields.io/badge/license-CC%20BY--SA%204.0-blue.svg)](https://creativecommons.org/licenses/by-sa/4.0)
+
+## Bachelor's thesis
+
+Please note that the thesis is written in Czech, therefore there is no English version yet. *The thesis might be translated to English later.*
+
+You can find the final version of the PDF in the [releases](https://github.com/tenhobi/bachelors-thesis/releases) tab.
+
+The implementation source code is in a separate [repository](https://github.com/tenhobi/bachelor_game).
+
+### 📚 Assignment
+
+The aim of this work is to design and develop a cross-platform mobile game that will emphasize the cooperation of multiple players connected from different devices over the network. The game will use the specifics of modern mobile devices (such as different types of sensors and control options). Traditional software engineering procedures will be applied.
+
+- Investigate existing similar apps and trends in mobile games.
+- Analyze and compare selected technologies for cross-platform mobile application development.
+- Design the game and game logic, assemble application requirements and use cases.
+- Design the architecture and user interface of the application with emphasis on easy extensibility and usability.
+- Implement and test your application as designed.
+- Create user and developer documentation.
+- Evaluate the resulting app and describe the extension idea.
+
+### 📦 Dependencies
+
+```txt
+biber
+texlive
+texlive-xetex
+```
+
+## 📃 License
+
+Licensed under [CC BY-SA 4.0](LICENSE).
