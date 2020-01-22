@@ -27,7 +27,6 @@ jobs:
         with:
           name: bp-pdf
           path: BP_Bittner_Jan.pdf
-          name: release
 
       - name: Cat log
         if: failure()
