@@ -9,9 +9,9 @@ which are listed in the [README](../README.md).
 The `arara` is used to build the thesis, so it is advisable to edit it in VSCode extension's settings:
 
 ```yaml
+    "latex-workshop.latex.watch.usePolling": true, // WSL2
+    "latex-workshop.latex.autoBuild.run": "onFileChange",
     "latex-workshop.view.pdf.viewer": "tab",
-    "latex-workshop.chktex.run": "onType",
-    "latex-workshop.chktex.enabled": true,
     "latex-workshop.synctex.synctexjs.enabled": true,
     "latex-workshop.latex.tools": [
         {
@@ -22,6 +22,7 @@ The `arara` is used to build the thesis, so it is advisable to edit it in VSCode
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
+                "-shell-escape",
                 "%DOC%"
             ]
         },
