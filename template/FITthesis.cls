@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{FITthesis}[2019/12/23 CTU FIT standard class for theses]
+\ProvidesClass{template/FITthesis}[2019/12/23 CTU FIT standard class for theses]
 
 % created by Ondrej Guth <ondrej.guth@fit.cvut.cz>
 
@@ -185,7 +185,7 @@
 \newif\if@declarationOptionSelected
 \DeclareRobustCommand{\declarationOfAuthenticityOption}[1]{
 	\ifx1#1 \DeclareRobustCommand{\thedeclarationofauthenticity}{\if\@lang1{%
-		\input{templates/prohlaseni1.tex.txt}
+		\input{template/prohlaseni1.tex.txt}
 		}\else\if\@lang2{%
 		Prehlasujem, \v ze som predlo\v zen\'u pr\'acu vypracoval(a) samostatne a \v ze som uviedol(uviedla) v\v setky informa\v cn\'e zdroje v~s\'ulade s~Metodick\'ym pokynom o~etickej pr\'iprave vysoko\v skolsk\'ych z\'avere\v cn\'ych pr\'ac.
 
@@ -197,7 +197,7 @@
 		}\fi\fi
 	}\@declarationOptionSelectedtrue\fi
 	\ifx2#1 \DeclareRobustCommand{\thedeclarationofauthenticity}{\if\@lang1{%
-		\input{templates/prohlaseni2.tex.txt}
+		\input{template/prohlaseni2.tex.txt}
 		}\else\if\@lang2{%
 		Prehlasujem, \v ze som predlo\v zen\'u pr\'acu vypracoval(a) samostatne a \v ze som uviedol(uviedla) v\v setky informa\v cn\'e zdroje v~s\'ulade s~Metodick\'ym pokynom o~etickej pr\'iprave vysoko\v skolsk\'ych z\'avere\v cn\'ych pr\'ac.
 
@@ -210,7 +210,7 @@ sp\^ osobom, ktor\'y nezni\v zuje hodnotu Diela, ale len pre~nez\'arobkov\'e \'u
 		}\fi\fi
 	}\@declarationOptionSelectedtrue\fi
 	\ifx3#1 \DeclareRobustCommand{\thedeclarationofauthenticity}{\if\@lang1{%
-		\input{templates/prohlaseni3.tex.txt}
+		\input{template/prohlaseni3.tex.txt}
 		}\else\if\@lang2{%
 		Prehlasujem, \v ze som predlo\v zen\'u pr\'acu vypracoval(a) samostatne a \v ze som uviedol(uviedla) v\v setky informa\v cn\'e zdroje v~s\'ulade s~Metodick\'ym pokynom o~etickej pr\'iprave vysoko\v skolsk\'ych z\'avere\v cn\'ych pr\'ac.
 
@@ -222,7 +222,7 @@ sp\^ osobom, ktor\'y nezni\v zuje hodnotu Diela, ale len pre~nez\'arobkov\'e \'u
 		}\fi\fi
 	}\@declarationOptionSelectedtrue\fi
 	\ifx4#1 \DeclareRobustCommand{\thedeclarationofauthenticity}{\if\@lang1{%
-		\input{templates/prohlaseni4.tex.txt}
+		\input{template/prohlaseni4.tex.txt}
 		}\else\if\@lang2{%
 		Prehlasujem, \v ze som predlo\v zen\'u pr\'acu vypracoval(a) samostatne a \v ze som uviedol(uviedla) v\v setky informa\v cn\'e zdroje v~s\'ulade s~Metodick\'ym pokynom o~etickej pr\'iprave vysoko\v skolsk\'ych z\'avere\v cn\'ych pr\'ac.
 
@@ -240,7 +240,7 @@ a~z\'arove\v n sa zav\"azuje spr\'\i stupni\v t zdrojov\'y k\'od tak\'eho diela 
 		}\fi\fi
 	}\@declarationOptionSelectedtrue\fi
 	\ifx5#1 \DeclareRobustCommand{\thedeclarationofauthenticity}{\if\@lang1{%
-		\input{templates/prohlaseni5.tex.txt}
+		\input{template/prohlaseni5.tex.txt}
 		}\else\if\@lang2{%
 		Prehlasujem, \v ze som predlo\v zen\'u pr\'acu vypracoval(a) samostatne a \v ze som uviedol(uviedla) v\v setky informa\v cn\'e zdroje v~s\'ulade s~Metodick\'ym pokynom o~etickej pr\'iprave vysoko\v skolsk\'ych z\'avere\v cn\'ych pr\'ac.
 
@@ -253,7 +253,7 @@ sp\^ osobom, ktor\'y nezni\v zuje hodnotu Diela (vr\'atane komer\v cn\'eho vyu\v
 		}\fi\fi
 	}\@declarationOptionSelectedtrue\fi
 	\ifx6#1 \DeclareRobustCommand{\thedeclarationofauthenticity}{\if\@lang1{%
-		\input{templates/prohlaseni6.tex.txt}
+		\input{template/prohlaseni6.tex.txt}
 		}\else\if\@lang2{%
 		Prehlasujem, \v ze som predlo\v zen\'u pr\'acu vypracoval(a) samostatne a \v ze som uviedol(uviedla) v\v setky informa\v cn\'e zdroje v~s\'ulade s~Metodick\'ym pokynom o~etickej pr\'iprave vysoko\v skolsk\'ych z\'avere\v cn\'ych pr\'ac.
 
