@@ -20,14 +20,26 @@ a je velmi akčně laděná.
 Jak říká první věta stránky hry \cite{seabaa_dual} v obchodě Google Play:
 \uv{Mezi lidmi, napříč obrazovkami.}
 
-Hra se rozprostírá přes 2 obrazovky zařízení a herní postava se ovládá natáčením
-daného displeje.
-Pokud například postava vystřelí na jedné obrazovce,
-střela za chvíli doletí i na obrazovku druhou.
-Vyvolání příslušných akcí se ovládá určitými kombinacemi dotyků na displej.
+Hra má několik módů.
+Jedním z módů je mód \uv{DUEL}, ve kterém dva hráči
+– každý na svém zařízení –
+bojují proti sobě.
 
-UI je velmi jednoduché, avšak přívětivé svými barvami a srozumitelností.
-Všechny prvky jsou pochopitelné.
+Herní plocha je rozdělena do dvou 2D částí.
+Každý hráč se může pohybovat pouze ve své části, na svém zařízení.
+Herní postava hráče se ovládá natáčením jeho displeje.
+Herní postava má zásobník střel.
+Po klepnutí na plochu postava vystřelí.
+Při podržení se postupně ze zásobníku nabíjí střely
+a vystřelí se větší, ale trochu pomalejší, střela.
+Rychlým použitím gesta švihnutí se postava otočí.
+
+Pokud hráč vystřelí na své ploše,
+střela za chvíli doletí do protihráčovi části.
+Střele protihráče se dá buď takticky vyhnout,
+nebo zneškodnit vystřelením vlastní střely.
+
+Cílem hry je několikrát zasáhnout protihráče, a tím ho zneškodnit.
 
 \myFigure{Screenshot hry DUAL!}{fig:dual}{assets/competitive-apps/dual.jpg}
 \FloatBarrier
@@ -35,13 +47,15 @@ Všechny prvky jsou pochopitelné.
 \subsection*{Klady}
 
 \begin{itemize}
-    \item TODO
+    \item UI je velmi jednoduché, avšak přívětivé svými barvami a srozumitelností.
+    \item Hra je velmi krátká a dá se mnohokrát opakovat.
 \end{itemize}
 
 \subsection*{Zápory}
 
 \begin{itemize}
-    \item TODO
+    \item K dispozici zdarma je pouze jeden herní mód.
+    \item Nejsou dostupné žádné speciální funkce, které by hru obohatily.
 \end{itemize}
 
 \section{Sea Battle 2}
@@ -49,7 +63,7 @@ Všechny prvky jsou pochopitelné.
 Hra \emph{Sea Battle 2} sice není postavena na kooperaci a komunikaci mezi
 hráči,
 ale představuje hezkou reprezentaci klasické deskové hry v moderním pojetí
-\cite{henrysmithinc_spaceteam}.
+\cite{byril_sea}.
 
 Hráči z celého světa mezi sebou na svých zařízeních vedou souboje a vítězstvími
 postupně postupují v námořních hodnostech.
@@ -84,18 +98,21 @@ kooperaci a komunikaci.
 Tato velmi oceňovaná hra existuje ve verzi pro desktop, konzole,
 virtuální realitu i mobily \cite{steelcrategamesinc_keep}.
 
-Cílem hry je zneškodnění bomby.
-Jeden hráč vidí bombu, která je koncipována jako kufřík s několika moduly
-a časomírou, která se nebezpečně rychle odpočítává.
-Další hráč, případně skupina, mají k dispozici manuál s instrukcemi.
-Manuál mohou prohlížet jak v elektronické, tak i ve vytištěné podobě.
+Hra má předpřipravené herní kola,
+kde cíl každého z nich je zneškodnit bombu v co nejlepším čase.
+Bomba je koncipována jako kufřík s několika moduly a časomírou,
+která se nebezpečně rychle odpočítává.
+
+Jeden hráč vidí bombu.
+Další hráč, případně skupina hráčů, mají k dispozici manuál s instrukcemi.
+Manuál mohou prohlížet jak v elektronické, tak i v papírové podobě.
 Manuál je totiž pro všechny hry shodný.
 
 Veškerá komunikace probíhá pouze slovně.
 Hráč s bombou tak nahlásí hráči s manuálem například to,
 že vidí červené tlačítko s textem \uv{defuse}.
 Druhý hráč pak v manuálu vyhledá daný modul tlačítka, řídí se instrukcemi a
-podstatné informace předá prvnímu hráči.
+podstatné informace k zneškodnění předá prvnímu hráči.
 
 \myFigure{Screenshot hry Keep Talking and Nobody Explodes}{fig:keep-talking}{assets/competitive-apps/keep-talking.jpg}
 \FloatBarrier
@@ -105,10 +122,11 @@ podstatné informace předá prvnímu hráči.
 \begin{itemize}
     \item UI je laděné jako pohled na stůl, na kterém je bomba a časomíra,
 což dodává atmostféru a vtáhne hráče do děje.
-    \item Světla v místnosti blikají, případně se vypínají.
-To přidává efekt zejména v situácích,
-kdy zbývá už jen pár sekund a bomba není vidět.
+    \item Světla v místnosti blikají, případně se náhodně vypínají a zapínají.
+To přidává na efektu zejména v situácích,
+kdy zbývá už jen pár sekund a bomba není dobře vidět.
     \item Přestože je grafika jednodušší, samotná bomba je velmi přehledná.
+    \item Manuál je stejný pro všechna herní kola. Lze tedy i vytisknout.
 \end{itemize}
 
 \subsection*{Zápory}
@@ -126,11 +144,20 @@ v obchodě Google Play: \uv{Mačkáš rád tlačítka a řveš na své kamarády
 Herní plocha je plná náhodných tlačítek, přepínačů, posouvátek a dalších věcí,
 se kterými musí hráči pracovat podle přicházejících příkazů.
 
+Hra je rozdělena na herní kola.
+Každé herní kolo má vlastní množinu ovládacích prvků a úkolů.
+
 Zapeklitost komunikace spočívá v tom,
 že příkazy se netýkají pouze prvků na nadaném zařízení,
 ale i prvků ze zařízení ostatních lidí.
 Některé příkazy také cílí na všechny hráče.
 Příkladem takévého příkazu je například zatřesení všemi zařízeními najednou.
+
+Každý chybný krok je penalizován.
+Penalizace se postupně projevuje například zhoršením přístupnosti k ovládacím
+prvkům.
+Cílem hry je dostat se přes co nejvíce herních kol.
+Po skončení hry následuje shrnující statistika a ocenění jednotlivých hráčů.
 
 \myFigure{Screenshot hry Spaceteam}{fig:spaceteam}{assets/competitive-apps/spaceteam.jpg}
 \FloatBarrier
@@ -141,6 +168,7 @@ Příkladem takévého příkazu je například zatřesení všemi zařízeními
     \item UI úvodní obrazovky a přihlašování do hry vypadá velmi efektně.
     \item Tlačítka i příkazy obsahují řadu technologických pojmů,
 což dodává hře na správné atmosféře.
+    \item Finální ocenění hráčů působí vřelým dojmem.
 \end{itemize}
 
 \subsection*{Zápory}
