@@ -8,10 +8,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Set up Git repository
+      - name: Set up Git Repository
         uses: actions/checkout@v2
 
-      - name: Set up enviroment
+      - name: Set up Enviroment
         run: |
           sudo apt install texlive texlive-xetex texlive-extra-utils texlive-lang-czechslovak
           sudo apt install python-pygments
@@ -28,7 +28,7 @@ jobs:
           name: bp-pdf
           path: BP_Bittner_Jan.pdf
 
-      - name: Cat log
+      - name: Cat Log
         if: failure()
         run: |
           cat main.log
