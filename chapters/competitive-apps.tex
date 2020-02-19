@@ -24,6 +24,8 @@ Hra má několik módů.
 Jedním z módů je mód \uv{DUEL}, ve kterém dva hráči
 – každý na svém zařízení –
 bojují proti sobě.
+Hra obsahuje další 2 módy, které však nejsou přístupní zdarma,
+proto zde nebudou zohledněny a popsány.
 
 Herní plocha je rozdělena do dvou 2D částí.
 Každý hráč se může pohybovat pouze ve své části, na svém zařízení.
@@ -39,6 +41,7 @@ Střele protihráče se dá buď takticky vyhnout,
 nebo zneškodnit vystřelením vlastní střely.
 
 Cílem hry je několikrát zasáhnout protihráče, a tím ho zneškodnit.
+Po ukončení hry je možné v dané relaci s protihráčem začít další kolo hry.
 
 \myFigure{Screenshot hry DUAL!}{fig:dual}{assets/competitive-apps/dual.jpg}
 \FloatBarrier
@@ -63,14 +66,12 @@ Hra \emph{Sea Battle 2} sice není postavena na kooperaci a komunikaci mezi
 hráči,
 ale představuje hezkou reprezentaci klasické stolní hry v moderním pojetí
 \cite{byril_sea}.
-
 Hráči z celého světa mezi sebou na svých zařízeních vedou souboje
 a za každé vítězství postupně postupují v námořních hodnostech.
 
 Herní plocha obsahuje $10 \times 10$ políček,
 kam si hráč rozloží své lodě.
-Vedle toho jsou postupně vyobrazovány políčka protihráče. 
-
+Vedle toho jsou postupně vyobrazovány políčka protihráče.
 UI je lazeno do podoby čtverečkovaného papíru s ručně kreslenými prvky.
 
 Cílem hry, stejně jako v klasické stolní hře,
@@ -145,14 +146,17 @@ kdy zbývá už jen pár sekund a bomba není dobře vidět.
 \section{Spaceteam}
 
 Poslední hra, \emph{Spaceteam}, stojí na rychlosti reakcí a velmi rychlé
-komunikaci, což shrnuje první věta na stránce hry \cite{henrysmithinc_spaceteam}
+komunikaci.
+To shrnuje první věta na stránce hry \cite{henrysmithinc_spaceteam}
 v obchodě Google Play: \uv{Mačkáš rád tlačítka a řveš na své kamarády?}
 
 Herní plocha je plná náhodných tlačítek, přepínačů, posouvátek a dalších věcí,
-se kterými musí hráči pracovat podle přicházejících příkazů.
+které dohromady tvoří ovládací prvky hry.
+Každému hráči přichází postupně do zařízení série příkazů,
+které cílí na určitou interakci s ovládacími prvky.
 
 Hra je rozdělena na herní kola.
-Každé herní kolo má vlastní množinu ovládacích prvků a úkolů.
+Každé herní kolo má vlastní množinu ovládacích prvků a příkazů.
 
 Zapeklitost komunikace spočívá v tom,
 že příkazy se netýkají pouze prvků na nadaném zařízení,
