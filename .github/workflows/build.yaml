@@ -1,0 +1,35 @@
+name: Build
+
+on: [push]
+
+jobs:
+  build:
+    name: Build LaTeX
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up Git Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Enviroment
+        run: |
+          sudo apt install texlive texlive-xetex texlive-extra-utils texlive-lang-czechslovak
+          sudo apt install python-pygments
+
+      - name: Run Arara
+        run: arara main
+
+      - name: Rename PDF
+        run: mv main.pdf BP_Bittner_Jan.pdf
+
+      - name: Upload Data as Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: bp-pdf
+          path: BP_Bittner_Jan.pdf
+
+      - name: Cat Log
+        if: failure()
+        run: |
+          cat main.log
+          ls -la
