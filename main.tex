@@ -19,8 +19,10 @@
 \usepackage{minted}
 \usepackage{xevlna}
 \usepackage[section]{placeins}
+\usepackage{hyperref}
+\usepackage{enumitem}
 
-\input{enviroments/_all.tex}
+\input{macros/_all.tex}
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 % NASTAVENI
@@ -33,13 +35,30 @@
 \authorWithDegrees{Jan Bittner} %jméno autora včetně akademických titulů
 \author{Jan Bittner} %jméno autora bez akademických titulů
 \supervisor{Ing. Marek Suchánek}
-\acknowledgements{TODO\: Děkuji všem a za vše. Nevíte-li, co sem napsat, příkaz odstraňte.}
-\abstractCS{TODO\: V~několika větách shrňte obsah a přínos této práce v~češtině. Po přečtení abstraktu by měl mít čtenář dost informací pro rozhodnutí, zda chce Vaši práci číst.}
-\abstractEN{TODO\: Sem doplňte ekvivalent abstraktu Vaší práce v~angličtině.}
+\acknowledgements{Rád bych na tomto místě poděkoval vedoucímu práce
+Ing. Markovi Suchánkovi za cenné rady a přátelský přístup.
+Také bych rád poděkoval své rodině za podporu během studia.
+}
+\abstractCS{Práce se zabývá návrhem a implementací kooperativní mobilní multiplatformní hry
+pro mobilní operační systémy Android a iOS
+s využitím multiplatformního frameworku Flutter.
+Důraz je kladen také na výběr a popis možností
+frameworku, state managementu, databáze, architektury a testování.
+}
+\abstractEN{The thesis describes design and implementation of cooperative mobile
+multi-platform game for Android and iOS mobile operating systems
+using the multi-platform Flutter framework.
+Emphasis is also placed on the selection and description of
+framework, state management, database, architecture and testing options.
+}
 \placeForDeclarationOfAuthenticity{V~Praze}
 \declarationOfAuthenticityOption{4} %volba Prohlášení
-\keywordsCS{TODO\: Závěrečná práce, \LaTeX{}.}
-\keywordsEN{TODO\: Thesis, \LaTeX{}.}
+\keywordsCS{mobilní multiplatformní hra, kooperace,
+Flutter, Android, iOS, Cloud Firestore
+}
+\keywordsEN{mobile multi-platform game, cooperation,
+Flutter, Android, iOS, Cloud Firestore
+}
 \website{https://github.com/tenhobi/bachelors-thesis} %volitelná URL práce, objeví se v tiráži
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 

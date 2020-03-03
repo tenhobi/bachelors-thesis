@@ -1,3 +1,42 @@
-\section{Use cases}
+\let\oldsubsection=\thesubsection
+\renewcommand\thesubsection{UC\arabic{subsection}} % UC* counter for subsections
+%\addtocontents{toc}{\protect\setcounter{tocdepth}{1}} % hide UC from TOC
 
-TODO text
+\section{Případy užití}
+
+\subsection*{Přihlášení}
+\label{uc:login}
+
+\subsubsection*{Scénář A}
+
+\begin{enumerate}
+    \item aaa
+    \item bbb
+\end{enumerate}
+
+\subsubsection*{Scénář B}
+
+\begin{enumerate}
+    \item aaa
+    \item bbb
+\end{enumerate}
+
+\subsection{Zobrazení informací o aplikaci}
+
+\subsection{Změna nastavení}
+
+% jazyk
+
+\subsection{Spuštění hry}
+
+% volba kola, hesla
+% scénář hostujícího a připojujícího hráče
+
+\subsection{Ukončení hry}
+
+% scénář po dokončení hry + během hry
+
+\subsection{Zobrazení svého profilu}
+
+\let\thesubsection=\oldsubsection
+%\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}

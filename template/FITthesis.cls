@@ -61,6 +61,7 @@
 \AtEndDocument{\ifdefined\there@is@a@table\label{tab:was:used:in:doc}\fi}
 \DeclareRobustCommand{\listoftablescond}{\@ifundefined{r@tab:was:used:in:doc}{}{\listoftables*}}
 
+\RequirePackage{pdfpages}
 
 % heading numbering (memoir-style settings)
 \setsecnumdepth{subsubsection}
@@ -340,7 +341,7 @@ sp\^ osobom, ktor\'y nezni\v zuje hodnotu Diela (vr\'atane komer\v cn\'eho vyu\v
 \DeclareRobustCommand{\titlepage}{
         \begin{titlingpage}
         \noindent
-        \if\@lang1{\includegraphics[width=0.5\textwidth]{assets/images/cvut-logo-bw}}\else\if\@lang2{\includegraphics[width=0.5\textwidth]{assets/images/cvut-logo-bw}}\else{\includegraphics[width=0.5\textwidth]{assets/images/cvut-logo-bw-en}}\fi\fi
+        \if\@lang1{\includegraphics[width=0.5\textwidth]{template/cvut-logo-bw}}\else\if\@lang2{\includegraphics[width=0.5\textwidth]{template/cvut-logo-bw}}\else{\includegraphics[width=0.5\textwidth]{template/cvut-logo-bw-en}}\fi\fi
         
         \vfill
 		
@@ -508,7 +509,8 @@ sp\^ osobom, ktor\'y nezni\v zuje hodnotu Diela (vr\'atane komer\v cn\'eho vyu\v
 \renewcommand{\counterwithin}{\@ifstar{\@csinstar}{\@csin}}
 
 	\thispagestyle{empty}
-	\if\@lang1{Sem vlo{\v z}te zad{\' a}n{\' i} Va{\v s}{\' i} pr{\' a}ce.}\else\if\@lang2{Sem vlo{\v z}te zadanie Va{\v s}ej pr{\' a}ce.}\else{Insert here your thesis' task.}\fi\fi
+	%\if\@lang1{Sem vlo{\v z}te zad{\' a}n{\' i} Va{\v s}{\' i} pr{\' a}ce.}\else\if\@lang2{Sem vlo{\v z}te zadanie Va{\v s}ej pr{\' a}ce.}\else{Insert here your thesis' task.}\fi\fi
+	\includepdf[pages={1}]{assets/assignment.pdf}
 
 	\frontmatter
 	\pagestyle{plain}
