@@ -12,13 +12,13 @@
 % english thesis in English language
 % hidelinks remove colour boxes around hyperlinks
 
-\documentclass[thesis=B,czech]{template/FITthesis}[2019/03/06]
+\documentclass[thesis=B,czech]{template/FITthesis}[2019/12/23]
 
 \usepackage[utf8]{inputenc} % LaTeX source encoded as UTF-8
 \usepackage{dirtree}
 \usepackage{minted}
 \usepackage{xevlna}
-\usepackage[section]{placeins}
+%\usepackage[section]{placeins}
 \usepackage{hyperref}
 \usepackage{enumitem}
 
@@ -39,17 +39,18 @@
 Ing. Markovi Suchánkovi za cenné rady a přátelský přístup.
 Také bych rád poděkoval své rodině za podporu během studia.
 }
-\abstractCS{Práce se zabývá návrhem a implementací kooperativní mobilní multiplatformní hry
+\abstractCS{Práce se zabývá návrhem a implementací
+kooperativní mobilní multiplatformní hry
 pro mobilní operační systémy Android a iOS
 s využitím multiplatformního frameworku Flutter.
 Důraz je kladen také na výběr a popis možností
-frameworku, state managementu, databáze, architektury a testování.
+frameworků, state management řešení, databází, architektur a testování.
 }
 \abstractEN{The thesis describes design and implementation of cooperative mobile
 multi-platform game for Android and iOS mobile operating systems
 using the multi-platform Flutter framework.
 Emphasis is also placed on the selection and description of
-framework, state management, database, architecture and testing options.
+frameworks, state management solutions, databases, architectures and testing options.
 }
 \placeForDeclarationOfAuthenticity{V~Praze}
 \declarationOfAuthenticityOption{4} %volba Prohlášení
@@ -76,7 +77,6 @@ Flutter, Android, iOS, Cloud Firestore
 
 \appendix
 
-\input{parts/acronyms.tex}
-\input{parts/attachment.tex}
+\input{parts/attachments/_all.tex}
 
 \end{document}
