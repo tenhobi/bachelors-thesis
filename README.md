@@ -89,10 +89,11 @@ with emphasis on easy extensibility and usability.
 ### 📦 Dependencies
 
 ```txt
+biber
 texlive
-texlive-xetex
 texlive-extra-utils
 texlive-lang-czechslovak
+texlive-xetex
 python-pygments
 ```
 

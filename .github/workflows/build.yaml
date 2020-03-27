@@ -13,8 +13,7 @@ jobs:
 
       - name: Set up Enviroment
         run: |
-          sudo apt install texlive texlive-xetex texlive-extra-utils texlive-lang-czechslovak
-          sudo apt install python-pygments
+          sudo apt install biber texlive texlive-extra-utils texlive-lang-czechslovak texlive-xetex python-pygments
 
       - name: Run Arara
         run: arara main
