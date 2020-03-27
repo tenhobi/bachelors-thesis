@@ -93,7 +93,7 @@ texlive
 texlive-xetex
 texlive-extra-utils
 texlive-lang-czechslovak
-biber
+texlive-bibtex-extra
 python-pygments
 ```
 
