@@ -1,6 +1,6 @@
 % !TeX root = ./main.tex
 % arara: xelatex: { shell : yes }
-% arara: bibtex
+% arara: biber
 % arara: xelatex: { shell : yes }
 % arara: xelatex: { shell : yes }
 
@@ -21,6 +21,9 @@
 %\usepackage[section]{placeins}
 \usepackage{hyperref}
 \usepackage{enumitem}
+\usepackage[style=iso-numeric]{biblatex}
+
+\addbibresource{library.bib}
 
 \input{macros/_all.tex}
 
@@ -72,10 +75,10 @@ Flutter, Android, iOS, Cloud Firestore
 \input{chapters/_all.tex}
 \input{parts/conclusion.tex}
 
-\bibliographystyle{csn690}
-\bibliography{library}
+\printbibliography
 
 \appendix
+
 
 \input{parts/attachments/_all.tex}
 
