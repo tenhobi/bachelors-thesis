@@ -2,6 +2,8 @@
 
 ## [LaTeX Workshop](latex-workshop.md)
 
+## [Code listing](code-listing.md)
+
 ## Tips
 
 Use `\FloatBarrier` (from [`placeins`](https://www.ctan.org/pkg/placeins)) to

@@ -3,32 +3,86 @@
 % jak řeší state management jednotlivé možnosti
 \section{State management}
 
-TODO text.
+Používání proměnných či funkcí pro řízení vykreslování aplikace může být
+snadné a logické řešení pro menší aplikace,
+avšak pro větší aplikace
+--- a zejména aplikace, které dbají na udržitelnost a rozšiřitelnost ---
+je vhodné využít některé z řešení pro správu stavů dílčích částí aplikace,
+známé především jako \uv{state management}. \cite{flutter_state_mgmt_simple}
+ 
+Stavy nám umožňují přemýšlet o UI ve Flutteru deklarativně.
+Ve Flutteru platí,
+že UI je výsledkem \mintinline{dart}|build| metody,
+která pracuje s aktuálním stavem aplikace.
+Pro změnu barvy widgetu se tak nevolá funkce jako
+\mintinline{dart}|widget.setColor|,
+ale změní se stav a podle něj se příslušně překreslí UI.
 
-https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/
-
-https://github.com/devonfw-forge/devonfw4flutter/wiki/200-Architecting-a-Flutter-App
-
-https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative
-
-https://flutter.dev/docs/development/data-and-backend/state-mgmt/intro
-
-%\subsection{Ephemeral vs. App}
-
-2 druhy stavů.
+Pojem \uv{stav} můžeme chápat vícero způsoby.
+V této práci je stav chápán jako všechna data,
+která jsou potřeba k překreslení UI v daný moment.
+Dle \cite{flutter_state_mgmt_ephemeral_vs_app} \cite{flutter_state_mgmt_declarative} lze pak dělit do dvou typů:
 
 \begin{description}
-    \item[Ephemeral state] describing text
-    \item[App state] describing text
+    \item[Ephemeral state] Někdy také nazývaný \uv{UI state} nebo
+\uv{local state},
+je typ stavu využívaný většinou pro dílčí část UI
+a ostatní widgety jen zřídka potřebují přístup k těmto stavům.
+Příkladem je aktivní stránka v \mintinline{dart}|PageView|,
+index zvolené záložky \mintinline{dart}|BottomNavigationBar|,
+aktuální stav animace atp.
+Tento typ je většinou řešen jako \mintinline{dart}|State| třída pro daný
+\mintinline{dart}|StatefulWidget| pomocí vlastností třídy a metody
+\mintinline{dart}|setState()| pro aktualizaci stavu.
+    \item[App state] Někdy také nazývaný \uv{shared state} je typ stavu
+sdílený mezi několika částmi aplikace.
+Příkladem je uživatelské nastavení, notifikace, nákupní košík,
+informace o přihlášení atp.
 \end{description}
 
-Jak se liší. Je to tohle nebo tamto? 
+Neexistuje přesné pravidlo,
+jak určit typ stavu,
+a spolu s tím jak implementovat daný stav v aplikaci.
+Všechny stavy mohou být implementovány pomocí \mintinline{dart}|State| a
+\mintinline{dart}|setState()|,
+a pro mnoho malých aplikací to může být nejjednodušší řešení.
+Stejně tak lze všechny stavy implementovat jako \emph{App state}.
 
-https://flutter.dev/docs/development/data-and-backend/state-mgmt/intro
+Následující sekce obsahují popis možností pro práci s \emph{App state}.
 
-https://flutter.dev/docs/development/data-and-backend/state-mgmt/ephemeral-vs-app
+\subsection{Ruční přístup}
 
-https://flutter.dev/docs/development/data-and-backend/state-mgmt/options
+% todo - manipulovat se stavy ručně -- vyzvednout výš
+
+Ve Flutteru je samozřejmě možné stav předávat ručně a interagovat s ostatními
+widgety pomocí callbacků.
+To je zajisté funkční a snadné řešení,
+avšak jelikož se musí předávat stavy či callbacky,
+aplikace se velmi rychle stane nelehce rozšiřitelnou.
+
+Jak lze vidět v ukázce \ref{code:state-callback},
+pro změnu stavu z vnořeného widgetu je nutné tomuto widgetu předat callback,
+který pro změnu stavu využije.
+Mnohokrát je navíc nutné callbacky předávat přes více widgetů,
+což je ještě více nepřehledné.
+
+\begin{listing}
+    \caption{Ruční manipulace se stavem pomocí callbacků \cite{googleinc_2020_simple}}
+    \label{code:state-callback}
+    \begin{minted}{dart}
+    @override
+    Widget build(BuildContext context) {
+        return SomeWidget(
+            MyListItem(myTapCallback),
+        );
+    }
+
+    void myTapCallback(Item item) {
+        print('uživatel klepnul na $item');
+    }
+    \end{minted}
+\end{listing}
+
 
 \subsection{Provider}
 

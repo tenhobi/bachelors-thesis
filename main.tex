@@ -8,15 +8,18 @@
 
 \usepackage[utf8]{inputenc} % LaTeX source encoded as UTF-8
 \usepackage{dirtree}
-\usepackage{minted}
 \usepackage{xevlna}
-%\usepackage[section]{placeins}
 \usepackage{hyperref}
 \usepackage{enumitem}
+
 \usepackage[style=iso-numeric]{biblatex}
+\addbibresource{library.bib} 
 
-\addbibresource{library.bib}
-
+\usepackage{minted}
+\counterwithin{listing}{chapter}
+\renewcommand{\listingscaption}{Výpis kódu}
+\renewcommand{\listoflistingscaption}{Seznam výpisů kódu}
+ 
 \input{macros/_all.tex}
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
@@ -67,9 +70,9 @@ Flutter, Android, iOS, Cloud Firestore
 \input{chapters/_all.tex}
 \input{parts/conclusion.tex}
 
-\printbibliography[title={Literatura}]
+\printbibliography
 
 \appendix
-\input{parts/attachments/_all.tex}
+\input{parts/appendix/_all.tex}
 
 \end{document}
