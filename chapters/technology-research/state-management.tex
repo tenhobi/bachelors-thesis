@@ -1,6 +1,3 @@
-%https://github.com/tenhobi/bachelors-thesis/issues/14
-% jak funguje stav v aplikaci; rozdíl mezi UI a APP stavem;
-% jak řeší state management jednotlivé možnosti
 \section{State management}
 
 Používání proměnných či funkcí pro řízení vykreslování aplikace může být
@@ -8,7 +5,7 @@ snadné a logické řešení pro menší aplikace,
 avšak pro větší aplikace
 --- a zejména aplikace, které dbají na udržitelnost a rozšiřitelnost ---
 je vhodné využít některé z řešení pro správu stavů dílčích částí aplikace,
-známé především jako \uv{state management}. \cite{flutter_state_mgmt_simple}
+známé především jako \uv{state management}.
  
 Stavy nám umožňují přemýšlet o UI ve Flutteru deklarativně.
 Ve Flutteru platí,
@@ -17,11 +14,12 @@ která pracuje s aktuálním stavem aplikace.
 Pro změnu barvy widgetu se tak nevolá funkce jako
 \mintinline{dart}|widget.setColor|,
 ale změní se stav a podle něj se příslušně překreslí UI.
+\cite{flutter_state_mgmt_declarative}
 
 Pojem \uv{stav} můžeme chápat vícero způsoby.
 V této práci je stav chápán jako všechna data,
 která jsou potřeba k překreslení UI v daný moment.
-Dle \cite{flutter_state_mgmt_ephemeral_vs_app} \cite{flutter_state_mgmt_declarative} lze pak dělit do dvou typů:
+Dle \cite{flutter_state_mgmt_ephemeral_vs_app} lze stavy dělit do dvou typů:
 
 \begin{description}
     \item[Ephemeral state] Někdy také nazývaný \uv{UI state} nebo
@@ -50,30 +48,35 @@ Stejně tak lze všechny stavy implementovat jako \emph{App state}.
 
 Následující sekce obsahují popis možností pro práci s \emph{App state}.
 
-\subsection{Ruční přístup}
+\subsection{Předávání dat a callbacků}
 
-% todo - manipulovat se stavy ručně -- vyzvednout výš
-
-Ve Flutteru je samozřejmě možné stav předávat ručně a interagovat s ostatními
-widgety pomocí callbacků.
-To je zajisté funkční a snadné řešení,
-avšak jelikož se musí předávat stavy či callbacky,
-aplikace se velmi rychle stane nelehce rozšiřitelnou.
+Ve Flutteru je samozřejmě možné mezi widgety předávat data konstruktory
+a zpracovávat reakce pomocí callbacků.
+Pomocí callbacků lze interagovat se stavem,
+který se přesune do nejvýše postaveného widgetu ve stromu widgetů.
+Důvod je ten,
+že ve Flutteru
+--- který je deklarativní ---
+je nutné pro překreslení UI spustit \mintinline{dart}|build|.
+To je zajisté funkční a snadné řešení.
+Avšak mnohokrát je nutné data a callbacky předávat přes více widgetů,
+čímž se aplikace velmi rychle stane nelehce rozšiřitelnou.
+\cite{flutter_state_mgmt_simple}
 
 Jak lze vidět v ukázce \ref{code:state-callback},
-pro změnu stavu z vnořeného widgetu je nutné tomuto widgetu předat callback,
-který pro změnu stavu využije.
-Mnohokrát je navíc nutné callbacky předávat přes více widgetů,
-což je ještě více nepřehledné.
+vnořenému widgetu jsou předány data
+a pro změnu stavu z vnořeného widgetu je tomuto widgetu předán callback.
+Ten se využije pro interakce se stavem.
 
 \begin{listing}
-    \caption{Ruční manipulace se stavem pomocí callbacků \cite{googleinc_2020_simple}}
+    \caption{Manipulace se stavem pomocí předávání dat a callbacku
+\cite{flutter_state_mgmt_simple}}
     \label{code:state-callback}
     \begin{minted}{dart}
     @override
     Widget build(BuildContext context) {
         return SomeWidget(
-            MyListItem(myTapCallback),
+            MyListItem(myData, myTapCallback),
         );
     }
 
@@ -83,25 +86,45 @@ což je ještě více nepřehledné.
     \end{minted}
 \end{listing}
 
+Flutter má naštěstí způsoby,
+jak mohou widgety sdílet stavy bez toho,
+aniž by se snižovala rozšiřitelnost aplikace pomocí nepřehledného předávání
+dat a callbacků.
+Stejně jako vše ve Flutteru,
+i toto je řešeno pomocí widgetů.
+Za zmíňku stojí \mintinline{dart}|InheritedWidget|,
+na který lze jednoduše odkázat odkudkoli z jeho podstromu pomocí
+\mintinline{dart}|MyInheritedWidget.of(context)|.
+Tento widget a další funkcionality zaobaluje knihovna
+\mintinline{dart}|provider|,
+která zjednodušuje použití a snižuje množství potřebného kódu.
 
-\subsection{Provider}
+\subsection{MobX}
 
-TODO text.
+MobX je knihovna pro state management, která 
+
+\todo{Napsat o MobX.}
+\blind[2]
 
 \subsection{Redux}
 
-TODO text.
+\todo{Napsat o Reduxu.}
+\blind[2]
 
 \subsection{BLoC}
 
-TODO text.
+\todo{Napsat o BLoCu obecně.}
+\blind[2]
 
 %https://github.com/brianegan/flutter_architecture_samples/tree/master/bloc_library
 
 \subsubsection{Implementace Felixe Angelova}
 
-TODO text.
+\todo{Napsat v čem je fajn implementace od Felixe.}
+\blind[3]
 
 \subsection{Zhodnocení}
 
-TODO text.
+\todo{Napsat proč si vybírám BLoC a nějaké porovnání.}
+\blind[2]
+
