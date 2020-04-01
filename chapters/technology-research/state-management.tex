@@ -29,7 +29,7 @@ a ostatní widgety jen zřídka potřebují přístup k těmto stavům.
 Příkladem je aktivní stránka v \mintinline{dart}|PageView|,
 index zvolené záložky \mintinline{dart}|BottomNavigationBar|,
 aktuální stav animace atp.
-Tento typ je většinou řešen jako \mintinline{dart}|State| třída pro daný
+Tento typ je většinou řešen jako třída \mintinline{dart}|State| pro daný
 \mintinline{dart}|StatefulWidget| pomocí vlastností třídy a metody
 \mintinline{dart}|setState()| pro aktualizaci stavu.
     \item[App state] Někdy také nazývaný \uv{shared state} je typ stavu
@@ -49,6 +49,7 @@ Stejně tak lze všechny stavy implementovat jako \emph{App state}.
 Následující sekce obsahují popis možností pro práci s \emph{App state}.
 
 \subsection{Předávání dat a callbacků}
+\label{sec:data-callback-transfer}
 
 Ve Flutteru je samozřejmě možné mezi widgety předávat data konstruktory
 a zpracovávat reakce pomocí callbacků.
@@ -95,36 +96,252 @@ i toto je řešeno pomocí widgetů.
 Za zmíňku stojí \mintinline{dart}|InheritedWidget|,
 na který lze jednoduše odkázat odkudkoli z jeho podstromu pomocí
 \mintinline{dart}|MyInheritedWidget.of(context)|.
-Tento widget a další funkcionality zaobaluje knihovna
-\mintinline{dart}|provider|,
+Tento widget a další funkcionality zaobaluje knihovna \emph{Provider},
 která zjednodušuje použití a snižuje množství potřebného kódu.
 
 \subsection{MobX}
 
-MobX je knihovna pro state management, která 
+MobX je knihovna pro state management,
+která implementuje vzor \emph{observer}.
+Díky jednomuchému rozhraní je vhodná pro začátečníky
+a je používána i ve velkých projektech.
+Dle \cite{mobx_core_concepts} pracuje knihovna se třemi základními koncepty:
 
-\todo{Napsat o MobX.}
-\blind[2]
+\begin{description}
+    \item[Observables] Reprezentují stavy v podobě libovolného objektu s daty.
+    Stavy mohou být i odvozené na základě jiných odvozených a základních stavů.
+    Každá změna stavu vyvolá upozornění pozorovatelů, a tedy jejich reakce.
+    \item[Actions] Popisují změny stavů.
+    Stavy se nemění přímo,
+    ale pomocí akcí,
+    které změnám přidávají sémantický význam.
+    Namísto přímého volání \mintinline{dart}|value++| se volá akce
+    \mintinline{dart}|increment()|.
+    Akce vyvolává změnu stavu.
+    \item[Reactions] Automaticky sledují změnu stavů.
+    Neprodleně po každé změně se provede reakce.
+    Reakce vyvolávají akce.
+\end{description}
+
+\begin{listing}
+    \caption{Ukázka kódu počítadla v knihovně MobX \ref{code:state-mobx}}
+    \label{code:state-mobx}
+    \begin{minted}{dart}
+    import 'package:mobx/mobx.dart';
+
+    part 'counter.g.dart';
+    
+    class Counter = CounterBase with _$Counter;
+    
+    abstract class CounterBase with Store {
+        @observable
+        int value = 0;
+    
+        @action
+        void increment() {
+            value++;
+        }
+    }
+    \end{minted}
+\end{listing}
+
+Z výpisu kódu \ref{code:state-mobx} lze vypozorovat,
+že knihovna pracuje s generovanými kódy z pomocných generátorů.
+Tím se snaží redukovat množství kódu,
+které by bylo jinak vyžadováno napsat k docílení stejné funkčnosti.
+Knihovna také využívá anotace,
+kterými je kód zpřehledněn.
+Generování kódu však není nejrychlejší,
+což je jedna z nevýhod tohoto přístupu.
 
 \subsection{Redux}
 
-\todo{Napsat o Reduxu.}
-\blind[2]
+\todo{Napsat nějaký větší úvod o knihovně Redux?}
+Jedna z nejznámějších knihoven řešící state management je knihovna Redux.
+Dle \cite{redux_basics} pracuje Redux se třemi základními koncepty:
+
+\begin{description}
+    \item[Actions] Obsahují data,
+    která se posílají z aplikace do \emph{store},
+    a jsou jediným zdrojem informací.
+    \item[Reducers] Popisují jak se změní stav aplikace v závislosti na akci.
+    \item[Store] Pojí předešlé dva koncepty dohromady.
+    Drží stav aplikace,
+    určuje počáteční stav
+    a poskytuje aktuální stav.
+\end{description}
+
+Redux obsahuje právě jeden \emph{Store}.
+Členění se provádí pomocí kompozice \emph{Reducers}.
+
+\begin{listing}
+    \caption{Ukázka kódu počítadla v knihovně Redux \todo{Ukázku jsem psal já, ale inspiroval jsem (upravil jsem do počítadla) se kódem v \cite{redux_basics}, mám citovat?}}
+    \label{code:state-redux}
+    \begin{minted}{dart}
+    import 'package:redux/redux.dart';
+
+    enum CounterActions {
+        increment
+    }
+    
+    class AppState {
+        int value;
+    
+        AppState({ 
+            this.value = 0,
+        });
+    }
+    
+    AppState counterReducer(AppState state, action) {
+        switch (action) {
+            case CounterActions.increment:
+                return AppState(
+                    value: state.value++,
+                );
+            default:
+                return state;
+        }
+    }
+    \end{minted}
+\end{listing}
+
+Z výpisu kódu \ref{code:state-redux} je vidět,
+že ačkoli je zápis přehledný,
+ve větší aplikaci nemusí být omezení pouze jednoho \emph{store} vhodné.
 
 \subsection{BLoC}
 
-\todo{Napsat o BLoCu obecně.}
-\blind[2]
+Oproti předchozím příkladům není Business Logic Component (dále jen BLoC)
+knihovna,
+ale návrhový vzor.
+Tento vzor je tvořen několika jednoduchými pravidly,
+kterými se každá implementace musí řídit.
+Přičemž konkrétní prvky implementace jsou přenechány na vývojáře.
+Pojmem BLoC také označujeme třídu,
+která uchovává stav dodržuje daný vzor. 
+Dle \cite{googledevelopers_bloc} těmito pravidly pro návrh jsou:
+\todo{Tato pravidla překládám (sám) z toho videa,
+mám to nějak dál rozepsat,
+nebo tato citace stačí?}
 
-%https://github.com/brianegan/flutter_architecture_samples/tree/master/bloc_library
+\begin{enumerate}
+    \item Vstupy a výstupy jsou pouze jednoduché
+    \mintinline{dart}|Stream|/\mintinline{dart}|Sink|.
+    \item Závislosti jsou injektovatelné a jsou nezávislé na platfomě.
+    \item Není povolené větvení na základě platformy.
+    \item Pokud splňujete předešlé body,
+    implementace může být jakákoli.
+\end{enumerate}
+
+Spolu s těmito pravidly pro BLoC byly představeny i pravidla pro návrh UI.
+Ty se zabívají zejména vztahem mezi komponentou a BLoC a podobou dat,
+které se posílají do a z každé BLoC třídy.
+Tato pravidla jsou:
+
+\begin{enumerate}
+    \item Každá \uv{dostatečně komplexní} komponenta má svůj příslušný BLoC.
+    \item Komponenty by měly posílat vstupy \uv{jak jsou}.
+    \item Komponenty by měly zobrazovat výstupy co nejvíce \uv{jak jsou}.
+    \item Všechno větvení by mělo být založeno na jednoduchých výstupech z BLoC
+    jako logická hodnota.
+\end{enumerate}
+
+Tento návrhový vzor vznikl za účelem oddělení kódu s logikou
+od závislostí na konkrétní platformě.
+Oddělením vrstvy UI a logiky má vzor za cíl tvořit kód více udržitelný a
+testovatelný. \cite{flutterando_analyzing_bloc_mobx}
+Oproti knihovně Redux si lze z uvedených pravidel všimnout,
+že už samotný návrhový vzor BLoC pracuje s vícero zdroji pro uchování stavu.
 
 \subsubsection{Implementace Felixe Angelova}
 
-\todo{Napsat v čem je fajn implementace od Felixe.}
-\blind[3]
+Implementace návrhového vzoru BLoC od Felixe Angelova se nazývá Bloc.
+\cite{bloclibrary_whybloc}
+Tato implementace se zaměřuje na potřeby vývojářů jako
+vědět v jakém stavu je aplikace v daný moment, snadné testování,
+znovupoužitelnost, rychlý vývoj a mnoho dalšího. 
+Dle \cite{bloclibrary_coreconcepts} pracuje knihovna Bloc se čtyřmi základními
+koncepty:
+
+\begin{description}
+    \item[Events] Reprezentují události v podobě libovolného objektu
+    a jsou jediným vstupem do \emph{Bloc}.
+    Tyto objekty jsou většinou vytvářeny dle potřeb UI.
+    \item[States] Představují stavy,
+    jednotlivých částí aplikace,
+    taktéž v podobě libovolného objektu.
+    S těmito objekty následně pracuje UI.
+    \item[Transitions] Popisují změnu z jednoho stavu do jiného.
+    Transakce se skládají z aktuálního stavu, události a následujícího stavu.
+    Sekvence těchto záznamů tedy tvoří historii změn stavů.
+    \item[Blocs] Reprezentují třídu,
+    která pojí předešlé koncepty dohromady.
+    Tyto třídy přijímají události, produkují stavy a jednotlivé změny
+    zaznamenávají v podobě transakcí.
+    Jednotlivé změny jsou prováděny v metodě
+    \mintinline{dart}|mapEventToState(event)|.
+\end{description}
+
+\begin{listing}
+    \caption{Ukázka kódu počítadla v knihovně Bloc}
+    \label{code:state-bloc}
+    \begin{minted}{dart}
+    import 'package:bloc/bloc.dart';
+
+    enum CounterEvent { increment }
+    
+    class CounterBloc extends Bloc<CounterEvent, int> {
+        @override
+        int get initialState => 0;
+    
+        @override
+        Stream<int> mapEventToState(CounterEvent event) async* {
+            switch (event) {
+                case CounterEvent.increment:
+                    yield state + 1;
+                    break;
+            }
+        }
+    }
+    \end{minted}
+\end{listing}
+
+Z výpisu kódu \ref{code:state-bloc} lze vidět,
+že knihona Bloc pracuje asynchronně pomocí toků dat za využití
+tříd \mintinline{dart}|Stream| a \mintinline{dart}|Sink|.
+To umožňuje pro jednu událost snadno vyvolat několik změn
+a zároveň reagovat na změny stavu asynchronně i v UI.
 
 \subsection{Zhodnocení}
 
-\todo{Napsat proč si vybírám BLoC a nějaké porovnání.}
-\blind[2]
+Vyzdvihování stavu,
+jak je popsáno v \ref{sec:data-callback-transfer},
+není ideální řešení pro udržitelnost a rozšiřitelnost.
+Knihovna \emph{Provider} sice řeší vkládání závislostí,
+avšak neřeší samotný state management.
 
+Knihovna \emph{MobX} silně závisí na generování,
+což může trpět na svou rychlost.
+Knihovna \emph{Bloc} a \emph{Redux} oproti tomu jsou sice náročnější na
+porozumnění,
+avšak nabízí asynchronní přístup,
+který je vhodný pro práci s daty ve velkých aplikacích.
+
+Při porovnání knihoven \emph{Redux} a \emph{Bloc} lze vidět,
+že se obě knihovna zdánlivě velmi podobají.
+Konkrétní implementace i principy se však rozcházejí.
+Jeden z největších viditelných rozdílů je počet zdrojů,
+které udržují stav.
+Pro knihovnu \emph{Redux} existuje pouze jeden zdroj, \emph{Store}.
+V knihovně \emph{Bloc} se používá libovolný počet těchto zdrojů,
+reprezentovány třídami \mintinline{dart}|Bloc|.
+Zároveň s tím se v knihovně \emph{Redux} mění pouze části stavu,
+kdežto v knihovně \emph{Bloc} se při změně nahrazuje celý stav stavem novým.
+Knihovna \emph{Bloc} také svou implementací umožňuje velmi snadné asynchronní změny
+stavu,
+čímž umožňuje již zmiňované vícenásobné vyvolání změn pro jednu událost.
+
+V této práci bude tedy z výše uvedených důvodů využívána knihovna \emph{Bloc}.
+Tato knihovna umožňuje nejsnadnější asynchronní práci,
+sledování změn stavů pomocí transakcí
+a velmi dobře podporuje oddělení od externích závislostí.
