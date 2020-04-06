@@ -1,29 +1,52 @@
-\chapter{Nasazení a možnosti distribuce}
+\chapter{Sestavení a distribuce aplikace}
 
-\todo{Obecně pohovořit o nasazení a distribuci.}
-\blind[3]
+Pro testování výsledků aplikace je nutné aplikaci spustit.
+Pro spuštění je však nutné aplikaci sestavit.
+Sestavení aplikace na vývojáře obstará framework,
+zatímco vývojář se musí ujistit,
+že správně nainstaloval a nakonfiguroval příslušné nástroje.
+Před samotným sestavením aplikace je nutné provést kroky k nastavení prostředí
+a příslušných nástrojů:
 
-%https://flutter.dev/docs/deployment/android
+\begin{enumerate}
+    \item Nainstalovat programovací jazyk Dart
+    --- tento krok nemusí být vyžadován,
+    avšak některé externí nástroje s ním pracují.
+    \item Nainstalovat framework Flutter.
+    \item Nainstalovat balíčky Dart a Flutter pro dané IDE.
+    \item Nainstalovat Android Studio pro platformu Android
+    a Xcode pro platformu iOS.
+    \item Je-li potřeba, nainstalovat emulátor Android či iOS zařízení.
+\end{enumerate}
 
-%https://flutter.dev/docs/deployment/ios
+Správné nastavení lze ověřit spuštěním nástroje
+\mintinline{shell}|flutter doctor|.
+Po nastavení prostředí a příslušných nástrojů přichází na řadu nastavení služeb,
+které aplikace využívá.
+Konkrétně je nutné přidat konfigurační soubory pro zprovoznění služby Firebase.
+Konfigurační soubor lze stáhnout z webové aplikace Firebase Console,
+kde se také vytváří a konfiguruje příslušná databáze Cloud Firestore. 
 
-%https://flutter.dev/docs/deployment/flavors
+Po tomto nastavení je možno aplikaci sestavit,
+například pro účely debuggování.
+Další kroky nastavení pro distribuce aplikace pro danou platformu jsou
+zmíněny v dalších sekcích.
+Aplikaci sestavíme pomocí příkazu \mintinline{shell}|flutter build|.
+Je také možné aplikaci přímo spustit buď na daném emulátoru,
+nebo na připojeném fyzickém zařízení.
+V případě fyzického zařízení je vhodné se ujistit,
+že je zařízení řádně připojeno a detekování,
+pomocí příkazu \mintinline{shell}|flutter devices|.
+Po úspěšném detekování zařízení lze aplikaci sestavit a spustit na vybraném
+zařízení pomocí příkazu \mintinline{shell}|flutter run|. 
 
-\section{Android}
+V následujících sekcích jsou popsány postupy k distribuci aplikace na
+platformách Android a iOS.
+Následně je také popsáno,
+jak bude probíhat sestavení a distribuce na dalších potencionálních
+platformách,
+které budou přidány v průběhu dalšího vývoje frameworku Flutter.
 
-\todo{Kroky nutné k buildu Android appky.}
-\blind[2]
-
-\section{iOS}
- 
-\todo{Kroky nutné k buildu iOS appky.}
-\blind[2]
-
-\section{Další platformy}
-
-\todo{Popsat, jak Flutter umožňuje, nebo v budoucnu bude, další platformy.
-A co bude nutné, nebo /teoreticky/, udělat pro to, aby bylo monžné aplikaci
-spustit i tam. }
-\todo{momentálně není optimalizováno, ale...}
-\todo{Co by bylo třeba pro nasazení na web, desktop (mac, windows), ...}
-\blind[4]
+\input{chapters/deployment/android.tex}
+\input{chapters/deployment/ios.tex}
+\input{chapters/deployment/other.tex}
