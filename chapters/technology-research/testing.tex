@@ -1,57 +1,204 @@
-% https://github.com/tenhobi/bachelors-thesis/issues/16
 \section{Testování}
 
-\todo{Popsat proč je vhodné testovat a co to testování vlastně je.
-Možná také nastínit další obecné věci.}
-\blind[4]
-
-%https://github.com/devonfw-forge/devonfw4flutter/wiki/300-Testing
-
-%https://dart.dev/guides/testing
+Testování se v průběhu let stalo nedílnou součástí vývoje aplikací.
+Je vhodné pro všechny velikostí aplikací,
+především proto,
+že testování vede k vyšší kvalitě kódu \cite{testing_quality}
+a tím k snadnější udržitelnosti aplikace.
+Cílem testů je ověřit a dále kontrolovat,
+že specifické části aplikace fungují
+a že zachovávají tuto funkčnost při jejich úpravě.
+Této podkapitole jsou popsány typy testů, vzory a přístupy,
+které pomáhají k snažšímu testování.
 
 \subsection{Typy testů}
 
-\todo{Seznámit jak dělíme testy.}
-\blind[2]
+Testovat je možné i ručně.
+To však je však z globálního hlediska neefektivní a zdlouhavé.
+V praxi se proto využívají automatizované testy,
+které lze spustit samostatně kdykoli během cyklu vývoje aplikace.
+Dle \cite{testing_flutter} se automatizované testy dělí do těchto kategorií:
 
-%https://medium.com/flutter-community/flutter-golden-tests-compare-widgets-with-snapshots-27f83f266cea
+\begin{description}
+    \item[Unit testy] Testují jednu funkci, metodu nebo třídu.
+    Tento typ testů je snadné vytvořit,
+    rychle se spouští
+    a jejich smyslem je ověřit správnou funkčnost dané části.
+    Externí závislosti jsou nahrazeny jejich testovací kopií,
+    která neprovádí žádnou funkčnost.
+    \item[Widget testy] Někdy také nazývané jako \emph{component testy},
+    testují jeden widget jako celek.
+    Jejich smyslem je ověřit,
+    jestli se daný widget chová a vypadá dle očekávání.
+    Tento typ testů je složitější vytvořit a udržovat.
+    \item[Integrační testy] Testují celou aplikaci nebo její části.
+    Tento typ testů je složité vytvořit,
+    mají velké množství závislostí a jsou velmi pomalé na spuštění.
+    Na druhou stranu testují korektnost aplikace,
+    či její části,
+    jako celku.
+\end{description}
+
+Ve výpisu kódu \ref{code:test-unit} lze vidět příklad unit testu.
+\cite{testing_flutter_unit}
+Unit testování vyžaduje jako závislost pro vývoj balíček
+\mintinline{dart}|test|.
+Příklad obsahuje čítač reprezentovaný třídou \mintinline{dart}|Counter|,
+která umí svou hodnotu \mintinline{dart}|value| inkrementovat pomocí
+metody \mintinline{dart}|increment()|.
+Jak lze vidět,
+použitý balíček umožní vývojáři využívat například metody
+\mintinline{dart}|test()| a \mintinline{dart}|expect()|,
+díky kterým lze popsat očekávaný stav každého testu.
+
+Ve výpisu kódu \ref{code:test-widget} lze naopak vidět příklad widget testu.
+\cite{testing_flutter_widget}
+Testování widgetů vyžaduje jako závislost pro vývoj balíček
+\mintinline{dart}|flutter_test|.
+Příklad ukazuje ukázku toho,
+jak lze u testovaného widgetu otestovat očekávané položky \emph{title}
+a \emph{message}.
+Princip funkčnosti je stejný,
+jako u balíčku \mintinline{dart}|test|,
+jen se namísto metody \mintinline{dart}|test()|
+využívá metoda \mintinline{dart}|testWidgets()|.
+
+\begin{listing}
+    \caption{Ukázka unit testu \cite{testing_flutter_unit}}
+    \label{code:test-unit}
+    \begin{minted}{dart}
+        import 'package:test/test.dart';
+        import 'package:counter_app/counter.dart';
+        
+        void main() {
+          test('Counter value should be incremented', () {
+            final counter = Counter();
+        
+            counter.increment();
+        
+            expect(counter.value, 1);
+          });
+        }
+    \end{minted}
+\end{listing}
+
+\begin{listing}
+    \caption{Ukázka widget testu \cite{testing_flutter_widget}}
+    \label{code:test-widget}
+    \begin{minted}{dart}
+    import 'package:flutter/material.dart';
+    import 'package:flutter_test/flutter_test.dart';
+
+    void main() {
+        testWidgets(
+            'MyWidget has a title and message',
+            (WidgetTester tester) async {
+            await tester.pumpWidget(MyWidget(title: 'T', message: 'M'));
+
+            final titleFinder = find.text('T');
+            final messageFinder = find.text('M');
+
+            expect(titleFinder, findsOneWidget);
+            expect(messageFinder, findsOneWidget);
+            },
+        );
+    }
+    \end{minted}
+\end{listing}
 
 \subsection{Code coverage}
 
-\todo{Co je coverage a jak to pomáhá i nepomáhá při vývoji.
-Popsat, že coverage něco reflektuje jen tehdy, když je pod hranicí,
-nikolik však pokud jí splňuje.
-Hranuje se běžně 100\%.}
-\blind[3]
+Code coverage znamená pokrytí kódu.
+V testování to je pojem,
+který značí,
+do jaké míry jsou třídy a jejich vlastnosti a metody otestovány.
+Určitě ale neplatí,
+že 100 \% code coverage značí,
+že je aplikace správně otestována.
+Tato metoda identifikuje kód,
+který již není používán,
+nebo ani nikdy nebyl,
+nebo dokonce netestovatelný kód,
+způsobený špatnou implementací.
+\cite{code_coverage}
 
-%https://medium.com/@nocnoc/combined-code-coverage-for-flutter-and-dart-237b9563ecf8
-
-\subsection{Vzor AAA}
-
-% https://medium.com/@pjbgf/title-testing-code-ocd-and-the-aaa-pattern-df453975ab80
-% https://freecontent.manning.com/making-better-unit-tests-part-1-the-aaa-pattern/
-% https://www.telerik.com/products/mocking/utilize-arrange-act-assert-aaa-pattern.aspx
-
-\todo{Co je AAA patern a jak pomáhá při psaní testů.}
-\blind[1]
+Code coverage také monituruje vývoj v čase,
+případně popisuje změny,
+které by se do aplikace zanesli při připojení kódu ve verzovacím systému.
+V rámci systémů rozšiřující verzovací systém lze využívat několik nástrojů,
+které code coverage
+--- v rámci kontinuální integrace, která je popsána v kapitole \ref{chap:ci} ---
+moniturují a podávají vývojářům zprávy.
+Příkladem těchto služeb může být CodeCov či Coveralls.
+Každý soubor či složka je ohodnocen procenty,
+které značí poměr otestovaného a neotestovaného kódu.
+Služba pracující s code coverage při každé obdržené dávce kódu spustí
+průzkum kódu aplikace a porovná jej se stávající verzí.
+\cite{code_coverage}
 
 \subsection{Test driven development}
 
-\todo{K čemu je TDD.}
-\blind[2]
+\emph{Test driven development} (dále jen TDD) je metoda pro vývoj aplikací tím
+způsobem,
+že se začíná psaním testů,
+které je následováno psaním produkčního kódu,
+které testy splňuje.
+Dle \cite{tdd} má TDD tři jednoduchá pravidla:
 
-% http://blog.cleancoder.com/uncle-bob/2014/12/17/TheCyclesOfTDD.html
-% http://blog.cleancoder.com/uncle-bob/2013/03/06/ThePragmaticsOfTDD.html
-% http://butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd
-% http://blog.cleancoder.com/uncle-bob/2016/11/10/TDD-Doesnt-work.html
-%https://github.com/ResoCoder/flutter-tdd-clean-architecture-course
+\begin{enumerate}
+    \item Není dovoleno psát žádný produkční kód kromě toho,
+    který opravuje selhávající test.
+    \item Není dovoleno psát více unit testů než je dostačující k selhání;
+    a selhání kvůli kompilaci jsou také selhání.
+    \item Není dovoleno psát více produkčního kódu,
+    než je dostatečné pro úspěšné provedení unit testu.
+\end{enumerate}
 
-\subsection{Continuous integration}
+Nejdříve je tedy napsán unit test pro funkcionalitu,
+kterou chce vývojář přidat.
+Následně vývojář napíše jen tolik kódu,
+kolik je třeba k opravě daného testu.
+A celý proces se znovu opakuje.
+Celá myšlenka \cite{tdd} stojí tedy na tom,
+že mohu psát pouze kód,
+který opravuje selhávající test.
+Tento proces se zdánlivě zdá \uv{hloupý} a pomalý.
+\emph{\uv{Přemýšlejte však o tom, co by se stalo, kdybyste vešli do místnosti plné lidí pracujících tímto způsobem. Vyberte libovolnou náhodnou osobu v libovolnou dobu. Před minutou fungoval celý její kód.}} \cite{tdd} (překlad vlastní)
 
-\todo{Popsat jak funguje CI, proč je důležité pro práci v týmu atp.}
-\blind[2]
+Jak již bylo zmíněno,
+dle výzkumu \cite{testing_quality} je navíc tento přístup velmi efektivní,
+jelikož vede k vyšší kvalitě kódu.
+Navíc,
+dodržováním těchto tří pravidel přesně víme,
+jak volat určité rozhraní,
+jelikož pro to máme test.
+Kdokoli potřebuje znát cokoli aplikaci,
+existuje test,
+který tuto činnost popisuje.
+\cite{tdd}
 
-\subsection{Zhodnocení}
+\subsection{Kontinuální integrace}
+\label{chap:ci}
 
-\todo{Popsat, které typy testů a technologií/postupů se použijí.}
-\blind[2]
+Jakákoli aplikace se běžně skládá z mnoha částí
+a obsahuje mnoho řádků kódu,
+zatímco do sebe musí vše dokonale zapadat
+a i nejmenší chyba může způsobit selhání sestavení aplikace.
+Při přidávání nových funkcionalit je proto velké riziko,
+že aplikace obsahuje chybu.
+Při snaze připojení změn pomocí nástrojů rozšiřující verzovací systémy
+tak proto nastává příležistos pro CI,
+které provede sestavení aplikace a spustí automatizované testy.
+V tomto okamžiku dostane vývojář skrze rozšiřující aplikace indikaci,
+zda-li změny kód rozbijí,
+nebo zda aplikace zůstane v funkční.
+\cite{ci}
+
+Použití CI je výhodné především při práci s v týmu.
+Právě díky zmíněným výhodám lze připojovat změny rychle a bez obav o zanesení
+jinak skrytých chyb.
+Tyto nástroje jsou buď zabudované do nástrojů rozšiřujících verzovací systémy
+jako jsou GitHub a jejich GitHub Actions či GitLab a jejich GitLab CI,
+nebo nezávislé nástroje,
+jako jsou Travis CI či CircleCI.
+\cite{ci}
