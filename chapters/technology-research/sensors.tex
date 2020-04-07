@@ -1,27 +1,91 @@
 \section{Senzory}
 
-% https://developer.android.com/guide/topics/sensors/sensors_overview
-% Motion Sensors
-% Position Sensors
-% Environment Sensors
+Použití senzorů v herních aplikacích je velmi časté.
+Senzory totiž mohou dodat aplikaci data,
+které jí pomohou obohatit o detaily,
+případně na nich může aplikace postavit funkčnost dílčích částí.
+Počet ušlých kroků,
+navigace pomocí kompasu,
+ovládání závodního auta natáčením telefonu,
+nebo počítání provedených kliků
+--- všechny tyto příklady využívají senzory zařízení.
+\cite{sensors} 
 
-% https://developer.android.com/guide/topics/sensors
-% https://source.android.com/devices/sensors/sensor-types
-% https://source.android.com/devices/sensors
-% https://www.javatpoint.com/android-sensor-tutorial
-% https://heartbeat.fritz.ai/sensors-in-android-215df2c618de
+Mobilní zařízení má několik vestavěných senzorů,
+které měří pohyb, orientaci v prostoru a plno dalších věcí.
+Každé zařízení může mít rozdílný počet senzorů
+a senzory mohou být buď hardwarové, nebo softwarové.
+Softwarové senzory zpracovávají data z jednoho nebo více hardwarových senzorů
+a imitují očekávaný výstup.
+Dle zdroje \cite{sensors} se senzory dělí na tři základní typy:
 
-\todo{Popsat obecně senzory, k čemu slouží atp. Jaké má mobil senzory, jaké využiju (otáčení, třesení), ...}
-\blind[2]
+\begin{description}
+    \item[Senzory pohybu] Snímají otřesy a posuny,
+    tedy zrychlení a rotaci,
+    pomocí tří os.
+    Příkladem je akcelerometr, senzor gravitace, gyroskop
+    a rotační vektorový senzor.
+    \item[Senzory polohy] Snímají fyzickou pozici zařízení.
+    Případem je magnetometr a senzor přiblížení.
+    \item[Senzory prostředí] Snímají hodnoty prostředí
+    jako je teplota, tlak či vlhkost vzduchu.
+    Příkladem je termometr a barometr.
+\end{description}
 
-\subsection{\todo{První kapitola o nějakém senzoru.}}
+Pro herní aplikace jsou nejdůležitější senzory pohybu a senzory polohy.
+Senzory prostředí závisí na datech prostředí,
+které se nemění tak často,
+a tedy nemají pro hru větší využití.
+Množství využítí naopak umožňují senzory pohybu a polohy.
+\cite{sensors_android}
+V násedujících sekcích proto budou popsány senzory akcelerometr, gyroskop
+a senzor přiblížení.
 
-\blind[2]
+\subsection{Akcelerometr}
 
-\subsection{\todo{Druhá kapitola o nějakém senzoru.}}
+Akcelerometr určuje akceleraci v rámci os daného mobilního zařízení
+kombinované s gravitací,
+která na toto mobilní zařízení v jednotlivých jeho osách platí.
+Z tohoto důvodu akcelerometr naměří výsledky i v případech,
+kdy mobilní zařízení například leží na stole,
+konkrétně s hodnotou udanou gravitační silou $g = -9,81 m/s^2$.
+\cite{sensors_motion}
+Tento senzor je tedy vhodný pro detekování pohybu zařízení
+a lze říci, že jej osahují všechny zařízení se systémy Android a iOS.
 
-\blind[3]
+\subsection{Gyroskop}
+
+Gyroskop měří pohyb rotace jednotlivých os mobilního zařízení.
+Oproti akcelerometru tento senzor při nehybném zařízení
+nevydává žádná data,
+senzor totiž měří pouze změnu.
+Změna rotace je udávaná jako radiány za sekundu.  
+\cite{sensors_motion}
+
+Tento senzor lze využít například pro rotaci ve 3D při 360° pohledu,
+kdy uživatel sedí na otočné židli a otáčením židle prohlíží okolí v aplikaci.
+
+\subsection{Senzor přiblížení}
+
+Senzor přiblížení určuje vzdálenost objektu od zařízení.
+Senzor je běžně umístěn na přední straně mobilního zařízení
+--- například systém Android vypíná obrazovku,
+zatímco uživatel telefonuje se zařízením u ucha ---
+a určitě absolutní vzdálenost,
+nicméně některé druhy tohoto senzoru určují pouze
+stavy \emph{blízko} a \emph{daleko}.
+\cite{sensors_position}
+
+Tento senzor lze využít například pro snímání vzdálenosti ruky od zařízení,
+nebo v kombinaci s gyroskopem k určení stavu,
+kdy je mobil položený na stole a otočený směrem ke němu.
 
 \subsection{Zhodnocení}
 
-\todo{Bude tu?}
+Jak již bylo uvedeno,
+nejvyšší uplatnění v herních aplikacích mají senzory pohybu a polohy.
+V předešlých kapitolách byly popsány senzory,
+které lze běžně v herních aplikacích využít.
+V praktické části práce proto budou moci být použity právě tyto senzory,
+které nabízí vhodné rozhraní,
+z volně dostupných balíčků.
