@@ -1,55 +1,166 @@
 \section{Architektura}
 
-\todo{Popsat obecně architekturu, k čemu se používá, rozdíl oproti patternu?,
-...}
-\blind[5]
+Stroje,
+které sestavují či spouštejí aplikace,
+nezajímá vzhled či uspořádání zdrojového kódu.
+Naopak vývojáři,
+jakožto lidé,
+potřebují udržovat kód snadno čitelný a srozumitelně rozdělený do jednotlivých
+tříd, struktur či vrstev aplikace.
+Potřebují také vysokoúrovňové jazyky či pokročilé knihovny a frameworky,
+které ulehčí psaní kódu a nenutí vývojáře psát vše odznovu.
+I přes to ale nejsou aplikace psány dle nejlepších doporučení
+a velmi často vývojáři píší či naráží na tak zvaný \uv{spaghetti code}.
+To je mnohdy zapříčeněno nárokem na rychlou implementaci nových funkcí či úprav,
+kde vývojáři na úkor času zanedbají čitelnost a strukturu kódu
+a čím dál tím více postupem času prohlubují dluh kvality daného kódu.
+\cite{architecture}
+\todo{\emph{\uv{Software has two types of value:
+the value of its behavior and the value of its structure.
+The second of these is the greater of the two
+because it is this value that makes software soft.}}}
+\cite{martin_clean_architecture}
 
-%TOHLE !! https://crosp.net/blog/software-architecture/clean-architecture-part-1-databse-vs-domain/
-%TOHLE !!! https://github.com/igorwojda/Android-Showcase
+Cílem každé aplikace je mít udržitelný a snadno rozšiřitelný kód.
+Je proto třeba stanovit řadu pravidel,
+které pomohou s vývojovými otázkami při návrhu metod, tříd, rozhraní či
+celých modulů.
+Architektura a její správný a promyšlený návrh umožňuje vyvarovat
+se chyb a dluhu ve formě kvality a modularity,
+který znemožní snadný proces udržitelnosti aplikace.
+\todo{\emph{\uv{Good architecture makes the system easy to understand,
+easy to develop, easy to maintain, and easy to deploy.
+The ultimate goal is to minimize the lifetime cost of the system
+and to maximize programmer productivity.}}}
+\cite{martin_clean_architecture}
 
-\subsection{Moduly}
+Dle zdroje \cite{architecture} lze rozdělit architektury do dvou skupin:
+architektury zaměřené na databázi a architektury zaměřené na doménu.
+V následujících sekcích budou popsány rozdíli mezi oběmi skupinami
+a vybrané konkrétní případy architektur.
 
-\todo{Možnosti jak pracovat s moduly/features pro UDRŽITELNÝ vývoj}
-\blind[3]
+\subsection{Architektury zaměřené na databázi}
 
-%https://martinfowler.com/bliki/PresentationDomainDataLayering.html
+Architektury zaměřené na databázi,
+také nazývané \emph{Database-centric architectures},
+byly dle \cite{architecture} prvním typem softwarových architektur.
+Tyto architektury staví databáze do středu dění,
+jak jde vidět z obrázku \ref{fig:architecture_database}.
 
-\subsection{Tradiční n-vrstvá architektura}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{assets/technology-research/architecture/database-centric.jpg}
+    \caption{Schéma architektury zaměřené na databázi \todo{do vektoru} \cite{architecture}}
+    \label{fig:architecture_database}
+\end{figure}
 
-\todo{Jak funguje tradiční n-vrstvá architektura.}
-\blind[3]
+Příkladem tohoto typu architektury je tradiční 3-vrstvá architektura.
+Ta je robustní a škálovatelná.
+Skládá se ze tří vrstev.
+První vrstva,
+prezentační vrstva,
+obsahuje tvorbu UI,
+bez samotného kódu s logikou.
+Druhá vrstva,
+aplikační vrstva,
+obsahuje samotné kód s logikou.
+Tato vrstva by měla být nezávislá na prezentační vrstvě,
+avšak má explicitní závislost na datové vrstvě.
+Poslední vrstva,
+datová vrstva,
+je nejspodnější vrstvou,
+která se stará o manipulaci a tok dat z databáze do nižších vrstev.
+\cite{architecture}
 
-%https://jeffreypalermo.com/2008/07/the-onion-architecture-part-1/
+\begin{listing}
+    \caption{Ukázka přístupu zaměřeného na databázi v jazyce Java \cite{architecture}}
+    \label{code:architecture-database}
+    \begin{minted}{java}
+package ua.com.crosp.testapp.domain;
+import ua.com.crosp.testapp.datalayer.PostsRepository;
 
-%https://jeffreypalermo.com/2008/08/the-onion-architecture-part-3/
+public class GetRecentPostsUseCase
+implements GetRecentPostsUseCaseContract {
+    private PostsRepository mPostsRepository;
 
-%http://www.pinte.ro/Blog/DesignPatterns/Clean-Architecture-An-alternative-to-traditional-three-layer-database-centric-applications/37
+    public Single<Post.List> execute(Params params) {
+        // Execute
+    }
+}
+    \end{minted}
+\end{listing}
 
-%https://docs.microsoft.com/cs-cz/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures
+V této architektuře je největší role přikládána databázi
+a často je tak datová a aplikační vrstva úzce propojena.
+V nejhorších případech na datové vrstvě závisí i vrstva prezentační.
+\cite{architecture}
+Ukázka přístupu pomocí této architektury je znázorněna ve výpisu kódu
+\ref{code:architecture-database}.
 
-%https://jeremiahflaga.github.io/2019/05/20/vertical-slice-architecture-is-it-incompatible-with-clean-architecture/
+\subsection{Architektury zaměřené na doménu}
 
-% Asi jen Tradiční n-vrstvá vs Clean Architecture
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{assets/technology-research/architecture/domain-centric.jpeg}
+    \caption{Schéma architektury zaměřené na doménu \todo{do vektoru; oříznout?} \cite{architecture}}
+    \label{fig:architecture_domain}
+\end{figure}
 
-%https://softwareengineering.stackexchange.com/questions/371966/is-clean-architecture-by-bob-martin-a-rule-of-thumb-for-all-architectures-or-i
+Architektury zaměřené na doménu,
+také nazývané \emph{Domain-centric architectures},
+je produktem vývoje z předchozího typu architektur.
+Střed dění je přesunut na aplikační vrstvu
+--- jak jde vidět z obrázku \ref{fig:architecture_domain} ---,
+protože právě tato vrstva je v aplikaci nejdůležitější a děje se v ní
+implementace nových funcionalit, změn či oprav.
+Oddělení závislosti na konkrétní implementaci databází či dalších služeb
+je logický a chytrý krok,
+jelikož to jsou pouze detaily.
+Oddělením těchto závislostí na služby se navíc umožní snadná náhrada
+za služby jiné.
+\cite{architecture}
+\todo{\emph{\uv{The way you keep software soft is
+to leave as many options open as possible,
+for as long as possible.
+What are the options that we need to leave open?
+They are the details that don’t matter.}}}
+\cite{martin_clean_architecture}
+Ukázka přístupu pomocí této architektury je znázorněna ve výpisu kódu
+\ref{code:architecture-domain}.
 
-%https://khalilstemmler.com/articles/software-design-architecture/domain-driven-design-vs-clean-architecture/
+\begin{listing}
+    \caption{Ukázka přístupu zaměřeného na doménu v jazyce Java \cite{architecture}}
+    \label{code:architecture-domain}
+    \begin{minted}{java}
+package ua.com.crosp.testapp.domain;
+import ua.com.crosp.testapp.domain.PostsRepositoryContract;
 
-%https://marcduerst.com/2019/09/22/chapter-2-clean-architecture-domain-driven-design/
+public class GetRecentPostsUseCase
+implements GetRecentPostsUseCaseContract {
+    private PostsRepositoryContract mPostsRepository;
+
+    @Inject
+    public GetRecentPostsUseCase(PostsRepositoryContract r) {
+        mPostsRepository = r;
+    }
+    public Single<Post.List> execute(Params params) {
+        // Execute
+    }
+}
+    \end{minted}
+\end{listing}
+
+
 
 \subsection{Clean Architecture}
 
-\todo{\emph{\uv{Good architecture makes the system easy to understand, easy to develop, easy to maintain, and easy to deploy. The ultimate goal is to minimize the lifetime cost of the system and to maximize programmer productivity. ― Robert C. Martin, Clean Architecture}}}
+\todo{Dokončit kapitolu o CA.}
 
 \todo{\emph{\uv{Good software systems begin with clean code. On the one hand, if the bricks aren’t well made, the architecture of the building doesn’t matter much. On the other hand, you can make a substantial mess with well-made bricks. This is where the SOLID principles come in. ― Robert C. Martin, Clean Architecture}}}
 
-\todo{\emph{\uv{Software has two types of value: the value of its behavior and the value of its structure. The second of these is the greater of the two because it is this value that makes software soft. ― Robert C. Martin, Clean Architecture}}}
-
-\todo{\emph{\uv{The way you keep software soft is to leave as many options open as possible, for as long as possible. What are the options that we need to leave open? They are the details that don’t matter. ― Robert C. Martin, Clean Architecture}}}
-
 %https://gist.github.com/ygrenzinger/14812a56b9221c9feca0b3621518635b
 
-\todo{Co je Clean Architecture \cite{martin_2018_clean}, proč je to fajn používat atp.}
+\todo{Co je Clean Architecture \cite{martin_clean_architecture}, proč je to fajn používat atp.}
 \blind[4]
 
 %https://hackernoon.com/hammering-at-clean-architecture-1wbr3cgo
@@ -79,4 +190,4 @@
 \subsection{Zhodnocení}
 
 \todo{Popsat proč si vybírám Clean Architecture.}
-\blind[2]
+\blind[1]

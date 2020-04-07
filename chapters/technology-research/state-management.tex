@@ -77,16 +77,16 @@ Ten se využije pro interakce se stavem.
 \cite{flutter_state_mgmt_simple}}
     \label{code:state-callback}
     \begin{minted}{dart}
-    @override
-    Widget build(BuildContext context) {
-        return SomeWidget(
-            MyListItem(myData, myTapCallback),
-        );
-    }
+@override
+Widget build(BuildContext context) {
+    return SomeWidget(
+        MyListItem(myData, myTapCallback),
+    );
+}
 
-    void myTapCallback(Item item) {
-        print('uživatel klepnul na $item');
-    }
+void myTapCallback(Item item) {
+    print('uživatel klepnul na $item');
+}
     \end{minted}
 \end{listing}
 
@@ -130,21 +130,21 @@ Dle \cite{mobx_core_concepts} pracuje knihovna se třemi základními koncepty:
     \caption{Ukázka kódu počítadla v knihovně MobX \cite{mobx_core_concepts}}
     \label{code:state-mobx}
     \begin{minted}{dart}
-    import 'package:mobx/mobx.dart';
+import 'package:mobx/mobx.dart';
 
-    part 'counter.g.dart';
-    
-    class Counter = CounterBase with _$Counter;
-    
-    abstract class CounterBase with Store {
-        @observable
-        int value = 0;
-    
-        @action
-        void increment() {
-            value++;
-        }
+part 'counter.g.dart';
+
+class Counter = CounterBase with _$Counter;
+
+abstract class CounterBase with Store {
+    @observable
+    int value = 0;
+
+    @action
+    void increment() {
+        value++;
     }
+}
     \end{minted}
 \end{listing}
 
@@ -178,30 +178,30 @@ Dle \cite{redux_basics} pracuje Redux se třemi základními koncepty:
     \caption{Ukázka kódu počítadla v knihovně Redux \cite{redux_basics}}
     \label{code:state-redux}
     \begin{minted}{dart}
-    import 'package:redux/redux.dart';
+import 'package:redux/redux.dart';
 
-    enum CounterActions {
-        increment
+enum CounterActions {
+    increment
+}
+
+class AppState {
+    int value;
+
+    AppState({ 
+        this.value = 0,
+    });
+}
+
+AppState counterReducer(AppState state, action) {
+    switch (action) {
+        case CounterActions.increment:
+            return AppState(
+                value: state.value++,
+            );
+        default:
+            return state;
     }
-    
-    class AppState {
-        int value;
-    
-        AppState({ 
-            this.value = 0,
-        });
-    }
-    
-    AppState counterReducer(AppState state, action) {
-        switch (action) {
-            case CounterActions.increment:
-                return AppState(
-                    value: state.value++,
-                );
-            default:
-                return state;
-        }
-    }
+}
     \end{minted}
 \end{listing}
 
@@ -292,23 +292,23 @@ koncepty:
     \cite{bloclibrary_coreconcepts}}
     \label{code:state-bloc}
     \begin{minted}{dart}
-    import 'package:bloc/bloc.dart';
+import 'package:bloc/bloc.dart';
 
-    enum CounterEvent { increment }
-    
-    class CounterBloc extends Bloc<CounterEvent, int> {
-        @override
-        int get initialState => 0;
-    
-        @override
-        Stream<int> mapEventToState(CounterEvent event) async* {
-            switch (event) {
-                case CounterEvent.increment:
-                    yield state + 1;
-                    break;
-            }
+enum CounterEvent { increment }
+
+class CounterBloc extends Bloc<CounterEvent, int> {
+    @override
+    int get initialState => 0;
+
+    @override
+    Stream<int> mapEventToState(CounterEvent event) async* {
+        switch (event) {
+            case CounterEvent.increment:
+                yield state + 1;
+                break;
         }
     }
+}
     \end{minted}
 \end{listing}
 
