@@ -221,18 +221,16 @@ kterými se každá implementace musí řídit.
 Přičemž konkrétní prvky implementace jsou přenechány na vývojáře.
 Pojmem BLoC také označujeme třídu,
 která uchovává stav dodržuje daný vzor. 
+\todo{Okomentovat anglický text}
 Dle \cite{googledevelopers_bloc} těmito pravidly pro návrh jsou:
-\todo{Tato pravidla překládám (sám) z toho videa,
-mám to nějak dál rozepsat,
-nebo tato citace stačí?}
 
 \begin{enumerate}
-    \item Vstupy a výstupy jsou pouze jednoduché
-    \mintinline{dart}|Stream|/\mintinline{dart}|Sink|.
-    \item Závislosti jsou injektovatelné a jsou nezávislé na platfomě.
-    \item Není povolené větvení na základě platformy.
-    \item Pokud splňujete předešlé body,
-    implementace může být jakákoli.
+    \item Inputs and outputs are simple
+    \mintinline{dart}|Stream|/\mintinline{dart}|Sink| only.
+    \item Dependencies must be injectable and platform agnostic.
+    \item No platform branching allowed.
+    \item Implementation can be whatever you want
+    if you follow the previous rules.
 \end{enumerate}
 
 Spolu s těmito pravidly pro vzor BLoC byly představeny
@@ -240,14 +238,14 @@ Spolu s těmito pravidly pro vzor BLoC byly představeny
 Ty se zabívají zejména vztahem mezi komponentou UI, komponentou BLoC
 a podobou dat,
 které se posílají do a z každé třídy BLoC.
+\todo{Okomentovat anglický text}
 Dle \cite{googledevelopers_bloc} těmito pravidly jsou:
 
 \begin{enumerate}
-    \item Každá \uv{dostatečně komplexní} komponenta má svůj příslušný BLoC.
-    \item Komponenty by měly posílat vstupy \uv{jak jsou}.
-    \item Komponenty by měly zobrazovat výstupy co nejvíce \uv{jak jsou}.
-    \item Všechno větvení by mělo být založeno na jednoduchých výstupech z BLoC
-    s datovým typem logické hodnoty.
+    \item Each \auv{complex enough} component has a corresponding BLoC.
+    \item Components should send inputs \auv{as is}.
+    \item Components should show outputs as close as possible to \auv{as is}.
+    \item All branching should be based on simple BLoC boolean outputs.
 \end{enumerate}
 
 Tento návrhový vzor vznikl za účelem oddělení kódu s logikou

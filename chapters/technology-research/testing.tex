@@ -8,13 +8,19 @@ a tím k snadnější udržitelnosti aplikace.
 Cílem testů je ověřit a dále kontrolovat,
 že specifické části aplikace fungují
 a že zachovávají tuto funkčnost při jejich úpravě.
-\todo{\emph{\uv{Dijkstra once said, "Testing shows the presence, not the absence, of bugs." In other words, a program can be proven incorrect by a test, but it cannot be proven correct. All that tests can do, after sufficient testing effort, is allow us to deem a program to be correct enough for our purposes. ― Robert C. Martin, Clean Architecture: A Craftsman's Guide to Software Structure and Design}}}
+\todo{\emph{\uv{Dijkstra once said,
+\buv{Testing shows the presence, not the absence, of bugs.}
+In other words, a program can be proven incorrect by a test,
+but it cannot be proven correct.
+All that tests can do, after sufficient testing effort,
+is allow us to deem a program to be correct enough for our purposes.}}}
+\cite{martin_clean_architecture}
 
 V této podkapitole jsou popsány typy testů,
 které pomáhají k snažšímu testování.
 Také jsou zmíněny metody a přístupy,
 které umožní tvoření kvalitnějších testů
-a využití testů při připojování kódu ve verzovacích systémech. 
+a využití testů při připojování kódu ve verzovacích systémech.
 
 \subsection{Typy testů}
 
@@ -72,18 +78,18 @@ využívá metoda \mintinline{dart}|testWidgets()|.
     \caption{Ukázka unit testu \cite{testing_flutter_unit}}
     \label{code:test-unit}
     \begin{minted}{dart}
-        import 'package:test/test.dart';
-        import 'package:counter_app/counter.dart';
-        
-        void main() {
-          test('Counter value should be incremented', () {
-            final counter = Counter();
-        
-            counter.increment();
-        
-            expect(counter.value, 1);
-          });
-        }
+import 'package:test/test.dart';
+import 'package:counter_app/counter.dart';
+
+void main() {
+    test('Counter value should be incremented', () {
+    final counter = Counter();
+
+    counter.increment();
+
+    expect(counter.value, 1);
+    });
+}
     \end{minted}
 \end{listing}
 
@@ -91,23 +97,23 @@ využívá metoda \mintinline{dart}|testWidgets()|.
     \caption{Ukázka widget testu \cite{testing_flutter_widget}}
     \label{code:test-widget}
     \begin{minted}{dart}
-    import 'package:flutter/material.dart';
-    import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
 
-    void main() {
-        testWidgets(
-            'MyWidget has a title and message',
-            (WidgetTester tester) async {
-            await tester.pumpWidget(MyWidget(title: 'T', message: 'M'));
+void main() {
+    testWidgets(
+        'MyWidget has a title and message',
+        (WidgetTester tester) async {
+        await tester.pumpWidget(MyWidget(title: 'T', message: 'M'));
 
-            final titleFinder = find.text('T');
-            final messageFinder = find.text('M');
+        final titleFinder = find.text('T');
+        final messageFinder = find.text('M');
 
-            expect(titleFinder, findsOneWidget);
-            expect(messageFinder, findsOneWidget);
-            },
-        );
-    }
+        expect(titleFinder, findsOneWidget);
+        expect(messageFinder, findsOneWidget);
+        },
+    );
+}
     \end{minted}
 \end{listing}
 
@@ -168,8 +174,20 @@ Celá myšlenka \cite{tdd} stojí tedy na tom,
 že mohu psát pouze kód,
 který opravuje selhávající test.
 Tento proces se zdánlivě zdá \uv{hloupý} a pomalý.
-\emph{\uv{Přemýšlejte však o tom, co by se stalo, kdybyste vešli do místnosti plné lidí pracujících tímto způsobem. Vyberte libovolnou náhodnou osobu v libovolnou dobu. Před minutou fungoval celý její kód.}} \cite{tdd} (překlad vlastní)
-
+\todo{\emph{\uv{Now most programmers,
+when they first hear about this technique, think:
+\buv{This is stupid.}
+\buv{It's going to slow me down,
+it's a waste of time and effort,
+It will keep me from thinking,
+it will keep me from designing,
+it will just break my flow.}
+However,
+think about what would happen if you walked in a room full of people working
+this way.
+Pick any random person at any random time.
+A minute ago, all their code worked.}}} \cite{tdd}
+ 
 Jak již bylo zmíněno,
 dle výzkumu \cite{testing_quality} je navíc tento přístup velmi efektivní,
 jelikož vede k vyšší kvalitě kódu.
