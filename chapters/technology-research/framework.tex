@@ -9,7 +9,7 @@ Příkladem takového programovacího jazyka je jazyk Java,
 který se použivá pro vývoj nativních aplikací v platformě Android.
 Tyto jazyky mají úzkou podporu pro vývoj na daných zařízeních,
 včetně přístupu k hardwarovému rozhraní (kamera, senzory, \dots{}),
-jak uvádí zdroj \cite{dashmagazine_mobile_frameworks}. 
+jak uvádí zdroj~\cite{dashmagazine_mobile_frameworks}. 
 
 \begin{figure}[ht!]
     \centering
@@ -34,10 +34,10 @@ frameworků.
 Architekturu těchto frameworků představuje obrázek \ref{fig:framework_platform}.
 
 Další snahou pro ještě rychlejší a snadnější vývoj aplikací jsou frameworky
-s podporou multiplatformnosti a tedy cílením na více platforem.
-\cite{hackernoon_flutter}
+s podporou multiplatformnosti,
+a tedy frameworky cílící na více platforem~\cite{hackernoon_flutter}.
 To může být pouze cílení na mobilní platformy,
-ale dokonce také i cílení na web, osobní počítače, \dots{}
+ale dokonce také i cílení na web, osobní počítače a další.
 Tyto frameworky podporují populární jazyky,
 umožňují sdílet kód mezi jednotlivými platformami
 a v závislosti na architektuře se blíží rychlostí výsledných aplikací
@@ -157,8 +157,9 @@ JavaScript.
 Posledním frameworkem je Flutter,
 který je vyvíjený společností Google.
 Tento framework je nejmladším z představených frameworků,
-avšak dle trendů z obrázku \ref{fig:framework_popularity} se jim minimálně
-snadno vyrovná.  
+avšak dle trendů z obrázku~\ref{fig:framework_popularity},
+kde je vidět razantní nárůst,
+se jim minimálně snadno vyrovná.
 Framework Flutter přistupuje k multiplatformnosti jinak,
 než ostatní mobilní frameworky.
 Nejenže tento framework nevyužívá programovací jazyk JavaScript,
@@ -198,12 +199,12 @@ Vydání aplikace jsou vždy kompilovány naopak AOT kompilací,
 která produkuje velmi rychlou a výkonou aplikaci.
 \cite{hackernoon_flutter}
 
-I přes ne zrovna dlouhou dobu,
-za kterou je framework Flutter dostupný,
+I přes to,
+že je framework Flutter relativně nový,
 existuje řada aplikací,
-které tento framework využívají.
-Za zmíňku stojí například aplikace Google Ads, Baidu, Hamilton a Reflecty.
-\cite{flutter}
+které tento framework úspěšně využívají.
+Za zmíňku stojí například aplikace Google Ads, Baidu, Hamilton a
+Reflecty~\cite{flutter}.
 
 Tento framework využívá sice widgety (komponenty UI),
 které vypadají jako nativní komponenty pro danou platformu \cite{flutter},
@@ -226,9 +227,9 @@ Každý widget zdědí vlastnosti z jeho rodiče v podobě kontextu,
 se kterým může dále samotný widget pracovat.
 \cite{flutter_technical_overview}
 
-Pro skladbu widgetů je upřednosťnována kompozice před rozšířením.
-Kombinací vhodných widgetů jsou prvky aplikace uspořádány, ostylovány,
-transformovány, \dots{}
+Pro skladbu widgetů je upřednosťnována kompozice před rozšířením dědičností.
+Vhodnou skladbou widgetů a jejich kombinací jsou prvky aplikace uspořádány,
+ostylovány, transformovány či jiným způsobem upraveny.
 Například widget \mintinline{dart}|Padding| přidá okolo widgetu odsazení,
 widget \mintinline{dart}|Row| uspořádá widgety--potomky do řádku,
 zatímco widget \mintinline{dart}|Column| uspořádá widgety--potomky do sloupce.

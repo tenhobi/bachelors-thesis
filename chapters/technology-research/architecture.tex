@@ -20,6 +20,13 @@ the value of its behavior and the value of its structure.
 The second of these is the greater of the two
 because it is this value that makes software soft.}}}
 \cite{martin_clean_architecture}
+\todo{Jak odkazovat na přímou citaci?}
+Dle zmíněného zdroje také plyne,
+že se dlouhodobě vyplatí vývoj směřovat k dobré struktuře a architektuře,
+než k samotné implementaci,
+jelikož implementace se snadno opraví,
+kdežto opravit architekturu bez velkého zásahu je značně obtížné.
+\cite{martin_clean_architecture}
 
 Cílem každé aplikace je mít udržitelný a snadno rozšiřitelný kód.
 Je proto třeba stanovit řadu pravidel,
@@ -33,6 +40,10 @@ easy to develop, easy to maintain, and easy to deploy.
 The ultimate goal is to minimize the lifetime cost of the system
 and to maximize programmer productivity.}}}
 \cite{martin_clean_architecture}
+Dobře navržená a udržovaná architektura tak umožní z dlouhodobého hlediska
+produkovat kvalitnější kód.
+Kvalitnější architektura tedy logicky minimalizuje nutnost oprav a
+přizpůsobení struktury aplikace při vývoji každé nové funkcionality.
 
 Dle zdroje \cite{architecture} lze rozdělit architektury do dvou skupin:
 architektury zaměřené na databázi a architektury zaměřené na doménu.
@@ -42,7 +53,7 @@ a vybrané konkrétní případy architektur.
 \subsection{Architektury zaměřené na databázi}
 
 Architektury zaměřené na databázi,
-také nazývané \emph{Database-centric architectures},
+také nazývané \emph{database-centric architectures},
 byly dle \cite{architecture} prvním typem softwarových architektur.
 Tyto architektury staví databáze do středu dění,
 jak jde vidět z obrázku \ref{fig:architecture_database}.
@@ -107,17 +118,12 @@ Ukázka přístupu pomocí této architektury je znázorněna ve výpisu kódu
 \end{figure}
 
 Architektury zaměřené na doménu,
-také nazývané \emph{Domain-centric architectures},
+také nazývané \emph{domain-centric architectures},
 je produktem vývoje z předchozího typu architektur.
 Střed dění je přesunut na aplikační vrstvu
 --- jak jde vidět z obrázku \ref{fig:architecture_domain} ---,
-protože právě tato vrstva je v aplikaci nejdůležitější a děje se v ní
-implementace nových funcionalit, změn či oprav.
-Oddělení závislosti na konkrétní implementaci databází či dalších služeb
-je logický a chytrý krok,
-jelikož to jsou pouze detaily.
-Oddělením těchto závislostí na služby se navíc umožní snadná náhrada
-za služby jiné.
+protože právě tato vrstva je v aplikaci nejdůležitější,
+jelikož se v ní děje implementace nových funkcionalit, změn či oprav.
 \cite{architecture}
 \todo{\emph{\uv{The way you keep software soft is
 to leave as many options open as possible,
@@ -125,7 +131,17 @@ for as long as possible.
 What are the options that we need to leave open?
 They are the details that don’t matter.}}}
 \cite{martin_clean_architecture}
-Ukázka přístupu pomocí této architektury je znázorněna ve výpisu kódu
+Výhodou architektur zaměřených na doménu tedy také je,
+že již díky návrhu samotnému abstrahují implementační detaily do podoby
+kontraktů.
+Těmto kontraktům může nadále vyhovět několik konkrétních implementací,
+což umožní snadnou výměnu služeb či jiných závislostí.
+\cite{martin_clean_architecture}
+Lze tak tedy jednoduše nahradit třeba konkrétní databázi
+--- například z databáze MySQL na databázi Cloud Firestore ---,
+bez toho,
+aniž by se muselo zasahovat do samotné aplikační vrstvy aplikace.
+Ukázka přístupu pomocí tohoto typu architektury je znázorněna ve výpisu kódu
 \ref{code:architecture-domain}.
 
 \begin{listing}
@@ -150,8 +166,6 @@ implements GetRecentPostsUseCaseContract {
     \end{minted}
 \end{listing}
 
-
-
 \subsection{Clean Architecture}
 
 \todo{Dokončit kapitolu o CA.}
@@ -166,7 +180,7 @@ This is where the SOLID principles come in.}}} \cite{martin_clean_architecture}
 
 \todo{Co je Clean Architecture \cite{martin_clean_architecture}, proč je to fajn používat atp.}
 \blind[4]
-
+ 
 %https://hackernoon.com/hammering-at-clean-architecture-1wbr3cgo
 
 %https://github.com/ResoCoder/flutter-tdd-clean-architecture-course
