@@ -3,56 +3,163 @@
 
 \section{Případy užití}
 
-\todo{Sem možná napsat nějaký info?}
-\blind[1]
+Funkční a nefunkční požadavky sice definují funkcionalitu a vlastnosti aplikace,
+avšak pro správné pochopení fungování a souhru těchto požadavků,
+je nutné definovat případy užití,
+které popisují jednotlivé problémy.
+Případy užití jsou vytvořeny na základě stanovených funkčních požadavků,
+s ohledem na stanovené nefunkční požadavky.
 
 \subsection{Přihlášení}
 \label{uc:login}
 
-\subsubsection*{Scénář A}
+Tento případ užití popisuje proces přihlášení do aplikace.
+Přihlášení probíhá pomocí účtu Google.
+Proces zahrnuje i registraci,
+pokud je uživatel v aplikaci nový.
 
 \begin{enumerate}
-    \item aaa
-    \item bbb
+    \item Uživatel klikne na tlačítko \todo{\emph{Přihlásit se}}
+    a následně proběhne přihlášení pomocí účtu Google.
+    \item V závislosti na tom,
+    jestli je uživatel již registrovaný,
+    mohou nastat dvě situace:
+    \begin{enumerate}
+        \item pokud uživatel již byl registrovaný,
+        je uživatel přihlášen a přesměrován na hlavní obrazovku;
+        \item pokud uživatel ještě nebyl registrovaný,
+        zobrazí se obrazovka,
+        ve které vyplní své osobní údaje
+        a následně je přihlášen a přesměrován na hlavní obrazovku.
+    \end{enumerate}
 \end{enumerate}
-
-\subsubsection*{Scénář B}
-
-\begin{enumerate}
-    \item aaa
-    \item bbb
-\end{enumerate}
-
-\todo{Dokončit popis případu užití.}
-\blind[2]
 
 \subsection{Zobrazení informací o aplikaci}
 
-\todo{Dokončit popis případu užití.}
-\blind[2]
+Tento případ užití poposije proces zobrazení informací o aplikaci
+i o herních modulech.
+
+\begin{enumerate}
+    \item Uživatel se nachází na hlavní obrazovce a klikne na tlačítko
+    \todo{\emph{Informace}}.
+    \item Uživatel je přesměrován na obrazovku s informacemi o aplikaci,
+    kde jsou zobrazeny informace jako jsou jméno vývojáře, verze aplikace,
+    odkaz na repozitář se zdrojovým kódem nebo nejčastěji kladené otázky.
+    \item Pokud chce uživatel vyhledat informace o jednotlivých herních
+    modulech,
+    lze se přesměrovat na danou obrazovku kliknutím na tlačítko
+    \todo{\emph{Informace o modulech}}.
+\end{enumerate}
 
 \subsection{Změna nastavení}
 
-% jazyk
-\todo{Dokončit popis případu užití.}
-\blind[2]
+Tento případ užití popisuje změnu nastavení,
+kde lze zejména nastavit jazyk aplikace.
 
-\subsection{Spuštění hry}
+\begin{enumerate}
+    \item Uživatel se nachází na hlavní obrazovce a klikne na tlačítko
+    \todo{\emph{Nastavení}}.
+    \item Uživatel je přesměrován na obrazovku s nastavením.
+    Zde může uživatel například přepínat jazyk aplikace.
+\end{enumerate}
 
-% volba kola, hesla
-% scénář hostujícího a připojujícího hráče
-\todo{Dokončit popis případu užití.}
-\blind[2]
+\subsection{Hra}
+
+Tento případ užití popisuje proces vytvoření, spuštění a průběhu hry.
+Případ užití je dělen do dvou scénářů.
+První scénář popisuje uživatele,
+který hru zakládá.
+Druhý scénář popisuje uživatele,
+který se do hry připojuje.
+
+\subsubsection*{Scénář A -- zakládající uživatel}
+
+Tento scénář popisuje případ užití pro uživatele,
+který hru založí a hostuje.
+Tento uživatel má také práva pro nastavení hry,
+jako je kapitola a mise nebo role.
+
+\begin{enumerate}
+    \item Uživatel klikne na tlačítko \todo{\emph{Vytvořit hru}}
+    a aplikace jej přesune na obrazovku místnosti.
+    \item Zde uživatel vidí speciální kód,
+    který předá spoluhráči.
+    \item Uživatel vybere kapitolu,
+    ve které vybere misi,
+    a určí svou roli ve hře
+    --- technik či navigátor.
+    \item Uživatel klikne na tlačítko \todo{\emph{Jsem připraven}}.
+    \item Až budou oba hráči připraveni ke hře,
+    uživatel klikne na tlačítko \todo{\emph{Zahájit hru}} a zahájí tak hru.
+    \item Po skončení hry se uživateli zobrazí statistika ze hry.
+\end{enumerate}
+
+\subsubsection*{Scénář B -- připojující se uživatel}
+
+Tento scénář popisuje případ užití pro uživatele,
+který se připojuje do již vytvořené hry.
+Tento uživatel nemá žádná práva pro nastavení.
+
+\begin{enumerate}
+    \item Uživatel klikne na tlačítko \todo{\emph{Připojit se do hry}}
+    a aplikace jej přesuna na obrazovku místnosti,
+    kde zadá kód hry.
+    \item Uživatel klikne na tlačítko \todo{\emph{Jsem připraven}}.
+    \item Po skončení hry se uživateli zobrazí statistika ze hry.
+\end{enumerate}
 
 \subsection{Ukončení hry}
 
-% scénář po dokončení hry + během hry
-\todo{Dokončit popis případu užití.}
-\blind[2]
+Tento případ užití popisuje případy,
+kdy a jak lze ukončit probíhající hru.
 
-\subsection{Zobrazení svého profilu}
+\subsubsection*{Scénář A -- dohrání}
 
-\todo{Dokončit popis případu užití.}
-\blind[2]
+Tento scénář popisuje standardní případ,
+kdy hráč skončí hru dle předpokladů,
+ať už úspěšně či neúspěšně.
+
+\begin{enumerate}
+    \item Uživatel se připojí do hry.
+    \item Uživatel hraje hru.
+    \item Uživatel dohraje hru, ať už úspěšně nebo neúspěšně.
+    \item Aplikace zobrazí herní statistiky.
+    \item Uživatel následně opustí hru kliknutím na tlačítko \emph{zpět}.
+\end{enumerate}
+
+\subsubsection*{Scénář B -- předčasné ukončení hry}
+
+Tento scénář popisuje situaci,
+kdy se jeden z hráčů rozhodne předčasně,
+kvůli jakémukoli důvodu,
+opustit hru a tím jí ukončit. 
+
+\begin{enumerate}
+    \item Uživatel se připojí do hry.
+    \item Uživatel hraje hru.
+    \item Uživatel klikne na tlačítko \todo{\emph{Ukončit hru}}
+    a potvrdí dialog.
+    \item Aplikace zobrazí hlášku o předčasném ukončení hry.
+\end{enumerate}
 
 \let\thesubsection=\oldsubsection
+
+\subsection{Přehled realizace požadavků}
+
+Přehled realizace případu užití funkčními požadavky lze vidět v
+tabulce~\ref{tab:use-case-requirements}.
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{c||c|c|c|c|c|c|c|c|c|c|c} 
+        & F1 & F2 & F3 & F4 & F5 & F6 & F7 & F8 & F9 & F10 & F11 \\\hline\hline
+        UC1 & X &   &   &   &   &   &   &   &   &   & X \\\hline % login logout
+        UC2 &   & X &   &   &   &   &   &   &   &   &   \\\hline % info
+        UC3 &   &   &   &   &   &   &   &   &   & X &   \\\hline % settings
+        UC4 &   &   & X & X & X & X & X &   & X &   &   \\\hline % game
+        UC5 &   &   &   &   &   & X &   &   &   &   &   \\\hline % game exit
+        UC6 &   &   &   &   &   &   & X & X &   &   &   \\ % profile
+    \end{tabular}
+    \caption{Realizace případu užití a splnění požadavků}
+    \label{tab:use-case-requirements}
+\end{table}
