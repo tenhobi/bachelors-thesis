@@ -19,8 +19,7 @@ a čím dál tím více postupem času prohlubují dluh kvality daného kódu.
 the value of its behavior and the value of its structure.
 The second of these is the greater of the two
 because it is this value that makes software soft.}}}
-\cite{martin_clean_architecture}
-\todo{Jak odkazovat na přímou citaci?}
+\cite[kapitola~15]{martin_clean_architecture}
 Dle zmíněného zdroje také plyne,
 že se dlouhodobě vyplatí vývoj směřovat k dobré struktuře a architektuře,
 než k samotné implementaci,
@@ -39,7 +38,7 @@ který znemožní snadný proces udržitelnosti aplikace.
 easy to develop, easy to maintain, and easy to deploy.
 The ultimate goal is to minimize the lifetime cost of the system
 and to maximize programmer productivity.}}}
-\cite{martin_clean_architecture}
+\cite[kapitola~15]{martin_clean_architecture}
 Dobře navržená a udržovaná architektura tak umožní z dlouhodobého hlediska
 produkovat kvalitnější kód.
 Kvalitnější architektura tedy logicky minimalizuje nutnost oprav a
@@ -130,7 +129,7 @@ to leave as many options open as possible,
 for as long as possible.
 What are the options that we need to leave open?
 They are the details that don’t matter.}}}
-\cite{martin_clean_architecture}
+\cite[kapitola~15]{martin_clean_architecture}
 Výhodou architektur zaměřených na doménu tedy také je,
 že již díky návrhu samotnému abstrahují implementační detaily do podoby
 kontraktů.
@@ -168,44 +167,97 @@ implements GetRecentPostsUseCaseContract {
 
 \subsection{Clean Architecture}
 
-\todo{Dokončit kapitolu o CA.}
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{assets/technology-research/architecture/clean-architecture.jpg}
+    \caption{Schéma architektury
+    Clean Architecture~\cite{the_clean_architecture}}
+    \label{fig:the_clean_architecture}
+\end{figure}
 
+Clean Architecture je architektura popisovaná ve stejnojmenné knize,
+od Roberta~C. Martina.
 \todo{\emph{\uv{Good software systems begin with clean code.
 On the one hand, if the bricks aren’t well made,
 the architecture of the building doesn’t matter much.
 On the other hand, you can make a substantial mess with well-made bricks.
-This is where the SOLID principles come in.}}}~\cite{martin_clean_architecture}
+This is where the SOLID principles come in.}}}~\cite[část 3]{martin_clean_architecture}
+Architektura hojně využívá principů SOLID,
+které byly představeny stejným autorem jako kniha.
+Dle \cite[část 3]{martin_clean_architecture} obsahuje SOLID následujícící principy:
 
-%https://gist.github.com/ygrenzinger/14812a56b9221c9feca0b3621518635b
+\begin{description}
+    \item[Single-responsibility principle] An active corollary to Conway’s law: The best structure for a software system is heavily influenced
+    by the social structure of the organization that uses it so that
+    each software module has one, and only one, reason to change.
+    \item[Open--closed principle] Bertrand Meyer made this principle famous
+    in the 1980s.
+    The gist is that for software systems to be easy to change,
+    they must be designed to allow the behavior of those systems to be changed
+    by adding new code,
+    rather than changing existing code.
+    \item[Liskov substitution principle] Barbara Liskov’s famous definition of
+    subtypes, from 1988.
+    In short, this principle says that to build software systems from
+    interchangeable parts,
+    those parts must adhere to a contract that allows those parts to be
+    substituted one for another.
+    \item[Interface segregation principle] This principle advises software
+    designers to avoid depending on things that they don’t use.
+    \item[Dependency inversion principle] The code that implements high-level
+    policy should not depend on the code that implements low-level details.
+    Rather, details should depend on policies.
+\end{description}
 
-\todo{Co je Clean Architecture~\cite{martin_clean_architecture}, proč je to fajn používat atp.}
-\blind{3}
- 
-%https://hackernoon.com/hammering-at-clean-architecture-1wbr3cgo
+Princip inverze závislostí je jedním z nejdůležitějších principů SOLID,
+který Clean Architecture využívá. 
+Tento princip říká,
+že by kód neměl závislet na detailech přímo,
+ale raději záviset na obecném kontraktu (například pomocí dědičnosti nebo rozhraní),
+který daný detail implementuje~\cite[kapitola~11]{martin_clean_architecture}.
+Další principy popisují,
+že každá třída by měla mít zodpovědnou právě za jednu
+věc~\cite[kapitola~7]{martin_clean_architecture},
+rozšíření by mělo být možné pouze za pomoci přidání nového
+kódu~\cite[kapitola~8]{martin_clean_architecture},
+pokud kód využívá třídu,
+musí fungovat i pokud místo ní použijeme její
+podtřídu~\cite[kapitola~8]{martin_clean_architecture}
+a nemělo by se záviset na více věcech,
+než je potřeba~\cite[kapitola10]{martin_clean_architecture}.
+Obdobné principy jsou aplikovány i na úrovni komponent aplikace
+a dohromady s principy SOLID způsobí,
+že takový systém je testovatelný,
+nezávislý na konkrétním UI (web, mobilní zařízení, desktop),
+použitém frameworku, použité databázi či dalších
+službách~\cite{the_clean_architecture}.
 
-%https://github.com/ResoCoder/flutter-tdd-clean-architecture-course
-
-%https://stackoverflow.com/questions/23479879/clean-architecture-vs-onion-architecture
-
-%TOHLE !! https://crosp.net/blog/software-architecture/clean-architecture-part-2-the-clean-architecture/
-
-%https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
-
-%https://github.com/android10/Android-CleanArchitecture
-
-%https://dev.to/bosepchuk/why-i-cant-recommend-clean-architecture-by-robert-c-martin-ofd
-
-%https://proandroiddev.com/clean-architecture-data-flow-dependency-rule-615ffdd79e29
-
-%https://www.freecodecamp.org/news/a-quick-introduction-to-clean-architecture-990c014448d2/
-
-%https://proandroiddev.com/multiple-ways-of-defining-clean-architecture-layers-bbb70afa5d4a
-
-%https://github.com/bufferapp/android-clean-architecture-boilerplate
-
-% https://github.com/bufferapp/android-clean-architecture-boilerplate
+Cílem architektury Clean Architecture je hlavně vhodné oddělení zodpovědnosti.
+Jak jde vidět z obrázku~\ref{fig:the_clean_architecture},
+závislost jednotlivých vrstev aplikace může mířit pouze dovnitř.
+Zároveň jsou věci uvnitř více abstraktní,
+zatímco věci na kraji více konkrétní.
+Středem všeho jsou entity,
+které mohou obsahovat samotná data,
+ale i jejich funkce.
+S entitami pracují \emph{use cases},
+které implementují za pomocí entit všechny případy užití.
+Poslední vrstva většinou neobsahuje implentaci a pouze volá vnitřní vrstvu.
+Do této vrstvy může patřit například mobilní framework,
+který volá kontroler,
+který zařídí samotné spuštění spuštění správného use case.
+Tyto pravidla nejsou striktní a už pouhým rozdělením do vhodných vrstev
+či pravidlem pro směr závislostí lze vytvořit velmi udržitelný
+software.~\cite{the_clean_architecture}
 
 \subsection{Zhodnocení}
 
-\todo{Popsat proč si vybírám Clean Architecture.}
-\blind{1}
+Architektury zaměřené na databázi až příliš lpí na detaily,
+na kterých ve výsledku nezáleží.
+Architektury zaměřené na doménu tento problém naopak řeší,
+využitím kontraktů namísto specifických detailů.
+Architektura Clean Architecture je vhodným příkladem takovéto architektury.
+Navíc díky principům SOLID a dalších vhodným pravidel a jejich využíváním
+je možné lehce tvořit udržitelný a rozšiřitelný kód,
+ve kterém se lze snadno pohybovat a vše má své dané místo.
+V praktické části bude proto využíváno právě architektury Clean Architecture.
