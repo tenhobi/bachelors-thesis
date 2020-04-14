@@ -3,7 +3,7 @@
 Testování se v průběhu let stalo nedílnou součástí vývoje aplikací.
 Je vhodné pro všechny velikostí aplikací,
 především proto,
-že testování vede k vyšší kvalitě kódu \cite{testing_quality}
+že testování vede k vyšší kvalitě kódu~\cite{testing_quality}
 a tím k snadnější udržitelnosti aplikace.
 Cílem testů je ověřit a dále kontrolovat,
 že specifické části aplikace fungují
@@ -28,7 +28,7 @@ Testovat je možné i ručně.
 To však je však z globálního hlediska neefektivní a zdlouhavé.
 V praxi se proto využívají automatizované testy,
 které lze spustit samostatně kdykoli během cyklu vývoje aplikace.
-Dle \cite{testing_flutter} se automatizované testy dělí do těchto kategorií:
+Dle~\cite{testing_flutter} se automatizované testy dělí do těchto kategorií:
 
 \begin{description}
     \item[Unit testy] Testují jednu funkci, metodu nebo třídu.
@@ -50,7 +50,7 @@ Dle \cite{testing_flutter} se automatizované testy dělí do těchto kategorií
     jako celku.
 \end{description}
 
-Ve výpisu kódu \ref{code:test-unit} lze vidět příklad unit testu.
+Ve výpisu kódu~\ref{code:test-unit} lze vidět příklad unit testu.
 \cite{testing_flutter_unit}
 Unit testování vyžaduje jako závislost pro vývoj balíček
 \mintinline{dart}|test|.
@@ -62,7 +62,7 @@ použitý balíček umožní vývojáři využívat například metody
 \mintinline{dart}|test()| a \mintinline{dart}|expect()|,
 díky kterým lze popsat očekávaný stav každého testu.
 
-Ve výpisu kódu \ref{code:test-widget} lze naopak vidět příklad widget testu.
+Ve výpisu kódu~\ref{code:test-widget} lze naopak vidět příklad widget testu.
 \cite{testing_flutter_widget}
 Testování widgetů vyžaduje jako závislost pro vývoj balíček
 \mintinline{dart}|flutter_test|.
@@ -75,7 +75,7 @@ jen se namísto metody \mintinline{dart}|test()|
 využívá metoda \mintinline{dart}|testWidgets()|.
 
 \begin{listing}
-    \caption{Ukázka unit testu \cite{testing_flutter_unit}}
+    \caption{Ukázka unit testu~\cite{testing_flutter_unit}}
     \label{code:test-unit}
     \begin{minted}{dart}
 import 'package:test/test.dart';
@@ -94,7 +94,7 @@ void main() {
 \end{listing}
 
 \begin{listing}
-    \caption{Ukázka widget testu \cite{testing_flutter_widget}}
+    \caption{Ukázka widget testu~\cite{testing_flutter_widget}}
     \label{code:test-widget}
     \begin{minted}{dart}
 import 'package:flutter/material.dart';
@@ -138,7 +138,7 @@ případně popisuje změny,
 které by se do aplikace zanesli při připojení kódu ve verzovacím systému.
 V rámci systémů rozšiřující verzovací systém lze využívat několik nástrojů,
 které code coverage
---- v rámci kontinuální integrace, která je popsána v kapitole \ref{chap:ci} ---
+--- v rámci kontinuální integrace, která je popsána v kapitole~\ref{chap:ci} ---
 moniturují a podávají vývojářům zprávy.
 Příkladem těchto služeb může být CodeCov či Coveralls.
 Každý soubor či složka je ohodnocen procenty,
@@ -148,13 +148,14 @@ průzkum kódu aplikace a porovná jej se stávající verzí.
 \cite{code_coverage}
 
 \subsection{Test driven development}
+\label{sec:tdd}
 
 \emph{Test driven development} (dále jen TDD) je metoda pro vývoj aplikací tím
 způsobem,
 že se začíná psaním testů,
 které je následováno psaním produkčního kódu,
 které testy splňuje.
-Dle \cite{tdd} má TDD tři jednoduchá pravidla:
+Dle~\cite{tdd} má TDD tři jednoduchá pravidla:
 
 \begin{enumerate}
     \item Není dovoleno psát žádný produkční kód kromě toho,
@@ -170,7 +171,7 @@ kterou chce vývojář přidat.
 Následně vývojář napíše jen tolik kódu,
 kolik je třeba k opravě daného testu.
 A celý proces se znovu opakuje.
-Celá myšlenka \cite{tdd} stojí tedy na tom,
+Celá myšlenka~\cite{tdd} stojí tedy na tom,
 že mohu psát pouze kód,
 který opravuje selhávající test.
 Tento proces se zdánlivě zdá \uv{hloupý} a pomalý.
@@ -186,10 +187,10 @@ However,
 think about what would happen if you walked in a room full of people working
 this way.
 Pick any random person at any random time.
-A minute ago, all their code worked.}}} \cite{tdd}
+A minute ago, all their code worked.}}}~\cite{tdd}
  
 Jak již bylo zmíněno,
-dle výzkumu \cite{testing_quality} je navíc tento přístup velmi efektivní,
+dle výzkumu~\cite{testing_quality} je navíc tento přístup velmi efektivní,
 jelikož vede k vyšší kvalitě kódu.
 Navíc,
 dodržováním těchto tří pravidel přesně víme,
@@ -228,4 +229,23 @@ jako jsou Travis CI či CircleCI.
 
 \subsection{Zhodnocení}
 
-\todo{Hodnocení a info o testech}
+Psát testy je velmi důležité pro každý softwarový produkt.
+Zatímco psaní widget testů a integračních testů může být zdlouhavé
+a mohou se často měnit požadavky,
+psaní unit testů je velmi důležité a dalo by se říci,
+že i nutností.
+V praktické práci budou tedy využity zejmény unit testy,
+které pomáhají testovat samotnou funkcionalitu daných částí
+a zaručují,
+že stanovené rozhraní se nemění.
+Tyto testy nadále budou spouštěny v rámci code coverage,
+což je sice nejistý indikátor,
+ale i tak je dobré jej udržovat co nejvýše.
+Testy a code coverage je vhodné spouštět automaticky pomocí kontinuální
+integrace.
+TDD je zajisté skvělá metoda,
+která má mnoho benefitů,
+jak bylo popsáno v kapitole~\ref{sec:tdd}.
+Aplikace této metody ovšem vyžaduje spoustu zkušeností
+v rámci několika měsíců,
+proto bude tento přístup při vývoji pouze upřednostňován.

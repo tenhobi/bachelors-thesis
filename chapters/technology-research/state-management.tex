@@ -19,7 +19,7 @@ ale změní se stav a podle něj se příslušně překreslí UI.
 Pojem \emph{stav} můžeme chápat vícero způsoby.
 V této práci je stav chápán jako všechna data,
 která jsou potřeba k překreslení UI v daný moment.
-Dle \cite{flutter_state_mgmt_ephemeral_vs_app} lze stavy dělit do dvou typů:
+Dle~\cite{flutter_state_mgmt_ephemeral_vs_app} lze stavy dělit do dvou typů:
 
 \begin{description}
     \item[Ephemeral state] Někdy také nazývaný \emph{UI state} nebo
@@ -56,7 +56,7 @@ https://resocoder.com/2020/04/09/flutter-state-management-tutorial-provider-chan
 \subsection{Předávání dat a callbacků}
 \label{sec:data-callback-transfer}
 
-Ve Flutteru je samozřejmě možné \cite{flutter_state_mgmt_simple} mezi widgety
+Ve Flutteru je samozřejmě možné~\cite{flutter_state_mgmt_simple} mezi widgety
 předávat data konstruktory
 a zpracovávat reakce pomocí callbacků. 
 Pomocí callbacků lze interagovat se stavem,
@@ -69,7 +69,7 @@ To je zajisté funkční a snadné řešení.
 Avšak mnohokrát je nutné data a callbacky předávat přes více widgetů,
 čímž se aplikace velmi rychle stane nelehce rozšiřitelnou.
 
-Jak lze vidět v ukázce \ref{code:state-callback},
+Jak lze vidět v ukázce~\ref{code:state-callback},
 vnořenému widgetu jsou předány data
 a pro změnu stavu z vnořeného widgetu je tomuto widgetu předán callback.
 Ten se využije pro interakce se stavem.
@@ -92,7 +92,7 @@ void myTapCallback(Item item) {
     \end{minted}
 \end{listing}
 
-Flutter má naštěstí způsoby \cite{flutter_state_mgmt_simple},
+Flutter má naštěstí způsoby~\cite{flutter_state_mgmt_simple},
 jak mohou widgety sdílet stavy bez toho,
 aniž by se snižovala rozšiřitelnost aplikace pomocí nepřehledného předávání
 dat a callbacků.
@@ -110,7 +110,7 @@ MobX je knihovna pro state management,
 která implementuje vzor observer.
 Díky jednomuchému rozhraní je vhodná pro začátečníky
 a je používána i ve velkých projektech.
-Dle \cite{mobx_core_concepts} pracuje knihovna se třemi základními koncepty:
+Dle~\cite{mobx_core_concepts} pracuje knihovna se třemi základními koncepty:
 
 \begin{description}
     \item[Observables] Reprezentují stavy v podobě libovolného objektu s daty.
@@ -129,7 +129,7 @@ Dle \cite{mobx_core_concepts} pracuje knihovna se třemi základními koncepty:
 \end{description}
 
 \begin{listing}
-    \caption{Ukázka kódu počítadla v knihovně MobX \cite{mobx_core_concepts}}
+    \caption{Ukázka kódu počítadla v knihovně MobX~\cite{mobx_core_concepts}}
     \label{code:state-mobx}
     \begin{minted}{dart}
 import 'package:mobx/mobx.dart';
@@ -150,9 +150,9 @@ abstract class CounterBase with Store {
     \end{minted}
 \end{listing}
 
-Z výpisu kódu \ref{code:state-mobx} lze vypozorovat,
+Z výpisu kódu~\ref{code:state-mobx} lze vypozorovat,
 že knihovna pracuje s generovanými kódy z pomocných generátorů.
-Tím se dle \cite{mobx_core_concepts} snaží redukovat množství kódu,
+Tím se dle~\cite{mobx_core_concepts} snaží redukovat množství kódu,
 které by bylo jinak vyžadováno napsat k docílení stejné funkčnosti.
 Knihovna také využívá anotace,
 kterými je kód zpřehledněn.
@@ -163,7 +163,7 @@ což je jedna z nevýhod tohoto přístupu.
 
 \todo{Napsat nějaký větší úvod o knihovně Redux?}
 Jedna z nejznámějších knihoven řešící state management je knihovna Redux.
-Dle \cite{redux_basics} pracuje Redux se třemi základními koncepty:
+Dle~\cite{redux_basics} pracuje Redux se třemi základními koncepty:
 
 \begin{description}
     \item[Actions] Obsahují data,
@@ -177,7 +177,7 @@ Dle \cite{redux_basics} pracuje Redux se třemi základními koncepty:
 \end{description}
 
 \begin{listing}
-    \caption{Ukázka kódu počítadla v knihovně Redux \cite{redux_basics}}
+    \caption{Ukázka kódu počítadla v knihovně Redux~\cite{redux_basics}}
     \label{code:state-redux}
     \begin{minted}{dart}
 import 'package:redux/redux.dart';
@@ -207,9 +207,9 @@ AppState counterReducer(AppState state, action) {
     \end{minted}
 \end{listing}
 
-Dle \cite{redux_basics} knihovna Redux obsahuje právě jeden \emph{Store}
+Dle~\cite{redux_basics} knihovna Redux obsahuje právě jeden \emph{Store}
 a členění se provádí pomocí kompozice \emph{Reducers}.
-Z výpisu kódu \ref{code:state-redux} je vidět,
+Z výpisu kódu~\ref{code:state-redux} je vidět,
 že ačkoli je zápis přehledný,
 ve větší aplikaci nemusí být omezení pouze jednoho \emph{Store} vhodné.
 
@@ -224,7 +224,7 @@ Přičemž konkrétní prvky implementace jsou přenechány na vývojáře.
 Pojmem BLoC také označujeme třídu,
 která uchovává stav dodržuje daný vzor. 
 \todo{Okomentovat anglický text}
-Dle \cite{googledevelopers_bloc} těmito pravidly pro návrh jsou:
+Dle~\cite{googledevelopers_bloc} těmito pravidly pro návrh jsou:
 
 \begin{enumerate}
     \item Inputs and outputs are simple
@@ -241,7 +241,7 @@ Ty se zabívají zejména vztahem mezi komponentou UI, komponentou BLoC
 a podobou dat,
 které se posílají do a z každé třídy BLoC.
 \todo{Okomentovat anglický text}
-Dle \cite{googledevelopers_bloc} těmito pravidly jsou:
+Dle~\cite{googledevelopers_bloc} těmito pravidly jsou:
 
 \begin{enumerate}
     \item Each \auv{complex enough} component has a corresponding BLoC.
@@ -253,7 +253,7 @@ Dle \cite{googledevelopers_bloc} těmito pravidly jsou:
 Tento návrhový vzor vznikl za účelem oddělení kódu s logikou
 od závislostí na konkrétní platformě.
 Oddělením vrstvy UI a logiky má vzor za cíl tvořit kód více udržitelný a
-testovatelný. \cite{flutterando_analyzing_bloc_mobx}
+testovatelný~\cite{flutterando_analyzing_bloc_mobx}.
 Oproti knihovně Redux si lze z uvedených pravidel všimnout,
 že už samotný návrhový vzor BLoC pracuje s vícero zdroji pro uchování stavu.
 
@@ -264,7 +264,7 @@ Jednou z implementací tohoto vzoru je knihovna Bloc od Felixe Angelova.
 Tato implementace se zaměřuje na potřeby vývojářů jako
 vědět v jakém stavu je aplikace v daný moment, snadné testování,
 znovupoužitelnost, rychlý vývoj a mnoho dalšího. 
-Dle \cite{bloclibrary_coreconcepts} pracuje knihovna Bloc se čtyřmi základními
+Dle~\cite{bloclibrary_coreconcepts} pracuje knihovna Bloc se čtyřmi základními
 koncepty: 
 
 \begin{description}
@@ -288,8 +288,8 @@ koncepty:
 \end{description}
 
 \begin{listing}
-    \caption{Ukázka kódu počítadla v knihovně Bloc
-    \cite{bloclibrary_coreconcepts}}
+    \caption{Ukázka kódu počítadla v knihovně
+    Bloc~\cite{bloclibrary_coreconcepts}}
     \label{code:state-bloc}
     \begin{minted}{dart}
 import 'package:bloc/bloc.dart';
@@ -312,7 +312,7 @@ class CounterBloc extends Bloc<CounterEvent, int> {
     \end{minted}
 \end{listing}
 
-Z výpisu kódu \ref{code:state-bloc} lze vidět,
+Z výpisu kódu~\ref{code:state-bloc} lze vidět,
 že knihona Bloc pracuje asynchronně pomocí toků dat za využití
 tříd \mintinline{dart}|Stream| a \mintinline{dart}|Sink|.
 To umožňuje pro jednu událost snadno vyvolat několik změn
@@ -321,7 +321,7 @@ a zároveň reagovat na změny stavu asynchronně i v UI.
 \subsection{Zhodnocení}
 
 Vyzdvihování stavu,
-jak je popsáno v \ref{sec:data-callback-transfer},
+jak je popsáno v~\ref{sec:data-callback-transfer},
 není ideální řešení pro udržitelnost a rozšiřitelnost.
 Knihovna Provider sice řeší vkládání závislostí,
 avšak neřeší samotný state management.

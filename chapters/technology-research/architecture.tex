@@ -45,7 +45,7 @@ produkovat kvalitnější kód.
 Kvalitnější architektura tedy logicky minimalizuje nutnost oprav a
 přizpůsobení struktury aplikace při vývoji každé nové funkcionality.
 
-Dle zdroje \cite{architecture} lze rozdělit architektury do dvou skupin:
+Dle zdroje~\cite{architecture} lze rozdělit architektury do dvou skupin:
 architektury zaměřené na databázi a architektury zaměřené na doménu.
 V následujících sekcích budou popsány rozdíli mezi oběmi skupinami
 a vybrané konkrétní případy architektur.
@@ -54,14 +54,14 @@ a vybrané konkrétní případy architektur.
 
 Architektury zaměřené na databázi,
 také nazývané \emph{database-centric architectures},
-byly dle \cite{architecture} prvním typem softwarových architektur.
+byly dle~\cite{architecture} prvním typem softwarových architektur.
 Tyto architektury staví databáze do středu dění,
-jak jde vidět z obrázku \ref{fig:architecture_database}.
+jak jde vidět z obrázku~\ref{fig:architecture_database}.
 
 \begin{figure}
     \centering
     \includegraphics[width=0.5\linewidth]{assets/technology-research/architecture/database-centric.jpg}
-    \caption{Schéma architektury zaměřené na databázi \todo{do vektoru} \cite{architecture}}
+    \caption{Schéma architektury zaměřené na databázi \todo{do vektoru}~\cite{architecture}}
     \label{fig:architecture_database}
 \end{figure}
 
@@ -84,7 +84,7 @@ která se stará o manipulaci a tok dat z databáze do nižších vrstev.
 \cite{architecture}
 
 \begin{listing}
-    \caption{Ukázka přístupu zaměřeného na databázi v jazyce Java \cite{architecture}}
+    \caption{Ukázka přístupu zaměřeného na databázi v jazyce Java~\cite{architecture}}
     \label{code:architecture-database}
     \begin{minted}{java}
 package ua.com.crosp.testapp.domain;
@@ -113,7 +113,7 @@ Ukázka přístupu pomocí této architektury je znázorněna ve výpisu kódu
 \begin{figure}
     \centering
     \includegraphics[width=0.5\linewidth]{assets/technology-research/architecture/domain-centric.jpeg}
-    \caption{Schéma architektury zaměřené na doménu \todo{do vektoru; oříznout?} \cite{architecture}}
+    \caption{Schéma architektury zaměřené na doménu \todo{do vektoru; oříznout?}~\cite{architecture}}
     \label{fig:architecture_domain}
 \end{figure}
 
@@ -121,7 +121,7 @@ Architektury zaměřené na doménu,
 také nazývané \emph{domain-centric architectures},
 je produktem vývoje z předchozího typu architektur.
 Střed dění je přesunut na aplikační vrstvu
---- jak jde vidět z obrázku \ref{fig:architecture_domain} ---,
+--- jak jde vidět z obrázku~\ref{fig:architecture_domain} ---,
 protože právě tato vrstva je v aplikaci nejdůležitější,
 jelikož se v ní děje implementace nových funkcionalit, změn či oprav.
 \cite{architecture}
@@ -145,7 +145,7 @@ Ukázka přístupu pomocí tohoto typu architektury je znázorněna ve výpisu k
 \ref{code:architecture-domain}.
 
 \begin{listing}
-    \caption{Ukázka přístupu zaměřeného na doménu v jazyce Java \cite{architecture}}
+    \caption{Ukázka přístupu zaměřeného na doménu v jazyce Java~\cite{architecture}}
     \label{code:architecture-domain}
     \begin{minted}{java}
 package ua.com.crosp.testapp.domain;
@@ -174,11 +174,11 @@ implements GetRecentPostsUseCaseContract {
 On the one hand, if the bricks aren’t well made,
 the architecture of the building doesn’t matter much.
 On the other hand, you can make a substantial mess with well-made bricks.
-This is where the SOLID principles come in.}}} \cite{martin_clean_architecture}
+This is where the SOLID principles come in.}}}~\cite{martin_clean_architecture}
 
 %https://gist.github.com/ygrenzinger/14812a56b9221c9feca0b3621518635b
 
-\todo{Co je Clean Architecture \cite{martin_clean_architecture}, proč je to fajn používat atp.}
+\todo{Co je Clean Architecture~\cite{martin_clean_architecture}, proč je to fajn používat atp.}
 \blind{3}
  
 %https://hackernoon.com/hammering-at-clean-architecture-1wbr3cgo
