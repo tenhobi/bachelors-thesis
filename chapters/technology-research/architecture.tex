@@ -167,14 +167,6 @@ implements GetRecentPostsUseCaseContract {
 
 \subsection{Clean Architecture}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=\linewidth]{assets/technology-research/architecture/clean-architecture.jpg}
-    \caption{Schéma architektury
-    Clean Architecture~\cite{the_clean_architecture}}
-    \label{fig:the_clean_architecture}
-\end{figure}
-
 Clean Architecture je architektura popisovaná ve stejnojmenné knize,
 od Roberta~C. Martina.
 \todo{\emph{\uv{Good software systems begin with clean code.
@@ -209,6 +201,14 @@ Dle \cite[část 3]{martin_clean_architecture} obsahuje SOLID následujícící 
     Rather, details should depend on policies.
 \end{description}
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\linewidth]{assets/technology-research/architecture/clean-architecture.jpg}
+    \caption{Schéma architektury
+    Clean Architecture~\cite{the_clean_architecture}}
+    \label{fig:the_clean_architecture}
+\end{figure}
+
 Princip inverze závislostí je jedním z nejdůležitějších principů SOLID,
 který Clean Architecture využívá. 
 Tento princip říká,
@@ -242,13 +242,51 @@ které mohou obsahovat samotná data,
 ale i jejich funkce.
 S entitami pracují \emph{use cases},
 které implementují za pomocí entit všechny případy užití.
-Poslední vrstva většinou neobsahuje implentaci a pouze volá vnitřní vrstvu.
-Do této vrstvy může patřit například mobilní framework,
-který volá kontroler,
-který zařídí samotné spuštění spuštění správného use case.
+Poslední vrstva většinou neobsahuje implentaci
+a pouze volá vnitřní vrstvu.
+Do této vrstvy může patřit například mobilní framework (framework Flutter),
+který volá kontroler (state management BLoC),
+který zařídí pouze samotné spuštění správného use case.
 Tyto pravidla nejsou striktní a už pouhým rozdělením do vhodných vrstev
 či pravidlem pro směr závislostí lze vytvořit velmi udržitelný
 software.~\cite{the_clean_architecture}
+
+\begin{figure}[t!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{assets/technology-research/architecture/reso-coder-clean-architecture.png}
+    \caption{Schéma \emph{Reso Coder's Flutter Clean Architecture Proposal}~\cite{the_clean_architecture}}
+    \label{fig:reso_coder_clean_architecture}
+\end{figure}
+
+Otázka architektury je také dělení kódu do nezávislých sekcí či balíčků.
+Přístupy se mohou lišit,
+nejběžnějším je však rozdělení dle vrtev,
+tedy nejčastěji dle prezentační, aplikační a datové vrstvy.
+Takovýto přístup je pro začátek dostačující a často je doporučován tutoriály.
+Dalším přístupem je rozdělení dle stejných vlastostí (\emph{features}).
+To znemaná,
+že se kód nedělí horizontálně,
+ale vertikálně.
+Kód je sice možná lehčí nalézt,
+než u přístupu rozdělení dle vrstev,
+avšak pro změnu neřeší oddělení dat, domény a UI.
+Dalším z přístupů je rozdělení kódu jak dle vlastností,
+tak následně dle vrstev,
+což přináší výhody z obou předešlých
+způsobů.~\cite[kapitola 34]{the_clean_architecture}
+
+Tato architektura je samozřejmě značně abstraktní,
+proto je nutné konkrétní věci organizovat dle potřeb aplikace,
+například dle návrhu \emph{Reso Coder's Flutter Clean Architecture Proposal},
+který je vidět na obrázku~\ref{fig:reso_coder_clean_architecture}.
+Tento návrh rozděluje kód do vrstev tak,
+že framework Flutter a state management je ve vrstvě prezenční,
+use cases, entity a kontrakty repozitířů jsou ve vrstvě aplikační
+a modely (které dědí z entit) a implementace repozitářů jsou ve vrstvě datové.
+Třídy modelů oproti entitám obsahují transformační metody jako
+převod z a doformátu JSON,
+jelikož tyto metody jsou pro aplikační vrstvu nepodstatným
+detailem.~\cite{reso_coder_clean_architecture}
 
 \subsection{Zhodnocení}
 
