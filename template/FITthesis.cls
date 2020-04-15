@@ -492,6 +492,7 @@ sp\^ osobom, ktor\'y nezni\v zuje hodnotu Diela (vr\'atane komer\v cn\'eho vyu\v
 	\vfil
 
 	\if@abstractendefined
+		%\newpage
 		\chapterstyletitle{Abstract}\theabstracten
 	\else
 		\ClassError{FITthesis}{Abstract in English unspecified}{Specify abstract in English using the \abstractEN command.}
