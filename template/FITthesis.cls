@@ -489,10 +489,10 @@ sp\^ osobom, ktor\'y nezni\v zuje hodnotu Diela (vr\'atane komer\v cn\'eho vyu\v
 		\ClassError{FITthesis}{Czech keywords unspecified}{Specify the keywords in Czech of your thesis using \keywordsCS command.}
 	\fi
 
-	\vfil
+	\newpage
+	%\vfil
 
 	\if@abstractendefined
-		%\newpage
 		\chapterstyletitle{Abstract}\theabstracten
 	\else
 		\ClassError{FITthesis}{Abstract in English unspecified}{Specify abstract in English using the \abstractEN command.}
