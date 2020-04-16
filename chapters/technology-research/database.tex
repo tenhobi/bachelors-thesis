@@ -9,49 +9,47 @@ Oproti jednomuchému ukládání dat do souboru na disku mají databáze hodně 
 Data lze vyhledávat pomocí speciálních dotazů,
 lze je slučovat pomocí spojovacích funkcí,
 jsou tolerantní k chybám
-a může je používat vícero uživatelů najednou.
-A to všechno při zachování optimální rychlosti.
-\cite{database}
+a může je používat více uživatelů najednou.
+A to všechno při zachování optimální rychlosti.~\cite{database}
 
 Dle~\cite{sql_nosql} existuje několik typů databází a přístupů k datům,
 přičemž největší rozdíly jsou v tom,
 jak ukládají který typ dat,
 a jak je k těmto datům umožněno přistupovat.
 \todo{\emph{\uv{Relational databases are structured,
-while non-relational databases are document-oriented and distributed.}}}
-\cite{sql_nosql}
+while non-relational databases are document-oriented and
+distributed.}}}~\cite{sql_nosql}
 
 Zatímco Structured Query Language (dále jen SQL) databáze byly donedávna
 preferovaným způsobem databází~\cite{sql_nosql},
 trendem posledních let jsou Non SQL (dále jen NoSQL) databáze.
 Popis těchto typů databází,
 včetně výhod a nevýhod jednotlivého řešení,
-je shrnuto v následujících sekcích.
+je uveden v následujících sekcích.
 
 \subsection{SQL}
 
 Data v SQL databázích jsou ukládány strukturovaně,
-čímž tyto databáze dosáhnout největších výhod.
-Výhodou také je jejich široká podpora a snadné řešení chyb.
+čímž tyto databáze dosahují největších výhod.
+Výhodou je také jejich široká podpora a snadné řešení chyb.
 Principem těchto databází jsou vlastnosti,
 které shrnuje ACID (atomičnost, koexistence, izolace, trvanlivost).
 Těmito vlastnostmi databáze redukuje anomálie a chyby způsobené transakcemi.
 Díky dlouhé době,
-za kterou se SQL databáze již používali,
+za kterou se SQL databáze již používaly,
 existuje spousta nástrojů a doplňků,
 které usnadňují vývoj a řešení případných chyb.
 Nevýhodou je však náročnější škálování databáze při vývoji aplikace.
-Příkladem je například databáze MySQL.
-\cite{sql_nosql}
+Příkladem je například databáze MySQL.~\cite{sql_nosql}
 
 \subsection{NoSQL}
 
-Data v NoSQL databázích jsou většinou nestruktorovány.
+Data v NoSQL databázích jsou většinou nestrukturovány.
 Tím získávají tyto databáze velký náskok co se flexibility dat a rychlosti
 přístupu týče.
-Tyto databáze je vhodné vnímat především jako klekce,
-které obashují dokumenty. 
-NoSQL databáze jsou vhodné pro ukládání velkého množství nestruktorovaných dat,
+Tyto databáze je vhodné vnímat především jako kolekce,
+které obsahují dokumenty. 
+NoSQL databáze jsou vhodné pro ukládání velkého množství nestrukturovaných dat,
 u kterých není nutné předem definovat jejich podobu.
 Nevýhodou je však relativní novost tohoto přístupu,
 což znamená i menší počet nástrojů,
@@ -75,7 +73,7 @@ Duolingo, Alibaba, \dots{}
 
 Cloud Firestore je flexibilní NoSQL databáze dostupná v projektu Firebase.
 Tato databáze lehce spolupracuje s ostatními produkty Firebase,
-jako jsou autentikace, správa práv nebo automatické aktualizace dat.
+jako jsou autentizace, správa práv nebo automatické aktualizace dat.
 Spolu s databází je poskytována řada balíčků pro vývoj mobilních a webových
 aplikací,
 které poskytují přátelské rozhraní k vývoji s touto databází.
@@ -92,7 +90,7 @@ Vývoj herní aplikace je ideální pro využití NoSQL databází.
 V takovéto aplikaci se najde plno příležitostí,
 kde lze využít rysů těchto databází,
 kde by naopak rysy SQL databází působily zbytečné obtíže.
-I když nedisponují ACID vlastnostmi,
+I když nedisponují vlastnostmi ACID,
 je využití tohodo typu databáze,
 konkrétně databáze Cloud Firestore,
 nejvhodnější pro vývoj praktické části práce,

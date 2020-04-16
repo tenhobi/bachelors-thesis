@@ -6,7 +6,7 @@ aplikací a her.
 Aplikace pro mobilní zařízení se běžně vytvářejí pomocí programovacích jazyků,
 které jsou úzce spjaty s mobilními zařízeními.
 Příkladem takového programovacího jazyka je jazyk Java,
-který se použivá pro vývoj nativních aplikací v platformě Android.
+který se používá pro vývoj nativních aplikací v platformě Android.
 Tyto jazyky mají úzkou podporu pro vývoj na daných zařízeních,
 včetně přístupu k hardwarovému rozhraní (kamera, senzory, \dots{}),
 jak uvádí zdroj~\cite{dashmagazine_mobile_frameworks}. 
@@ -20,10 +20,10 @@ jak uvádí zdroj~\cite{dashmagazine_mobile_frameworks}.
 
 Snahu urychlit vývoj mobilních aplikací řeší také mobilní frameworky.
 Tyto frameworky jsou tvořeny většinou stejnou společností,
-která také vytváří danou platformu
-a jsou publikování jako \emph{Software Development Kit} (dále jen SDK).
+která také vytváří danou platformu,
+a jsou publikovány jako \emph{Software Development Kit} (dále jen SDK).
 \cite{dashmagazine_mobile_frameworks}
-Pro platformu Android je vývíjeno Android SDK,
+Pro platformu Android je vyvíjeno Android SDK,
 spolu s podpůrnými programy jako integrované vývojové prostředí
 (dále jen IDE) a emulátory.
 Tyto frameworky jsou díky jejich úzkému propojení a plné kompatabilitě
@@ -84,14 +84,15 @@ a komunikaci s hardwarovým rozhraním řeší pomocí speciálního komunikačn
 mostu.
 Taková architektura je vidět na obrázku~\ref{fig:framework_webview}.
 Z tohoto obrázku jde vidět,
-jak moc oddělená je 
+jak moc je zdrojový kód oddělený od dané platformy.
 
 Jedním z představitelů těchto frameworků je i framework Ionic,
 který je stále
 --- dle trendů z obrázku~\ref{fig:framework_popularity} ---
 značně využívaný i v dnešní době.
-Framework Ionic využívá jazyky jako HTML, CSS a JavaScript,
-a jde v něm vytvořit aplikaci pro mobilní platformy Android a iOS.
+Framework Ionic využívá jazyky jako HTML, CSS a JavaScript.
+V tomto frameworku je možné vytvořit aplikaci pro mobilní platformy
+Android a iOS.
 Významnou výhodou je,
 že díky využití mobilních technologií,
 které se používají naprosto shodně jako při vývoji webových aplikací,
@@ -143,7 +144,7 @@ společností Facebook,
 která jej od té doby spravuje.
 Za zmíňku stojí populární aplikace~\cite{react_native},
 které framework využívají,
-kterými jsou například mobilní aplikace Facebook, Instagram, Skype, Discord
+mezi nimi jsou například mobilní aplikace Facebook, Instagram, Skype, Discord
 a mnoho dalších.
 
 Na obrázku~\ref{fig:framework_react_native} lze vidět schéma architektury
@@ -199,14 +200,14 @@ Díky možnostem kompilace JIT je také framework schopen poskytnout
 \emph{hot reload},
 který umožní velmi rychle provádět změny stavů aplikace zatímco je spuštěna.
 Vydání aplikace jsou vždy kompilovány naopak AOT kompilací,
-která produkuje velmi rychlou a výkonou aplikaci.
+která produkuje velmi rychlou a výkonnou aplikaci.
 \cite{hackernoon_flutter}
 
-I přes to,
+Přesto,
 že je framework Flutter relativně nový,
 existuje řada aplikací,
 které tento framework úspěšně využívají.
-Za zmíňku stojí například aplikace Google Ads, Baidu, Hamilton a
+Za zmínku stojí například aplikace Google Ads, Baidu, Hamilton a
 Reflecty~\cite{flutter}.
 
 Tento framework využívá sice widgety (komponenty UI),
@@ -247,13 +248,13 @@ zatímco widget \mintinline{dart}|Column| uspořádá widgety--potomky do sloupc
 
 Na obrázku~\ref{fig:flutter_layers} lze vidět uspořádání frameworku do vrstev
 architektury.
-Samotný framework je rozdělen do části frameworku samotného na úrovni widgetů
---- které píšou vývojář aplikací v jazyce Dart ---,
-enginu, který ovládá framework na nižší urovni,
-kompozici widgetů, jejich vykreslování atp.,
---- ten je řešen v programovacích jazycích C a C++ ---
-a vrstvě zaměřené na specifickou platformu.
-\cite{flutter_technical_overview}
+Vrstva frameworku samotného je na úrovni widgetů,
+které píší vývojáři aplikací v jazyce Dart.
+Vrstva enginu ovládá framework na nižší urovni, kompozici widgetů,
+jejich vykreslování a podobně.
+Engine je vyvíjen v programovacích jazycích C a C++.
+A vrstvě zaměřené na požadavky specifické
+platformy.~\cite{flutter_technical_overview}
 
 Pokud se widget potřebuje měnit na základě dynamických faktorů,
 jako je například interakce uživatele nebo tok dat,
@@ -265,9 +266,8 @@ která má stav neměnný.
 Každý stateful widget má proměnlivý stav \mintinline{dart}|State|
 a kdykoli je stav změněn,
 je potřeba zavolat metodu \mintinline{dart}|setState()|,
-která způsobí signalizaci frameworku,
-že je widget notno překreslit s novým stavem.
-\cite{flutter_technical_overview}
+která signalizuje frameworku,
+že je widget nutno překreslit s novým stavem.~\cite{flutter_technical_overview}
 
 \subsubsection*{Další platformy}
 

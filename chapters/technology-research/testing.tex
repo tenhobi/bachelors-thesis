@@ -141,7 +141,7 @@ které code coverage
 --- v rámci kontinuální integrace, která je popsána v kapitole~\ref{chap:ci} ---
 moniturují a podávají vývojářům zprávy.
 Příkladem těchto služeb může být CodeCov či Coveralls.
-Každý soubor či složka je ohodnocen procenty,
+Každý soubor či složka jsou ohodnoceny procenty,
 které značí poměr otestovaného a neotestovaného kódu.
 Služba pracující s code coverage při každé obdržené dávce kódu spustí
 průzkum kódu aplikace a porovná jej se stávající verzí.
@@ -195,8 +195,8 @@ jelikož vede k vyšší kvalitě kódu.
 Navíc,
 dodržováním těchto tří pravidel přesně víme,
 jak volat určité rozhraní,
-jelikož pro to máme test.
-Kdokoli potřebuje znát cokoli aplikaci,
+jelikož pro toto rozhraní existuje test.
+Kdokoli potřebuje znát cokoli o aplikaci,
 existuje test,
 který tuto činnost popisuje.
 \cite{tdd}
@@ -208,17 +208,17 @@ Jakákoli aplikace se běžně skládá z mnoha částí
 a obsahuje mnoho řádků kódu,
 zatímco do sebe musí vše dokonale zapadat
 a i nejmenší chyba může způsobit selhání sestavení aplikace.
-Při přidávání nových funkcionalit je proto velké riziko,
+Při přidávání nových funkcionalit nastává velké riziko,
 že aplikace obsahuje chybu.
 Při snaze připojení změn pomocí nástrojů rozšiřující verzovací systémy
-tak proto nastává příležistos pro CI,
-které provede sestavení aplikace a spustí automatizované testy.
+tak proto nastává příležistost pro CI,
+která provede sestavení aplikace a spustí automatizované testy.
 V tomto okamžiku dostane vývojář skrze rozšiřující aplikace indikaci,
-zda-li změny kód rozbijí,
+zda změny kód rozbijí,
 nebo zda aplikace zůstane v funkční.
 \cite{ci}
 
-Použití CI je výhodné především při práci s v týmu.
+Použití CI je výhodné především při práci v týmu.
 Právě díky zmíněným výhodám lze připojovat změny rychle a bez obav o zanesení
 jinak skrytých chyb.
 Tyto nástroje jsou buď zabudované do nástrojů rozšiřujících verzovací systémy
@@ -234,7 +234,7 @@ Zatímco psaní widget testů a integračních testů může být zdlouhavé
 a mohou se často měnit požadavky,
 psaní unit testů je velmi důležité a dalo by se říci,
 že i nutností.
-V praktické práci budou tedy využity zejmény unit testy,
+V praktické práci budou tedy využity zejména unit testy,
 které pomáhají testovat samotnou funkcionalitu daných částí
 a zaručují,
 že stanovené rozhraní se nemění.
@@ -243,7 +243,7 @@ což je sice nejistý indikátor,
 ale i tak je dobré jej udržovat co nejvýše.
 Testy a code coverage je vhodné spouštět automaticky pomocí kontinuální
 integrace.
-TDD je zajisté skvělá metoda,
+TDD je skvělá metoda,
 která má mnoho benefitů,
 jak bylo popsáno v kapitole~\ref{sec:tdd}.
 Aplikace této metody ovšem vyžaduje spoustu zkušeností

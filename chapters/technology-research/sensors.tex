@@ -2,7 +2,7 @@
 
 Použití senzorů v herních aplikacích je velmi časté.
 Senzory totiž mohou dodat aplikaci data,
-které jí pomohou obohatit o detaily,
+která jí pomohou obohatit o detaily,
 případně na nich může aplikace postavit funkčnost dílčích částí.
 Počet ušlých kroků,
 navigace pomocí kompasu,
@@ -44,24 +44,24 @@ a senzor přiblížení.
 \subsection{Akcelerometr}
 
 Akcelerometr určuje akceleraci v rámci os daného mobilního zařízení
-kombinované s gravitací,
-která na toto mobilní zařízení v jednotlivých jeho osách platí.
+spolu s gravitací,
+která na toto mobilní zařízení v jednotlivých jeho osách
+působí~\cite{sensors_motion}.
 Z tohoto důvodu akcelerometr naměří výsledky i v případech,
 kdy mobilní zařízení například leží na stole,
-konkrétně s hodnotou udanou gravitační silou $g = -9,81 m/s^2$.
-\cite{sensors_motion}
+konkrétně s hodnotou udanou
+gravitační silou $g = -9,81 m/s^2$~\cite{sensors_motion}.
 Tento senzor je tedy vhodný pro detekování pohybu zařízení
-a lze říci, že jej osahují všechny zařízení se systémy Android a iOS.
+a lze říci, že jej obsahují všechna zařízení se systémy Android a iOS.
 
 \subsection{Gyroskop}
 
-Gyroskop měří pohyb rotace jednotlivých os mobilního zařízení.
+Gyroskop měří pohyb rotace jednotlivých os mobilního
+zařízení~\cite{sensors_motion}.
 Oproti akcelerometru tento senzor při nehybném zařízení
 nevydává žádná data,
 senzor totiž měří pouze změnu.
-Změna rotace je udávaná jako radiány za sekundu.  
-\cite{sensors_motion}
-
+Změna rotace je udávaná jako radiány za sekundu~\cite{sensors_motion}.
 Tento senzor lze využít například pro rotaci ve 3D při 360° pohledu,
 kdy uživatel sedí na otočné židli a otáčením židle prohlíží okolí v aplikaci.
 
@@ -69,16 +69,15 @@ kdy uživatel sedí na otočné židli a otáčením židle prohlíží okolí v
 
 Senzor přiblížení určuje vzdálenost objektu od zařízení.
 Senzor je běžně umístěn na přední straně mobilního zařízení
---- například systém Android vypíná obrazovku,
-zatímco uživatel telefonuje se zařízením u ucha ---
-a určitě absolutní vzdálenost,
+a určuje absolutní vzdálenost,
 nicméně některé druhy tohoto senzoru určují pouze
-stavy \emph{blízko} a \emph{daleko}.
-\cite{sensors_position}
+stavy \emph{blízko} a \emph{daleko}.~\cite{sensors_position}
+Například systém Android vypíná obrazovku,
+zatímco uživatel telefonuje se zařízením přiloženým u ucha.
 
 Tento senzor lze využít například pro snímání vzdálenosti ruky od zařízení,
 nebo v kombinaci s gyroskopem k určení stavu,
-kdy je mobil položený na stole a otočený směrem ke němu.
+kdy je mobil položený na stole a otočený směrem k němu.
 
 \subsection{Zhodnocení}
 
