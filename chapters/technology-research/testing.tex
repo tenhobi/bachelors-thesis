@@ -3,18 +3,18 @@
 Testování se v průběhu let stalo nedílnou součástí vývoje aplikací.
 Je vhodné pro všechny velikostí aplikací,
 především proto,
-že testování vede k vyšší kvalitě kódu~\cite{testing_quality}
-a tím k snadnější udržitelnosti aplikace.
+že testování vede k vyšší kvalitě kódu
+a tím k snadnější udržitelnosti aplikace~\cite{testing_quality}.
 Cílem testů je ověřit a dále kontrolovat,
 že specifické části aplikace fungují
-a že zachovávají tuto funkčnost při jejich úpravě.
-\todo{\emph{\uv{Dijkstra once said,
+a že zachovávají tuto funkčnost při jejich úpravě~\cite{testing_quality}.
+\emph{\uv{Dijkstra once said,
 \buv{Testing shows the presence, not the absence, of bugs.}
 In other words, a program can be proven incorrect by a test,
 but it cannot be proven correct.
 All that tests can do, after sufficient testing effort,
-is allow us to deem a program to be correct enough for our purposes.}}}
-\cite[kapitola~4]{martin_clean_architecture}
+is allow us to deem a program to be correct enough for our
+purposes.}}~\cite[kapitola~4]{martin_clean_architecture}
 
 V této podkapitole jsou popsány typy testů,
 které pomáhají k snažšímu testování.
@@ -27,7 +27,8 @@ a využití testů při připojování kódu ve verzovacích systémech.
 Testovat je možné i ručně.
 To však je však z globálního hlediska neefektivní a zdlouhavé.
 V praxi se proto využívají automatizované testy,
-které lze spustit samostatně kdykoli během cyklu vývoje aplikace.
+které lze spustit samostatně kdykoli během cyklu vývoje
+aplikace~\cite{testing_flutter}.
 Dle~\cite{testing_flutter} se automatizované testy dělí do těchto kategorií:
 
 \begin{description}
@@ -51,7 +52,6 @@ Dle~\cite{testing_flutter} se automatizované testy dělí do těchto kategorií
 \end{description}
 
 Ve výpisu kódu~\ref{code:test-unit} lze vidět příklad unit testu.
-\cite{testing_flutter_unit}
 Unit testování vyžaduje jako závislost pro vývoj balíček
 \mintinline{dart}|test|.
 Příklad obsahuje čítač reprezentovaný třídou \mintinline{dart}|Counter|,
@@ -60,10 +60,9 @@ metody \mintinline{dart}|increment()|.
 Jak lze vidět,
 použitý balíček umožní vývojáři využívat například metody
 \mintinline{dart}|test()| a \mintinline{dart}|expect()|,
-díky kterým lze popsat očekávaný stav každého testu.
+díky kterým lze popsat očekávaný stav každého testu.~\cite{testing_flutter_unit}
 
 Ve výpisu kódu~\ref{code:test-widget} lze naopak vidět příklad widget testu.
-\cite{testing_flutter_widget}
 Testování widgetů vyžaduje jako závislost pro vývoj balíček
 \mintinline{dart}|flutter_test|.
 Příklad ukazuje ukázku toho,
@@ -72,7 +71,7 @@ a \emph{message}.
 Princip funkčnosti je stejný,
 jako u balíčku \mintinline{dart}|test|,
 jen se namísto metody \mintinline{dart}|test()|
-využívá metoda \mintinline{dart}|testWidgets()|.
+využívá metoda \mintinline{dart}|testWidgets()|.~\cite{testing_flutter_widget}
 
 \begin{listing}
     \caption{Ukázka unit testu~\cite{testing_flutter_unit}}
@@ -130,8 +129,7 @@ Tato metoda identifikuje kód,
 který již není používán,
 nebo ani nikdy nebyl,
 nebo dokonce netestovatelný kód,
-způsobený špatnou implementací.
-\cite{code_coverage}
+způsobený špatnou implementací.~\cite{code_coverage}
 
 Code coverage také monituruje vývoj v čase,
 případně popisuje změny,
@@ -144,8 +142,7 @@ Příkladem těchto služeb může být CodeCov či Coveralls.
 Každý soubor či složka jsou ohodnoceny procenty,
 které značí poměr otestovaného a neotestovaného kódu.
 Služba pracující s code coverage při každé obdržené dávce kódu spustí
-průzkum kódu aplikace a porovná jej se stávající verzí.
-\cite{code_coverage}
+průzkum kódu aplikace a porovná jej se stávající verzí.~\cite{code_coverage}
 
 \subsection{Test driven development}
 \label{sec:tdd}
@@ -154,7 +151,7 @@ průzkum kódu aplikace a porovná jej se stávající verzí.
 způsobem,
 že se začíná psaním testů,
 které je následováno psaním produkčního kódu,
-které testy splňuje.
+které testy splňuje~\cite{tdd}.
 Dle~\cite{tdd} má TDD tři jednoduchá pravidla:
 
 \begin{enumerate}
@@ -167,15 +164,13 @@ Dle~\cite{tdd} má TDD tři jednoduchá pravidla:
 \end{enumerate}
 
 Nejdříve je tedy napsán unit test pro funkcionalitu,
-kterou chce vývojář přidat.
+kterou chce vývojář přidat~\cite{tdd}.
 Následně vývojář napíše jen tolik kódu,
-kolik je třeba k opravě daného testu.
-A celý proces se znovu opakuje.
-Celá myšlenka~\cite{tdd} stojí tedy na tom,
-že mohu psát pouze kód,
-který opravuje selhávající test.
-Tento proces se zdánlivě zdá \uv{hloupý} a pomalý.
-\todo{\emph{\uv{Now most programmers,
+kolik je třeba k opravě daného testu a celý proces se znovu opakuje~\cite{tdd}.
+Celá myšlenka stojí tedy na tom,
+že vývojář může psát pouze kód,
+který opravuje selhávající test~\cite{tdd}.
+\emph{\uv{Now most programmers,
 when they first hear about this technique, think:
 \buv{This is stupid.}
 \buv{It's going to slow me down,
@@ -187,7 +182,7 @@ However,
 think about what would happen if you walked in a room full of people working
 this way.
 Pick any random person at any random time.
-A minute ago, all their code worked.}}}~\cite{tdd}
+A minute ago, all their code worked.}}~\cite{tdd}
  
 Jak již bylo zmíněno,
 dle výzkumu~\cite{testing_quality} je navíc tento přístup velmi efektivní,
@@ -195,11 +190,10 @@ jelikož vede k vyšší kvalitě kódu.
 Navíc,
 dodržováním těchto tří pravidel přesně víme,
 jak volat určité rozhraní,
-jelikož pro toto rozhraní existuje test.
+jelikož pro toto rozhraní existuje test~\cite{tdd}.
 Kdokoli potřebuje znát cokoli o aplikaci,
 existuje test,
-který tuto činnost popisuje.
-\cite{tdd}
+který tuto činnost popisuje~\cite{tdd}.
 
 \subsection{Kontinuální integrace}
 \label{chap:ci}
@@ -215,8 +209,7 @@ tak proto nastává příležistost pro CI,
 která provede sestavení aplikace a spustí automatizované testy.
 V tomto okamžiku dostane vývojář skrze rozšiřující aplikace indikaci,
 zda změny kód rozbijí,
-nebo zda aplikace zůstane v funkční.
-\cite{ci}
+nebo zda aplikace zůstane v funkční.~\cite{ci}
 
 Použití CI je výhodné především při práci v týmu.
 Právě díky zmíněným výhodám lze připojovat změny rychle a bez obav o zanesení
@@ -224,8 +217,7 @@ jinak skrytých chyb.
 Tyto nástroje jsou buď zabudované do nástrojů rozšiřujících verzovací systémy
 jako jsou GitHub a jejich GitHub Actions či GitLab a jejich GitLab CI,
 nebo nezávislé nástroje,
-jako jsou Travis CI či CircleCI.
-\cite{ci}
+jako jsou Travis CI či CircleCI.~\cite{ci}
 
 \subsection{Zhodnocení}
 

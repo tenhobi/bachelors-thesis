@@ -7,18 +7,19 @@ avšak pro větší aplikace
 je vhodné využít některé z řešení pro správu stavů dílčích částí aplikace,
 známé především jako \emph{state management}.
 
-Stavy nám umožňují přemýšlet o UI ve Flutteru deklarativně
-\cite{flutter_state_mgmt_declarative}.
+Stavy nám umožňují přemýšlet o UI ve Flutteru deklarativně.
 Ve Flutteru platí,
 že UI je výsledkem \mintinline{dart}|build| metody,
 která pracuje s aktuálním stavem aplikace.
 Pro změnu barvy widgetu se tak nevolá funkce jako
 \mintinline{dart}|widget.setColor|,
-ale změní se stav a podle něj se příslušně překreslí UI.
+ale změní se stav a podle něj se příslušně
+překreslí UI.~\cite{flutter_state_mgmt_declarative}
 
 Pojem \emph{stav} můžeme chápat více způsoby.
 V této práci je stav chápán jako všechna data,
-která jsou potřeba k překreslení UI v daný moment.
+která jsou potřeba k překreslení UI
+v daný moment~\cite{flutter_state_mgmt_ephemeral_vs_app}.
 Dle~\cite{flutter_state_mgmt_ephemeral_vs_app} lze stavy dělit do dvou typů:
 
 \begin{description}
@@ -43,8 +44,8 @@ jak určit typ stavu a spolu s tím jak implementovat daný stav v aplikaci.
 Všechny stavy mohou být implementovány pomocí \mintinline{dart}|State| a
 \mintinline{dart}|setState()|,
 a pro mnoho malých aplikací to může být nejjednodušší řešení.
-Stejně tak lze všechny stavy implementovat jako App state.
-\cite{flutter_state_mgmt_ephemeral_vs_app}
+Stejně tak lze všechny stavy implementovat jako
+App state.~\cite{flutter_state_mgmt_ephemeral_vs_app}
 
 Následující sekce obsahují popis možností pro práci s App state.
 Každá sekce uvede danou možnost a popíše klíčové vlastnosti.
@@ -53,17 +54,17 @@ Na závěr je provedeno porovnání a zhodnocení.
 \subsection{Předávání dat a callbacků}
 \label{sec:data-callback-transfer}
 
-Ve Flutteru je samozřejmě možné~\cite{flutter_state_mgmt_simple} mezi widgety
-předávat data konstruktory
-a zpracovávat reakce pomocí callbacků. 
+Ve Flutteru je samozřejmě možné mezi widgety předávat data konstruktory
+a zpracovávat reakce pomocí callbacků~\cite{flutter_state_mgmt_simple}. 
 Pomocí callbacků lze interagovat se stavem,
 který se přesune do nejvýše postaveného widgetu ve stromu widgetů.
 Důvod je ten,
 že ve Flutteru
 --- který je deklarativní ---
-je nutné pro překreslení UI spustit \mintinline{dart}|build|.
-To je zajisté funkční a snadné řešení.
-Avšak mnohokrát je nutné data a callbacky předávat přes více widgetů,
+je nutné pro překreslení UI spustit
+\mintinline{dart}|build|~\cite{flutter_state_mgmt_simple}.
+To je zajisté funkční a snadné řešení,
+avšak mnohokrát je nutné data a callbacky předávat přes více widgetů,
 čímž se aplikace velmi rychle stane nelehce rozšiřitelnou.
 
 Jak lze vidět v ukázce~\ref{code:state-callback},
@@ -89,7 +90,7 @@ void myTapCallback(Item item) {
     \end{minted}
 \end{listing}
 
-Flutter má naštěstí způsoby~\cite{flutter_state_mgmt_simple},
+Flutter má naštěstí způsoby,
 jak mohou widgety sdílet stavy bez toho,
 aniž by se snižovala rozšiřitelnost aplikace pomocí nepřehledného předávání
 dat a callbacků.
@@ -99,14 +100,15 @@ Za zmíňku stojí \mintinline{dart}|InheritedWidget|,
 na který lze jednoduše odkázat odkudkoli z jeho podstromu pomocí
 \mintinline{dart}|MyInheritedWidget.of(context)|.
 Tento widget a další funkcionality zaobaluje knihovna Provider,
-která zjednodušuje použití a snižuje množství potřebného kódu.
+která zjednodušuje použití a snižuje množství potřebného
+kódu.~\cite{flutter_state_mgmt_simple}
 
 \subsection{MobX}
 
 MobX je knihovna pro state management,
-která implementuje vzor observer.
+která implementuje vzor observer~\cite{mobx_core_concepts}.
 Díky jednomuchému rozhraní je vhodná pro začátečníky
-a je používána i ve velkých projektech.
+a je používána i ve velkých projektech~\cite{mobx_core_concepts}.
 Dle~\cite{mobx_core_concepts} pracuje knihovna se třemi základními koncepty:
 
 \begin{description}
@@ -158,7 +160,6 @@ což je jedna z nevýhod tohoto přístupu.
 
 \subsection{Redux}
 
-\todo{Napsat nějaký větší úvod o knihovně Redux?}
 Jedna z nejznámějších knihoven řešící state management je knihovna Redux.
 Dle~\cite{redux_basics} pracuje Redux se třemi základními koncepty:
 
@@ -214,13 +215,13 @@ ve větší aplikaci nemusí být omezení pouze jednoho \emph{Store} vhodné.
 
 Oproti předchozím příkladům není Business Logic Component (dále jen BLoC)
 knihovna,
-ale návrhový vzor.
+ale návrhový vzor~\cite{googledevelopers_bloc}.
 Tento vzor je tvořen několika jednoduchými pravidly,
 kterými se každá implementace musí řídit,
-přičemž konkrétní prvky implementace jsou přenechány na vývojáře.
+přičemž konkrétní prvky implementace jsou přenechány na
+vývojáře~\cite{googledevelopers_bloc}.
 Pojmem BLoC také označujeme třídu,
-která uchovává stav dodržuje daný vzor. 
-\todo{Okomentovat anglický text}
+která uchovává stav dodržuje daný vzor~\cite{googledevelopers_bloc}. 
 Dle~\cite{googledevelopers_bloc} těmito pravidly pro návrh jsou:
 
 \begin{enumerate}
@@ -232,12 +233,11 @@ Dle~\cite{googledevelopers_bloc} těmito pravidly pro návrh jsou:
     if you follow the previous rules.
 \end{enumerate}
 
-Spolu s těmito pravidly pro vzor BLoC byly představeny
-\cite{googledevelopers_bloc} i pravidla pro návrh UI.
-Ty se zabívají zejména vztahem mezi komponentou UI, komponentou BLoC
+Spolu s těmito pravidly pro vzor BLoC byla představena
+pravidla i pro návrh UI~\cite{googledevelopers_bloc}.
+Ta se zabívají zejména vztahem mezi komponentou UI, komponentou BLoC
 a podobou dat,
-které se posílají do a z každé třídy BLoC.
-\todo{Okomentovat anglický text}
+které se posílají do a z každé třídy BLoC~\cite{googledevelopers_bloc}.
 Dle~\cite{googledevelopers_bloc} těmito pravidly jsou:
 
 \begin{enumerate}
@@ -248,7 +248,7 @@ Dle~\cite{googledevelopers_bloc} těmito pravidly jsou:
 \end{enumerate}
 
 Tento návrhový vzor vznikl za účelem oddělení kódu s logikou
-od závislostí na konkrétní platformě.
+od závislostí na konkrétní platformě~\cite{googledevelopers_bloc}.
 Oddělením vrstvy UI a logiky má vzor za cíl tvořit kód více udržitelný a
 testovatelný~\cite{flutterando_analyzing_bloc_mobx}.
 Oproti knihovně Redux si lze z uvedených pravidel všimnout,
@@ -257,12 +257,12 @@ Oproti knihovně Redux si lze z uvedených pravidel všimnout,
 \subsubsection{Knihovna Bloc}
 
 Jednou z implementací tohoto vzoru je knihovna Bloc od Felixe
-Angelova.~\cite{bloclibrary_whybloc}
+Angelova~\cite{bloclibrary_whybloc}.
 Tato implementace se zaměřuje na potřeby vývojářů,
 například vědět v jakém stavu je aplikace v daný moment, snadné testování,
-znovupoužitelnost, rychlý vývoj a mnoho dalšího. 
-Dle~\cite{bloclibrary_coreconcepts} pracuje knihovna Bloc se čtyřmi základními
-koncepty: 
+znovupoužitelnost, rychlý vývoj a mnoho dalšího~\cite{bloclibrary_whybloc}. 
+Dle zdroje~\cite{bloclibrary_coreconcepts} pracuje knihovna Bloc se čtyřmi
+základními koncepty: 
 
 \begin{description}
     \item[Events] Reprezentují události v podobě libovolného objektu

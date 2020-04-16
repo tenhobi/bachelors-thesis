@@ -6,26 +6,25 @@ nezajímá vzhled či uspořádání zdrojového kódu.
 Naopak vývojáři,
 jakožto lidé,
 potřebují udržovat kód snadno čitelný a srozumitelně rozdělený do jednotlivých
-metod, tříd, struktur či vrstev aplikace.
+metod, tříd, struktur či vrstev aplikace~\cite{architecture}.
 Potřebují také vysokoúrovňové jazyky či pokročilé knihovny a frameworky,
-které ulehčí psaní kódu a nenutí vývojáře psát vše znovu.
+které ulehčí psaní kódu a nenutí vývojáře psát vše znovu~\cite{architecture}.
 I přes to ale nejsou aplikace psány dle nejlepších doporučení
-a vývojáři velmi často píší či naráží na tak zvaný \uv{spaghetti code}.
+a vývojáři velmi často píší či naráží na tak zvaný \uv{spaghetti code}~\cite{architecture}.
 To je mnohdy zapříčiněno nárokem na rychlou implementaci nových funkcí či úprav,
 kde vývojáři na úkor času zanedbají čitelnost a strukturu kódu
 a čím dál tím více postupem času prohlubují dluh kvality daného kódu.
-\cite{architecture}
-\todo{\emph{\uv{Software has two types of value:
+\emph{\uv{Software has two types of value:
 the value of its behavior and the value of its structure.
 The second of these is the greater of the two
 because it is this value that makes
-software soft.}}}~\cite[kapitola~15]{martin_clean_architecture}
+software soft.}}~\cite[kapitola~15]{martin_clean_architecture}
 Ze zmíněného zdroje také plyne,
 že se dlouhodobě vyplatí vývoj směřovat k dobré struktuře a architektuře,
 než k samotné implementaci,
 jelikož implementace se snadno opraví,
-kdežto opravit architekturu bez velkého zásahu je značně obtížné.
-\cite{martin_clean_architecture}
+kdežto opravit architekturu bez velkého zásahu
+je značně obtížné~\cite[kapitola~15]{martin_clean_architecture}.
 
 Cílem každé aplikace je mít udržitelný a snadno rozšiřitelný kód.
 Je proto třeba stanovit řadu pravidel,
@@ -34,13 +33,13 @@ celých modulů.
 Architektura a její správný a promyšlený návrh umožňuje vyvarovat
 se chyb a dluhu na kvalitě a modularitě,
 který znemožní snadný proces udržitelnosti aplikace.
-\todo{\emph{\uv{Good architecture makes the system easy to understand,
+\emph{\uv{Good architecture makes the system easy to understand,
 easy to develop, easy to maintain, and easy to deploy.
 The ultimate goal is to minimize the lifetime cost of the system
-and to maximize programmer productivity.}}}
-\cite[kapitola~15]{martin_clean_architecture}
+and to maximize programmer
+productivity.}}~\cite[kapitola~15]{martin_clean_architecture}
 Dobře navržená a udržovaná architektura tak umožní z dlouhodobého hlediska
-produkovat kvalitnější kód.
+produkovat kvalitnější kód~\cite[kapitola~15]{martin_clean_architecture}.
 Kvalitnější architektura tedy logicky minimalizuje nutnost oprav a
 přizpůsobení struktury aplikace při vývoji každé nové funkcionality.
 
@@ -79,8 +78,8 @@ avšak má explicitní závislost na datové vrstvě.
 Poslední vrstva,
 datová vrstva,
 je nejnižší vrstvou,
-která se stará o manipulaci a tok dat z databáze do nižších vrstev.
-\cite{architecture}
+která se stará o manipulaci a tok dat z databáze do
+nižších vrstev.~\cite{architecture}
 
 \begin{listing}
     \caption{Ukázka přístupu zaměřeného na databázi v jazyce Java~\cite{architecture}}
@@ -102,10 +101,10 @@ implements GetRecentPostsUseCaseContract {
 
 V této architektuře je největší role přikládána databázi
 a často je tak datová a aplikační vrstva úzce propojena.
-V nejhorších případech na datové vrstvě závisí i vrstva prezentační.
-\cite{architecture}
-Ukázka přístupu pomocí této architektury je znázorněna ve výpisu kódu
-\ref{code:architecture-database}.
+V nejhorších případech na datové vrstvě závisí i
+vrstva prezentační.~\cite{architecture}
+Ukázka přístupu pomocí této architektury je znázorněna ve výpisu
+kódu~\ref{code:architecture-database}.
 
 \subsection{Architektury zaměřené na doménu}
 
@@ -118,23 +117,23 @@ Ukázka přístupu pomocí této architektury je znázorněna ve výpisu kódu
 
 Architektury zaměřené na doménu,
 také nazývané \emph{domain-centric architectures},
-jsou produktem vývoje z předchozího typu architektur.
-Střed dění je přesunut na aplikační vrstvu
---- jak jde vidět z obrázku~\ref{fig:architecture_domain} ---,
+jsou produktem vývoje z předchozího typu architektur~\cite{architecture}.
+Jak jde vidět z obrázku~\ref{fig:architecture_domain},
+střed dění je přesunut na aplikační vrstvu,
 protože právě tato vrstva je v aplikaci nejdůležitější,
-jelikož v ní probíhá implementace nových funkcionalit, změn či oprav.
-\cite{architecture}
-\todo{\emph{\uv{The way you keep software soft is
+jelikož v ní probíhá implementace nových funkcionalit,
+změn či oprav~\cite{architecture}.
+\emph{\uv{The way you keep software soft is
 to leave as many options open as possible,
 for as long as possible.
 What are the options that we need to leave open?
-They are the details that don’t matter.}}}
-\cite[kapitola~15]{martin_clean_architecture}
+They are the details
+that don’t matter.}}~\cite[kapitola~15]{martin_clean_architecture}
 Výhodou architektur zaměřených na doménu také je,
 že díky návrhu samotnému abstrahují implementační detaily do podoby kontraktů.
 Těmto kontraktům může nadále vyhovět několik konkrétních implementací,
 což umožní snadnou výměnu služeb
-či jiných závislostí~\cite{martin_clean_architecture}.
+či jiných závislostí~\cite[kapitola~15]{martin_clean_architecture}.
 Lze tedy jednoduše nahradit například konkrétní databázi
 --- z databáze MySQL na databázi Cloud Firestore ---,
 bez toho,
@@ -168,17 +167,20 @@ implements GetRecentPostsUseCaseContract {
 
 Clean Architecture je architektura popisovaná ve stejnojmenné knize,
 od Roberta~C. Martina.
-\todo{\emph{\uv{Good software systems begin with clean code.
+\emph{\uv{Good software systems begin with clean code.
 On the one hand, if the bricks aren’t well made,
 the architecture of the building doesn’t matter much.
 On the other hand, you can make a substantial mess with well-made bricks.
-This is where the SOLID principles come in.}}}~\cite[část 3]{martin_clean_architecture}
+This is where the SOLID principles
+come in.}}~\cite[část 3]{martin_clean_architecture}
 Architektura hojně využívá principů SOLID,
 které byly představeny stejným autorem jako kniha.
-Dle \cite[část 3]{martin_clean_architecture} obsahuje SOLID následujícící principy:
+Dle~\cite[část 3]{martin_clean_architecture} obsahuje SOLID následujícící
+principy:
 
 \begin{description}
-    \item[Single-responsibility principle] An active corollary to Conway’s law: The best structure for a software system is heavily influenced
+    \item[Single-responsibility principle] An active corollary to Conway’s law:
+    The best structure for a software system is heavily influenced
     by the social structure of the organization that uses it so that
     each software module has one, and only one, reason to change.
     \item[Open--closed principle] Bertrand Meyer made this principle famous
@@ -212,7 +214,8 @@ Princip inverze závislostí je jedním z nejdůležitějších principů SOLID,
 který Clean Architecture využívá. 
 Tento princip říká,
 že by kód neměl záviset na detailech přímo,
-ale raději záviset na obecném kontraktu (například pomocí dědičnosti nebo rozhraní),
+ale raději záviset na obecném kontraktu
+(například pomocí dědičnosti nebo rozhraní),
 který daný detail implementuje~\cite[kapitola~11]{martin_clean_architecture}.
 Další principy popisují,
 že každá třída by měla mít zodpovědnost právě za jednu
@@ -223,7 +226,7 @@ pokud kód využívá třídu,
 musí fungovat i pokud místo ní použijeme její
 podtřídu~\cite[kapitola~8]{martin_clean_architecture}
 a třídy by neměly záviset na více věcech,
-než je potřeba~\cite[kapitola 10]{martin_clean_architecture}.
+než je potřeba~\cite[kapitola~10]{martin_clean_architecture}.
 Obdobné principy jsou aplikovány i na úrovni komponent aplikace
 a dohromady s principy SOLID způsobí,
 že takový systém je testovatelný,
@@ -272,7 +275,7 @@ avšak pro změnu neřeší oddělení dat, domény a UI.
 Dalším z přístupů je rozdělení kódu jak dle vlastností,
 tak následně dle vrstev,
 což přináší výhody z obou předešlých
-způsobů.~\cite[kapitola 34]{the_clean_architecture}
+způsobů.~\cite[kapitola~34]{the_clean_architecture}
 
 Tato architektura je samozřejmě značně abstraktní,
 proto je nutné konkrétní věci organizovat dle potřeb aplikace,

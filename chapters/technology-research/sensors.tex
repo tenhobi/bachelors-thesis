@@ -8,15 +8,14 @@ Počet ušlých kroků,
 navigace pomocí kompasu,
 ovládání závodního auta natáčením telefonu,
 nebo počítání provedených kliků
---- všechny tyto příklady využívají senzory zařízení.
-\cite{sensors} 
+--- všechny tyto příklady využívají senzory zařízení.~\cite{sensors}
 
 Mobilní zařízení má několik vestavěných senzorů,
-které měří pohyb, orientaci v prostoru a plno dalších věcí.
+které měří pohyb, orientaci v prostoru a plno dalších věcí~\cite{sensors}.
 Každé zařízení může mít rozdílný počet senzorů
-a senzory mohou být buď hardwarové, nebo softwarové.
+a senzory mohou být buď hardwarové, nebo softwarové~\cite{sensors}.
 Softwarové senzory zpracovávají data z jednoho nebo více hardwarových senzorů
-a imitují očekávaný výstup.
+a imitují očekávaný výstup~\cite{sensors}.
 Dle zdroje~\cite{sensors} se senzory dělí na tři základní typy:
 
 \begin{description}
@@ -33,11 +32,10 @@ Dle zdroje~\cite{sensors} se senzory dělí na tři základní typy:
 \end{description}
 
 Pro herní aplikace jsou nejdůležitější senzory pohybu a senzory polohy.
-Senzory prostředí závisí na datech prostředí,
-které se nemění tak často,
+Senzory prostředí závisí na datech prostředí~\cite{sensors_android},
+která se nemění tak často,
 a tedy nemají pro hru větší využití.
-Množství využítí naopak umožňují senzory pohybu a polohy.
-\cite{sensors_android}
+Mnoho využítí naopak umožňují senzory pohybu a polohy.
 V násedujících sekcích proto budou popsány senzory akcelerometr, gyroskop
 a senzor přiblížení.
 
@@ -52,7 +50,8 @@ kdy mobilní zařízení například leží na stole,
 konkrétně s hodnotou udanou
 gravitační silou $g = -9,81 m/s^2$~\cite{sensors_motion}.
 Tento senzor je tedy vhodný pro detekování pohybu zařízení
-a lze říci, že jej obsahují všechna zařízení se systémy Android a iOS.
+a lze říci,
+že jej obsahují všechna zařízení se systémy Android a iOS.
 
 \subsection{Gyroskop}
 
@@ -60,21 +59,20 @@ Gyroskop měří pohyb rotace jednotlivých os mobilního
 zařízení~\cite{sensors_motion}.
 Oproti akcelerometru tento senzor při nehybném zařízení
 nevydává žádná data,
-senzor totiž měří pouze změnu.
+senzor totiž měří pouze změnu~\cite{sensors_motion}.
 Změna rotace je udávaná jako radiány za sekundu~\cite{sensors_motion}.
 Tento senzor lze využít například pro rotaci ve 3D při 360° pohledu,
 kdy uživatel sedí na otočné židli a otáčením židle prohlíží okolí v aplikaci.
 
 \subsection{Senzor přiblížení}
 
-Senzor přiblížení určuje vzdálenost objektu od zařízení.
+Senzor přiblížení určuje vzdálenost objektu od zařízení~\cite{sensors_position}.
 Senzor je běžně umístěn na přední straně mobilního zařízení
 a určuje absolutní vzdálenost,
 nicméně některé druhy tohoto senzoru určují pouze
 stavy \emph{blízko} a \emph{daleko}.~\cite{sensors_position}
 Například systém Android vypíná obrazovku,
 zatímco uživatel telefonuje se zařízením přiloženým u ucha.
-
 Tento senzor lze využít například pro snímání vzdálenosti ruky od zařízení,
 nebo v kombinaci s gyroskopem k určení stavu,
 kdy je mobil položený na stole a otočený směrem k němu.
