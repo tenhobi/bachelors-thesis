@@ -44,6 +44,8 @@ texlive
 texlive-xetex
 texlive-extra-utils
 texlive-lang-czechslovak
+texlive-bibtex-extra
+biber
 python-pygments
 ```
 
