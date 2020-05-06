@@ -1,9 +1,9 @@
 % arara: xelatex: { shell : yes }
-% arara: xelatex: { shell : yes }
-% arara: xelatex: { shell : yes }
 
 % kompilace xelatex prezentace.tex
 % dokumentace k beameru: http://ftp.cvut.cz/tex-archive/macros/latex/contrib/beamer/doc/beameruserguide.pdf
+
+\RequirePackage[hyphens]{url}
 
 % nastavení formátu prezentace 16:9 
 \documentclass[czech,aspectratio=169]{beamer}
@@ -61,7 +61,17 @@
   %\begin{frame}
   %  \tableofcontents %generuje se automaticky z section, subsection, subsubsection
   %\end{frame}
-  
+
+  \begin{frame}{Motivace volby tématu}
+    \begin{center}
+      77 \% uživatelů mobilních zařízeních hraje hry.
+      \vskip5mm
+      Vytvoření mobilní hry pro více platforem\\
+      ve formě open-source řešení\\
+      se zaměřením na snadnou rozšiřitelnost a udržitelnost.
+    \end{center}
+  \end{frame}
+
   \begin{frame}{Cíle práce}
     \begin{itemize}
       \item analýza podobných aplikací a trendů
@@ -72,39 +82,19 @@
     \end{itemize}
   \end{frame}
 
-  \begin{frame}{Motivace}
+  \begin{frame}{Technologie}
     \begin{itemize}
-      \item 77 \% uživatelů mobilních zařízeních jsou hráči.
-      \item Framework Flutter je nový. (todo: a proto je skvělé objevit jeho limity)
-      \item Obohacení Flutter komunity. (todo) 
-      \item Vytvoření open-source hry. (otevřená možnost; mohou využít začínající vývojáři etc.)
+      \item \textbf{Flutter} -- multiplatformní framework
+      \item \textbf{Bloc} -- knihovna pro state management
+      \item \textbf{Clean Architecture} -- architektura
+      \item \textbf{Cloud Firestore} -- NoSQL databáze
     \end{itemize}
   \end{frame}
 
-  \begin{frame}{Technologie}
-    \begin{columns}
-      \begin{column}{.33\textwidth}
-        \begin{center}
-          \textbf{Flutter}
-
-          Multiplatformní mobilní framework
-        \end{center}
-      \end{column}
-      \begin{column}{.33\textwidth}
-        \begin{center}
-          \textbf{Bloc}
-
-          Knihovna pro state management
-        \end{center}
-      \end{column}
-      \begin{column}{.33\textwidth}
-        \begin{center}
-          \textbf{Clean Architecture}
-
-          Architektura
-        \end{center}
-      \end{column}
-    \end{columns}
+  \begin{frame}{Clean Architecture}
+    \begin{center}
+      \includegraphics[width=.6\textwidth]{slides/logo-clean-architecture}
+    \end{center}
   \end{frame}
 
   \begin{frame}
@@ -120,36 +110,32 @@
       \end{center}
   \end{frame}
 
-  \begin{frame}
+  \begin{frame}{Návrh hry}
     \begin{center}
-      \includegraphics[width=.6\textwidth]{slides/logo-clean-architecture}
+      \includegraphics[width=.9\textwidth]{slides/event-loop}
     \end{center}
-  \end{frame}
-
-  \begin{frame}{Návrh hry}
-    % TODO: diagram jeden hráč aktér, druhý manuál
-    % TODO: nějaký diagram event loop
-  \end{frame}
-
-  \begin{frame}{Návrh hry}
-
   \end{frame}
 
   \begin{frame}
     \begin{columns}
-      \begin{column}{.33\textwidth}
+      \begin{column}{.25\textwidth}
         \begin{center}
-          Screen 1
+          \includegraphics[width=.9\textwidth]{slides/screen-0}
         \end{center}
       \end{column}
-      \begin{column}{.33\textwidth}
+      \begin{column}{.25\textwidth}
         \begin{center}
-          Screen 2
+          \includegraphics[width=.9\textwidth]{slides/screen-1}
         \end{center}
       \end{column}
-      \begin{column}{.33\textwidth}
+      \begin{column}{.25\textwidth}
         \begin{center}
-          Screen 3
+          \includegraphics[width=.9\textwidth]{slides/screen-2}
+        \end{center}
+      \end{column}
+      \begin{column}{.25\textwidth}
+        \begin{center}
+          \includegraphics[width=.9\textwidth]{slides/screen-3}
         \end{center}
       \end{column}
     \end{columns}
@@ -157,12 +143,30 @@
 
   \begin{frame}{Shrnutí}
     \begin{itemize}
-      \item Rešerše technologií.
-      \item Vytvoření funkčního řešení hry.
-      \item Možnosti rozšíření.
-      \item ---
-      \item TODO: osobní přínosy -- naučení se technologií, obohacení komunity o hru ve Flutteru, možnost na volné chvilky s přáteli...
+      % TODO -- doladit
+      %\item Rešerše vhodných technologií.
+      %\item Návrh a vytvoření funkčního řešení hry.
+      \item Všechny cíle splněny.
+      \item Úspěšný návrh a vytvoření funčního řešení hry.
+      \item Úspěšné cílení na snadnou rozšířitelnost.
+      \item Přínos aplikace pro obohacení komunity Flutter.
+      \item Spokojenost uživatelů při testování aplikace.
+      \item Mnoho možností rozšíření a adaptace.
     \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Zdroje}
+    \begin{itemize}
+      \item WEPC. \emph{2020 Video Game Industry Statistics, Trends \& Data} [online]. 2020 [cit. 2020-03-21]. Dostupné z: \url{https://www.wepc.com/news/video-game-statistics}.
+      \item MARTIN, Robert C. \emph{The Clean Architecture} [online]. 2012 [cit. 2020-04-07]. Dostupné z: \url{https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html}.
+      \item MARTIN, Robert C. \emph{Clean Architecture: A Craftsman’s Guide to Soft-ware Structure and Design}. Prentice Hall, 2018, s. 140. ISBN 0134494164. Dostupné také z: \url{https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure-ebook/dp/B075LRM681}. 
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Děkuji za pozornost}
+    \begin{center}
+      Prostor pro dotazy.
+    \end{center}
   \end{frame}
 
   \begin{frame}[noframenumbering]{Otázky oponenta}
@@ -181,8 +185,3 @@
     Odpověď: Prostě proto.
   \end{frame}
 \end{document}
-
-% TODO...
-% clean architecture citát - strana
-% clean architecture obrázek https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
-% fakta z motivace -- wepc_video_game_statistics
