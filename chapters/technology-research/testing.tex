@@ -14,7 +14,7 @@ In other words, a program can be proven incorrect by a test,
 but it cannot be proven correct.
 All that tests can do, after sufficient testing effort,
 is allow us to deem a program to be correct enough for our
-purposes.}}~\cite[kapitola~4]{martin_clean_architecture}
+purposes.}}~\cite[strana~31]{martin_clean_architecture}
 
 V této podkapitole jsou popsány typy testů,
 které pomáhají k snažšímu testování.
@@ -103,7 +103,9 @@ void main() {
     testWidgets(
         'MyWidget has a title and message',
         (WidgetTester tester) async {
-        await tester.pumpWidget(MyWidget(title: 'T', message: 'M'));
+        await tester.pumpWidget(
+            MyWidget(title: 'T', message: 'M'),
+        );
 
         final titleFinder = find.text('T');
         final messageFinder = find.text('M');
@@ -115,6 +117,23 @@ void main() {
 }
     \end{minted}
 \end{listing}
+
+\subsection{Statická analýza}
+
+Kromě samotného testování kódu je také možné testovat kód pomocí statické
+analýzy.
+Statická analýza provádí kontrolu programu ještě před tím,
+než je spuštěn,
+což přináší výhody právě v tom,
+že je možné vidět chyby přímo při vývoji.
+Kontrolovat se tak mohou například styl, týmové konvence a standardy, struktura
+a další.
+Možnosti jednotlivých jazyků a technologií se liší a většinou jsou nástroje
+na testování poskytovány pomocí služeb či nástrojů třetích stran.
+Jazyk Dart má však nástroj \emph{Analyzer for Dart},
+který poskytuje statickou analýzu
+a vývojáři mohou využít řadu pravidel pro nastavení
+a přizpůsobení projektu~\cite{analyzer}.
 
 \subsection{Code coverage}
 

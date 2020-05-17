@@ -27,7 +27,7 @@ Dle~\cite{flutter_state_mgmt_ephemeral_vs_app} lze stavy dělit do dvou typů:
     \emph{local state},
     je typ stavu využívaný většinou pro dílčí část UI
     a ostatní widgety jen zřídka potřebují přístup k těmto stavům.
-    Příkladem je aktivní stránka v \mintinline{dart}|PageView|,
+    Příkladem je aktivní stránka ve widgetu \mintinline{dart}|PageView|,
     index zvolené záložky \mintinline{dart}|BottomNavigationBar|,
     aktuální stav animace a podobně.
     Tento typ je většinou řešen jako třída \mintinline{dart}|State| pro daný
@@ -281,7 +281,7 @@ základními koncepty:
     zaznamenávají v podobě transakcí.
     Jednotlivé změny stavů jsou prováděny v metodě
     \mintinline{dart}|mapEventToState(event)|,
-    která produkuje tok\todo{nebo využívat pojem stream?} stavů.
+    která produkuje tok stavů.
 \end{description}
 
 \begin{listing}

@@ -18,13 +18,13 @@ a čím dál tím více postupem času prohlubují dluh kvality daného kódu.
 the value of its behavior and the value of its structure.
 The second of these is the greater of the two
 because it is this value that makes
-software soft.}}~\cite[kapitola~15]{martin_clean_architecture}
+software soft.}}~\cite[strana~140]{martin_clean_architecture}
 Ze zmíněného zdroje také plyne,
 že se dlouhodobě vyplatí vývoj směřovat k dobré struktuře a architektuře,
 než k samotné implementaci,
 jelikož implementace se snadno opraví,
 kdežto opravit architekturu bez velkého zásahu
-je značně obtížné~\cite[kapitola~15]{martin_clean_architecture}.
+je značně obtížné~\cite[strana~135--146]{martin_clean_architecture}.
 
 Cílem každé aplikace je mít udržitelný a snadno rozšiřitelný kód.
 Je proto třeba stanovit řadu pravidel,
@@ -37,9 +37,9 @@ který znemožní snadný proces udržitelnosti aplikace.
 easy to develop, easy to maintain, and easy to deploy.
 The ultimate goal is to minimize the lifetime cost of the system
 and to maximize programmer
-productivity.}}~\cite[kapitola~15]{martin_clean_architecture}
+productivity.}}~\cite[strana~137]{martin_clean_architecture}
 Dobře navržená a udržovaná architektura tak umožní z dlouhodobého hlediska
-produkovat kvalitnější kód~\cite[kapitola~15]{martin_clean_architecture}.
+produkovat kvalitnější kód~\cite[strana~135--146]{martin_clean_architecture}.
 Kvalitnější architektura tedy logicky minimalizuje nutnost oprav a
 přizpůsobení struktury aplikace při vývoji každé nové funkcionality.
 
@@ -58,8 +58,8 @@ jak jde vidět z obrázku~\ref{fig:architecture_database}.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\linewidth]{assets/technology-research/architecture/database-centric.jpg}
-    \caption{Schéma architektury zaměřené na databázi \todo{do vektoru}~\cite{architecture}}
+    \includegraphics[width=0.5\linewidth]{assets/technology-research/architecture/database-centric.pdf}
+    \caption{Schéma architektury zaměřené na databázi~\cite{architecture}}
     \label{fig:architecture_database}
 \end{figure}
 
@@ -110,8 +110,8 @@ kódu~\ref{code:architecture-database}.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\linewidth]{assets/technology-research/architecture/domain-centric.jpeg}
-    \caption{Schéma architektury zaměřené na doménu \todo{do vektoru; oříznout?}~\cite{architecture}}
+    \includegraphics[width=0.35\linewidth]{assets/technology-research/architecture/domain-centric.pdf}
+    \caption{Schéma architektury zaměřené na doménu~\cite{architecture}}
     \label{fig:architecture_domain}
 \end{figure}
 
@@ -128,12 +128,12 @@ to leave as many options open as possible,
 for as long as possible.
 What are the options that we need to leave open?
 They are the details
-that don’t matter.}}~\cite[kapitola~15]{martin_clean_architecture}
+that don’t matter.}}~\cite[strana~140]{martin_clean_architecture}
 Výhodou architektur zaměřených na doménu také je,
 že díky návrhu samotnému abstrahují implementační detaily do podoby kontraktů.
 Těmto kontraktům může nadále vyhovět několik konkrétních implementací,
 což umožní snadnou výměnu služeb
-či jiných závislostí~\cite[kapitola~15]{martin_clean_architecture}.
+či jiných závislostí~\cite[strana~135--146]{martin_clean_architecture}.
 Lze tedy jednoduše nahradit například konkrétní databázi
 --- z databáze MySQL na databázi Cloud Firestore ---,
 bez toho,
@@ -172,10 +172,10 @@ On the one hand, if the bricks aren’t well made,
 the architecture of the building doesn’t matter much.
 On the other hand, you can make a substantial mess with well-made bricks.
 This is where the SOLID principles
-come in.}}~\cite[část 3]{martin_clean_architecture}
+come in.}}~\cite[strana~57]{martin_clean_architecture}
 Architektura hojně využívá principů SOLID,
 které byly představeny stejným autorem jako kniha.
-Dle~\cite[část 3]{martin_clean_architecture} obsahuje SOLID následujícící
+Dle~\cite[strana~57--59]{martin_clean_architecture} obsahuje SOLID následujícící
 principy:
 
 \begin{description}
@@ -216,17 +216,17 @@ Tento princip říká,
 že by kód neměl záviset na detailech přímo,
 ale raději záviset na obecném kontraktu
 (například pomocí dědičnosti nebo rozhraní),
-který daný detail implementuje~\cite[kapitola~11]{martin_clean_architecture}.
+který daný detail implementuje~\cite[strana~87--91]{martin_clean_architecture}.
 Další principy popisují,
 že každá třída by měla mít zodpovědnost právě za jednu
-věc~\cite[kapitola~7]{martin_clean_architecture},
+věc~\cite[strana~61--67]{martin_clean_architecture},
 rozšíření by mělo být možné pouze za pomoci přidání nového
-kódu~\cite[kapitola~8]{martin_clean_architecture},
+kódu~\cite[strana~69--75]{martin_clean_architecture},
 pokud kód využívá třídu,
 musí fungovat i pokud místo ní použijeme její
-podtřídu~\cite[kapitola~8]{martin_clean_architecture}
+podtřídu~\cite[strana~77--82]{martin_clean_architecture}
 a třídy by neměly záviset na více věcech,
-než je potřeba~\cite[kapitola~10]{martin_clean_architecture}.
+než je potřeba~\cite[strana~83--86]{martin_clean_architecture}.
 Obdobné principy jsou aplikovány i na úrovni komponent aplikace
 a dohromady s principy SOLID způsobí,
 že takový systém je testovatelný,
@@ -256,7 +256,7 @@ software.~\cite{the_clean_architecture}
 \begin{figure}[t!]
     \centering
     \includegraphics[width=0.7\linewidth]{assets/technology-research/architecture/reso-coder-clean-architecture.png}
-    \caption{Schéma \emph{Reso Coder's Flutter Clean Architecture Proposal}~\cite{the_clean_architecture}}
+    \caption{Schéma Reso Coder's Flutter Clean Architecture Proposal~\cite{the_clean_architecture}}
     \label{fig:reso_coder_clean_architecture}
 \end{figure}
 

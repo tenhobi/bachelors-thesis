@@ -1,68 +1,192 @@
 \chapter{Implementace}
 \label{chap:implementation}
 
-\todo{Nějaká slova na úvod.}
-\blind{2}
+Tato kapitola se zabývá popisem implementace aplikace.
+V následujících podkapitolách jsou popsány použité nástroje,
+použité knihovny a vybrané ukázky.
+Aplikace byla implementována dle návrhu v kapitole~\ref{chap:design}.
 
 \section{Použité nástroje}
 
-\todo{zmínit scrcpy}
+Během vývoje byly použity nástroje,
+které usnadnily vývoj aplikace či její lazení.
+Pro samotné lazení aplikace byl využit nástroj \emph{scrcpy},
+který umožní promítat obrazovku mobilního zařízení na obrazovku počítače
+včetně bezdrátového spojení.
 
-%This tool is useful for providing display and control of Android devices.
-%
-%After connecting a phone with a USB, run:
-%
-%scrcpy --window-title "Totally Not Chernobyl" --always-on-top
-%or for wireless use, run:
-%
-%adb tcpip 5555
-%adb connect DEVICE_IP:5555
-%# then you can unplug
-%scrcpy --window-title "Totally Not Chernobyl" --always-on-top --bit-rate 2M --max-size 800
-
-\todo{Obecně popsat jak nástroje ulehčují práci.}
-\blind{1}
+\begin{listing}
+    \caption{Spuštění nástroje scrcpy pro bezdrátové použití}
+    \label{code:scrcpy}
+    \begin{minted}{shell}
+adb tcpip 5555
+adb connect DEVICE_IP:5555
+scrcpy --window-title "Totally Not Chernobyl" --always-on-top
+--bit-rate 2M --max-size 800
+    \end{minted}
+\end{listing}
 
 \subsection{Verzování}
 
-\todo{Popsat výhody gitu a GitHubu.}
-\blind{1}
+Během vývoje bylo využito verzovacích nástrojů.
+To je běžná součást každého projektu a slouží k postupnému zaznamenávání změn.
+V této práci byl využit verzovací systém \emph{Git} a webová služba \emph{GitHub},
+která nabízí kromě bezplatného umístění repozitáře také doplňkové služby jako
+code coverage, ticket systém, posouzení změn a podobně.
 
 \subsection{Editor}
 
-\todo{Popsat výhody IntelliJ IDEA.}
-\blind{1}
+Během vývoje aplikace byly využity dva editory.
+Editor IntelliJ IDEA od společnosti JetBrains
+a editor VS Code od společnosti Microsoft.
+Editor IntelliJ IDEA je robustní editor,
+který obsahuje skvělou nápovědu a analýzu kódu.
+Díky výhodám jazyka Dart a frameworku Flutter
+byla však i práce v editoru VS Code velmi příjemná.
+Pro oba editory jsou dostupné v editorech chytré doplňky,
+které využívají integrovaných nástrojů dodávaných s jazykem Dart,
+ale i věci navíc jako poskytování útržků kódu pro usnadnění práce.
 
 \section{Použité knihovny}
 
-\todo{Popsat použité knihovny v projektu a u každé krátce k čemu slouží.}
-\blind{4}
+Při implementaci bylo využito několik knihoven,
+které elegantně řeší dané specifické problémy.
+Mezi nejzajímavější použité knihovny patří knihovny
+\mintinline{Dart}|bloc| a \mintinline{Dart}|flutter_bloc|,
+které poskytují rozhraní knihovny a widgety pro práci s nimi.
+Knihovna \mintinline{Dart}|easy_localization| řeší překlad uživatelského
+rozhraní aplikace do několika jazyků.
+Uživatel mezi jazyky může přepínat a tím měnit jazyk prvků.
+Lokalizace může být řešena více způsoby,
+nejjednoduší a jeden z nejvíce efektivních je pomocí vytvoření několika souborů,
+například ve formátu \mintinline{shell}|JSON| nebo \mintinline{shell}|YAML|,
+které jednoduše a přehledně umožní definovat slovník překladu.
+Samotná definice ovšem ne vždy stačí.
+Knihovna umožňuje vkládat parametry, které se do daného překladu vloží.
+Knihovna \mintinline{Dart}|google_sign_in| poskytuje jednoduché rozhraní pro
+přihlašování pomocí účtu Google.
+Jelikož jazyk Dart nepodporuje třídy union,
+knihovna \mintinline{Dart}|freezed| poskytuje rozhraní a generátor pro
+snadné generování těchto tříd.
+Knihovna \mintinline{Dart}|url_launcher| umožní spouštění webových odkazů
+nehledě na platformu.
+Knihovna \mintinline{Dart}|cloud_firestore| poskytuje rozhraní k práci se
+stejnojmennou databází Cloud Firestore.
+Dále je využito knihovny \mintinline{Dart}|effective_dart|,
+která poskytuje souhrn pravidel pro statickou analýzu dle konvencí jazyka Dart.
 
 \section{Dokumentace}
 
-\todo{Co tady?}
+Z implementace byla vytvořena také automatická vývojářská dokumentace.
+Ta je ve formě webové stránky a zobrazuje veřejné rozhraní tříd.
+Komentáře jsou přehledně zobrazeny pomocí nástroje Markdown a obsahují proklik
+na třídy a metody.
+Tato dokumentace je umístěna na přiloženém datovém CD.
 
-\section{Ukázka vybraných částí}
+\section{Ukázky vybraných částí}
 
-\todo{Popis sekce.}
-\blind{1}
+V následujících sekcích je uvedeno několik ukázek z implementace.
+Každá ukázka reprezentuje určitou část vývoje a popisuje její zajímavosti.
 
-\subsection{\todo{Ukázka 1}}
+\subsection{Implementace widgetu}
 
-\todo{A její popis.}
-\blind{3}
+V ukázce kódu~\ref{code:implementation-1} je uvedena reprezentace implementace widgetu
+ve frameworku Flutter.
+Implementován je widget pro zobrazení loga aplikace.
+Jedná se o stateless widget,
+což znamená,
+že takovýto widget je zobrazen staticky a nic se v něm nemění.
+Widget může mít několik vstupních proměnných,
+které využívá,
+a dokonce může využívat i další widgety,
+které mohou být stateful.
 
-\subsection{\todo{Ukázka 2}}
+Jak lze z ukázky vidět,
+je využito standardních widgetů jako je widget \mintinline{Dart}|Column|,
+který slouží pro uspořádání prvků do sloupce pod sebe a
+widgetu \mintinline{Dart}|Text|,
+který slouží pro výpis textu.
+Oba widgety mají řadu parametrů,
+které náležitě modifikují jejich styl.
+V ukázce je také vidět,
+že je využita metoda \mintinline{Dart}|tr()|,
+která slouží pro vyžádání překladu pomocí knihovny \mintinline{Dart}|easy_localization|.
 
-\todo{A její popis.}
-\blind{3}
+Zajímavostí jazyka Dart také je,
+že umožňuje vkládat do seznamu podmíněné položky,
+jak lze vidět ve spodní části kódu.
+To umožňuje tvořit více čtivý kód a redukuje množství kódu.
 
-\subsection{\todo{Ukázka 3}}
+\begin{listing}
+    \caption{Implementace widgetu ve frameworku Flutter}
+    \label{code:implementation-1}
+    \begin{minted}{Dart}
+class AppLogo extends StatelessWidget {
+    final bool withVersion;
+    final Brightness brightness;
 
-\todo{A její popis.}
-\blind{3}
+    AppLogo({
+    Key key,
+    this.withVersion = true,
+    this.brightness = Brightness.light,
+    }) : super(key: key);
 
-\subsection{\todo{Ukázka 4}}
+    @override
+    Widget build(BuildContext context) {
+        return Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+            Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                Text(
+                    tr('title'),
+                    textAlign: TextAlign.end,
+                    style: GoogleFonts.ubuntu(
+                    fontSize: 32,
+                    color: brightness == Brightness.light
+                        ? Colors.white
+                        : Colors.black,
+                    ),
+                ),
+                if (withVersion == true)
+                  Version(brightness: brightness),
+                ],
+            ),
+            ],
+        );
+    }
+}
+    \end{minted}
+\end{listing}
 
-\todo{A její popis.}
-\blind{3}
+\subsection{Datová třída}
+
+S využitím knihovny \mintinline{Dart}|freezed| je možné tvořit nejen
+třídy union,
+ale také datové třídy.
+Tyto třídy po vygenerování obsahují kopírující konstruktor,
+metody pro porovnání rovnosti,
+metody pro převod do formátu JSON a podobně.
+Práce s takovouto třídou je tedy velmi snadná.
+
+\begin{listing}
+    \caption{Implementace datové třídy}
+    \label{code:implementation-2}
+    \begin{minted}{Dart}
+@freezed
+abstract class User with _$User {
+    const factory User({
+        @required String username,
+        @required String language,
+        @Default(0) int gamesCount,
+        @Default(0) int winGamesCount,
+    }) = _User;
+
+    factory User.fromJson(Map<String, dynamic> json) =>
+      _$UserFromJson(json);
+}
+    \end{minted}
+\end{listing}
+
+%\subsection{\todo{Ukázka 3}}

@@ -2,7 +2,7 @@
 % arara: biber
 % arara: xelatex: { shell : yes }
 % arara: xelatex: { shell : yes }
- 
+
 \documentclass[thesis=B,czech]{template/FITthesis}[2019/12/23]
 
 \usepackage[utf8]{inputenc} % LaTeX source encoded as UTF-8
@@ -41,30 +41,28 @@ Také bych rád poděkoval své rodině za podporu během studia.
 \abstractCS{Práce se zabývá návrhem a implementací
 kooperativní mobilní hry
 pro mobilní operační systémy Android a iOS.
-Důraz je kladen na výběr a popis konkurenčních aplikací a technologií.
-Na základě rešerše byly vybrány technologie jako
-framework Flutter, state management BLoC,
-databáze Cloud Firestore a architektura Clean Architecture.
-Výsledkem práce je funkční mobilní hra,
+Důraz je kladen na výběr a popis konkurenčních aplikací a technologií
+a na návrh přívětivého uživatelského rozhraní.
+Výsledkem práce je mobilní hra,
 ve které je díky dobré vzájemné komunikaci hráčů cílem splnění misí hry.
 }
-\abstractEN{\todo{upravit překlad}
-The thesis describes design and implementation
-of cooperative mobile game for Android and iOS mobile operating systems
-using the multi-platform Flutter framework.
-Emphasis is also placed on the selection and description of
-frameworks, state management solutions, databases, architectures
-and testing options.
+\abstractEN{The thesis describes design and implementation
+of cooperative mobile game for Android and iOS mobile operating systems.
+Emphasis is placed on the selection and description of competing applications
+and technologies
+and on design a friendly user interface.
+The result of this thesis is a mobile game,
+in which the goal is to fulfill the missions of the game, thanks to good mutual communication of players.
 }
 \placeForDeclarationOfAuthenticity{V~Praze}
 \declarationOfAuthenticityOption{4} %volba Prohlášení
 \keywordsCS{mobilní hra, kooperace,
 state management, multiplatformní framework,
-Flutter, BLoC, Clean Architecture, Android, iOS, Cloud Firestore
+Flutter, BLoC, Clean Architecture
 }
 \keywordsEN{mobile game, cooperation,
 state management, multi-platform framework,
-Flutter, BLoC, Clean Architecture, Android, iOS, Cloud Firestore
+Flutter, BLoC, Clean Architecture
 }
 \website{https://github.com/tenhobi/bachelors-thesis} %volitelná URL práce, objeví se v tiráži
 
@@ -77,6 +75,7 @@ Flutter, BLoC, Clean Architecture, Android, iOS, Cloud Firestore
 \input{chapters/_all.tex}
 \input{parts/conclusion.tex}
 
+\setcounter{biburllcpenalty}{9000}
 \printbibliography
 
 \appendix
