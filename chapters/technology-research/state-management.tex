@@ -103,6 +103,7 @@ Tento widget a~další funkcionality zaobaluje knihovna Provider,
 která zjednodušuje použití a~snižuje množství potřebného
 kódu.~\cite{flutter_state_mgmt_simple}
 
+\pagebreak
 \subsection{MobX}
 
 MobX je knihovna pro správu stavů,
@@ -158,6 +159,7 @@ kterými je kód zpřehledněn.
 Generování kódu však není nejrychlejší,
 což je jedna z~nevýhod tohoto přístupu.
 
+\pagebreak
 \subsection{Redux}
 
 Jedna z~nejznámějších knihoven řešící správu stavů je knihovna Redux.
@@ -215,11 +217,11 @@ ve větší aplikaci nemusí být omezení pouze jednoho \emph{Store} vhodné.
 
 Oproti předchozím příkladům není Business Logic Component (dále jen BLoC)
 knihovna,
-ale návrhový vzor~\cite{googledevelopers_bloc}.
+ale návrhový vzor.
 Tento vzor je tvořen několika jednoduchými pravidly,
 kterými se každá implementace musí řídit,
 přičemž konkrétní prvky implementace jsou přenechány na
-vývojáře~\cite{googledevelopers_bloc}.
+vývojáře.
 Pojmem BLoC také označujeme třídu,
 která uchovává stav dodržuje daný vzor~\cite{googledevelopers_bloc}. 
 Dle~\cite{googledevelopers_bloc} těmito pravidly pro návrh jsou:
@@ -234,7 +236,7 @@ Dle~\cite{googledevelopers_bloc} těmito pravidly pro návrh jsou:
 \end{enumerate}
 
 Spolu s~těmito pravidly pro vzor BLoC byla představena
-pravidla i~pro návrh UI~\cite{googledevelopers_bloc}.
+pravidla i~pro návrh UI.
 Ta se zabývají zejména vztahem mezi komponentou UI, komponentou BLoC
 a~podobou dat,
 které se posílají do a~z~každé třídy BLoC~\cite{googledevelopers_bloc}.
@@ -325,7 +327,7 @@ avšak neřeší samotnou správu stavů.
 
 Knihovna MobX silně závisí na generování kódu,
 což může mít vliv na~její rychlost.
-Oproti tomu jsou knihovny Bloc a~Redux sice náročnější na~porozumnění,
+Oproti tomu jsou knihovny Bloc a~Redux sice náročnější na~porozumění,
 avšak nabízí asynchronní přístup,
 který je vhodný pro práci s~daty ve velkých aplikacích.
 
@@ -335,7 +337,7 @@ Konkrétní implementace i~principy se však rozcházejí.
 Jeden z~největších viditelných rozdílů je počet zdrojů,
 které udržují stav.
 Pro~\mbox{knihovnu} Redux existuje pouze jeden zdroj, \emph{Store}.
-V~knihovně Bloc se používá libovolný počet těchto zdrojů,
+V~knihovně Bloc se \mbox{používá} libovolný počet těchto zdrojů,
 reprezentovaných třídami \mintinline{dart}|Bloc|.
 \mbox{Zároveň} s~tím se v~knihovně Redux mění pouze části stavu,
 kdežto v~knihovně Bloc se při změně nahrazuje celý stav stavem novým.

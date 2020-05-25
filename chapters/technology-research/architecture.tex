@@ -6,9 +6,9 @@ nezajímá vzhled či uspořádání zdrojového kódu.
 Naopak vývojáři,
 jakožto lidé,
 potřebují udržovat kód snadno čitelný a~srozumitelně rozdělený do jednotlivých
-metod, tříd, struktur či vrstev aplikace~\cite{architecture}.
+metod, tříd, struktur či vrstev aplikace.
 Potřebují také vysokoúrovňové jazyky či pokročilé knihovny a~frameworky,
-které ulehčí psaní kódu a~nenutí vývojáře psát vše znovu~\cite{architecture}.
+které ulehčí psaní kódu a~nenutí vývojáře psát vše znovu.
 I~přes to ale nejsou aplikace psány dle nejlepších doporučení
 a~vývojáři velmi často píší či naráží na tak zvaný \uv{spaghetti code}~\cite{architecture}.
 To je mnohdy zapříčiněno nárokem na rychlou implementaci nových funkcí či úprav,
@@ -30,14 +30,13 @@ Cílem každé aplikace je mít udržitelný a~snadno rozšiřitelný kód.
 Je proto třeba stanovit řadu pravidel,
 které pomohou s~vývojovými otázkami při návrhu metod, tříd, rozhraní či
 celých modulů.
-Architektura a~její správný a~promyšlený návrh umožňuje vyvarovat
+Architektura a~její správný a~\mbox{promyšlený} návrh umožňuje vyvarovat
 se chyb a~dluhu na kvalitě a~modularitě,
 který znemožní snadný proces udržitelnosti aplikace.
-\emph{\uv{Good architecture makes the system easy to understand,
-        easy to develop, easy to maintain, and easy to deploy.
-        The ultimate goal is to minimize the lifetime cost of the system
-        and to maximize programmer
-        productivity.}}~\cite[str.~137]{martin_clean_architecture}
+\emph{\uv{Good \mbox{architecture} makes the~system easy to~understand,
+easy to~develop, easy to~maintain, and~easy to~deploy.
+The~ultimate goal is to~minimize the~lifetime cost of~the~system
+and~to~maximize programmer productivity.}}~\cite[str.~137]{martin_clean_architecture}
 Dobře navržená a~udržovaná architektura tak umožní z~dlouhodobého hlediska
 produkovat kvalitnější kód~\cite[str.~135--146]{martin_clean_architecture}.
 Kvalitnější architektura tedy logicky minimalizuje nutnost oprav
@@ -124,11 +123,11 @@ protože právě tato vrstva je v~aplikaci nejdůležitější,
 jelikož v~ní probíhá implementace nových funkcionalit,
 změn či oprav~\cite{architecture}.
 \emph{\uv{The~way you keep software soft is
-        to leave as many options open as possible,
-        for as long as possible.
-        What are the options that we need to leave open?
-        They are the details
-        that don’t matter.}}~\cite[str.~140]{martin_clean_architecture}
+to~leave as~many options open as~possible,
+for as~long as~possible.
+What are the~options that we need to~leave open?
+They are the~details
+that don’t matter.}}~\cite[str.~140]{martin_clean_architecture}
 Výhodou architektur zaměřených na doménu také je,
 že díky návrhu samotnému abstrahují implementační detaily do podoby kontraktů.
 Těmto kontraktům může nadále vyhovět několik konkrétních implementací,
@@ -168,11 +167,12 @@ implements GetRecentPostsUseCaseContract {
 Clean Architecture je architektura popisovaná ve stejnojmenné knize
 od\linebreak \mbox{Roberta~C. Martina}.
 \emph{\uv{Good software systems begin with clean code.
-On the~one hand, if the~bricks aren’t well made,
-the architecture of the~building doesn’t matter much.
-On the~other hand, you can make a~substantial mess with well-made bricks.
+On~the~one hand, if the~bricks aren’t well made,
+the~architecture of~the~building doesn’t matter much.
+On~the~other hand, you can make a~substantial mess with well-made bricks.
 This is where the~SOLID principles
 come in.}}~\cite[str.~57]{martin_clean_architecture}
+\linebreak
 Architektura hojně využívá principů SOLID,
 které byly představeny stejným autorem jako kniha.
 Principy SOLID jsou následující:
@@ -255,7 +255,7 @@ software.~\cite{the_clean_architecture}
 \begin{figure}[t!]
     \centering
     \includegraphics[width=0.7\linewidth]{assets/technology-research/architecture/reso-coder-clean-architecture.pdf}
-    \caption{Schéma Reso Coder's Flutter Clean Architecture Proposal~\cite{the_clean_architecture}}
+    \caption{Schéma Reso Coder's Flutter Clean Architecture Proposal~\cite{reso_coder_clean_architecture}}
     \label{fig:reso_coder_clean_architecture}
 \end{figure}
 
@@ -271,10 +271,11 @@ ale vertikálně.
 Kód je sice možná lehčí nalézt,
 než u~přístupu rozdělení dle vrstev,
 avšak pro změnu neřeší oddělení dat, domény a~UI.
+\pagebreak[4]
 Dalším z~přístupů je rozdělení kódu jak dle vlastností,
 tak následně dle vrstev,
 což přináší výhody z~obou předešlých
-způsobů.~\cite[kapitola~34]{the_clean_architecture}
+způsobů.~\cite[str.~303--321]{martin_clean_architecture}
 
 Tato architektura je samozřejmě značně abstraktní,
 proto je nutné konkrétní věci organizovat dle potřeb aplikace,
