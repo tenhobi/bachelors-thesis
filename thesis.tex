@@ -35,24 +35,29 @@
 \author{Jan Bittner} %jméno autora bez akademických titulů
 \supervisor{Ing. Marek Suchánek}
 \acknowledgements{Rád bych na tomto místě poděkoval vedoucímu práce
-Ing. Markovi \mbox{Suchánkovi} za cenné rady a přátelský přístup.
+Ing. Markovi \mbox{Suchánkovi} za cenné rady a~přátelský přístup.
 Také bych rád poděkoval své rodině za podporu během studia.
 }
-\abstractCS{Práce se zabývá návrhem a implementací
-kooperativní mobilní hry
-pro mobilní operační systémy Android a iOS.
-Důraz je kladen na výběr a popis konkurenčních aplikací a technologií
-a na návrh přívětivého uživatelského rozhraní.
-Výsledkem práce je mobilní hra,
-ve které je díky dobré vzájemné komunikaci hráčů cílem splnění misí hry.
+\abstractCS{Bakalářská práce se zabývá návrhem a~implementací kooperativní
+mobilní hry pro mobilní operační systémy Android a~iOS
+za pomoci multiplatformního frameworku Flutter.
+Důraz je kladen na rešerši a~výběr frameworku,
+správy stavů, databáze, senzorů, architektury a testování.
+Dále je v práci na základě poznatků z rešerše provedena analýza, návrh
+a implementace herních principů, uživatelského rozhraní a architektury aplikace.
+Výsledkem práce je open-source mobilní hra,
+ve které hráči vzájemnou komunikací plní cíle misí hry.
 }
-\abstractEN{The thesis describes design and implementation
-of cooperative mobile game for Android and iOS mobile operating systems.
-Emphasis is placed on the selection and description of competing applications
-and technologies
-and on design a friendly user interface.
-The result of this thesis is a mobile game,
-in which the goal is to fulfill the missions of the game, thanks to good mutual communication of players.
+\abstractEN{The bachelor's thesis describes the~design and~implementation
+of~the~cooperative mobile game for~Android and~iOS mobile operating systems
+using the~multi-platform Flutter framework.
+Emphasis is placed on~the~research and~selection of~the~framework,
+state management, database, sensors, architecture, and~testing.
+Furthermore,
+analysis, designing, and~implementation of~the~game principles, user interface, and~application architecture is performed based on~the~research.
+The result of~this thesis is an~open-source mobile game,
+in which players fulfill the objectives of~the~game's missions
+by communicating with~each other.
 }
 \placeForDeclarationOfAuthenticity{V~Praze}
 \declarationOfAuthenticityOption{4} %volba Prohlášení
@@ -75,8 +80,10 @@ Flutter, BLoC, Clean Architecture
 \input{chapters/_all.tex}
 \input{parts/conclusion.tex}
 
-\setcounter{biburllcpenalty}{9000}
-\printbibliography
+{
+    \setlength{\emergencystretch}{3em} 
+    \printbibliography
+}
 
 \appendix
 \input{parts/appendix/_all.tex}

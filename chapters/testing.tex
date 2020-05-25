@@ -3,39 +3,39 @@
 
 Tato kapitola se zabývá popisem testování aplikace.
 Aplikace byla testována jak při vývoji vývojářem,
-tak i automatizovanými testy.
+tak i~automatizovanými testy.
 Bylo provedeno také uživatelské testování.
 
-Díky vlastnostem frameworku Flutter bylo možné ladit a testovat aplikaci
+Díky vlastnostem frameworku Flutter bylo možné ladit a~testovat aplikaci
 při vývoji díky vlastnosti \emph{hot reload}.
 Tato vlastnost při spuštění aplikace ve vývojářském řežimu
 aplikuje změny do běžící aplikace,
 avšak uchovává současný stav jednotlivých widgetů.
-Díky tomu je možné okamžitě reagovat na změny a chyby v kódu
-a nemusí se tak čekat na zdlouhavé sestavení.
+Díky tomu je možné okamžitě reagovat na změny a~chyby v~kódu
+a~nemusí se tak čekat na zdlouhavé sestavení aplikace.
 
 Cílem automatizovaných testů je otestovat funkčnost jednotlivých částí aplikace
-a otestovat příslušné rozhraní.
-Automatizované testy lze spouštět ručně i automaticky,
-například v rámci kontinuální integrace,
-což je velmi praktické a bylo při vývoji hojně využíváno.
+a~otestovat příslušné rozhraní.
+Automatizované testy lze spouštět ručně i~automaticky,
+například v~rámci kontinuální integrace,
+což je velmi praktické a~bylo při vývoji hojně využíváno.
 Během vývoje aplikace byla vytvořena řada unit testů,
 které testují patřičné části aplikace.
 Widget testy vytvořeny nebyly,
-protože nemají takovou vypovídající hodnotu a jsou velmi náchylné na změny v UI.
+protože nemají takovou vypovídající hodnotu a~jsou velmi náchylné na změny v~UI.
 
 Velký zřetel byl dán na testování použitelnosti.
 Toto testování má za cíl odhalit jak chyby aplikace,
-tak zejména samotnou srozumitelnost a jednoduchost průchodu aplikace.
-Toto testování je dále popsáno v podkapitole~\ref{sec:usability}.
+tak zejména samotnou srozumitelnost a~jednoduchost průchodu aplikace.
+Toto testování je dále popsáno v~podkapitole~\ref{sec:usability}.
 
 \section{Ukázky vybraných částí}
 
-V následujících sekcích je uvedeno několik ukázek z testování.
+V~následujících sekcích je uvedeno několik ukázek z~testování.
 
 \subsection{Získání uživatele}
 
-V ukázce kódu~\ref{code:test-get-user} lze vidět ukázka testování získání
+V~ukázce kódu~\ref{code:test-get-user} lze vidět ukázka testování získání
 uživatele dle jeho ID.
 Tento test testuje příslušný usecase pomocí metody mockování,
 což je proces který imituje závislost kódu.
@@ -78,14 +78,14 @@ test(
 
 \subsection{Serializace}
 
-V ukázce kódu~\ref{code:test-user-serialization} je testována správná
+V~ukázce kódu~\ref{code:test-user-serialization} je testována správná
 serializace entity uživatele.
-V tomto testu je využito metody využívající takzvané fixtures,
-což jsou předpřipravená data v souboru,
+V~tomto testu je využito metody využívající takzvané fixtures,
+což jsou předpřipravená data v~souboru,
 se kterými může test dále pracovat.
-Díky tomu může test načíst soubor ve formátu JSON a převést jej do mapy v jazyce
+Díky tomu může test načíst soubor ve formátu JSON a~převést jej do mapy v~jazyce
 Dart.
-Tento výstup je následně porovnán s očekávaným výsledkem.
+Tento výstup je následně porovnán s~očekávaným výsledkem.
 Tento test tedy testuje,
 zda je ze souboru JSON správně vytvořen objekt entity.
 
@@ -102,7 +102,7 @@ final tUser = User(
 
 group('fromJson', () {
     test(
-        'should return a valid model when the JSON number'
+        'should return a~valid model when the JSON number'
         'is an integer',
         () async {
             // arrange
@@ -121,62 +121,60 @@ group('fromJson', () {
 \section{Testování použitelnosti}
 \label{sec:usability}
 
-Testování použitelnosti testuje aplikaci z pohledu uživatelů.
+Testování použitelnosti testuje aplikaci z~pohledu uživatelů.
 Uživatel dostane několik úkolů popsaných scenáři,
-které musí splnit a následně je porovnáván postup či samotný úspěch řešení.
-Jednotlivé testovací scénáře jsou umístěny v příloze~\ref{chap:test-scenarios}.
+které musí splnit a~následně je porovnáván postup či samotný úspěch řešení.
+Jednotlivé testovací scénáře jsou umístěny v~příloze~\ref{chap:test-scenarios}.
 
-Testování použitelnosti se zúčastnilo celkem 11 osob ---
-osm mužů a tři ženy.
-Deset respondentů bylo z věkové skupiny 18--26 let,
-zbývajícímu respondentovi bylo 47 let.
-Všichni respondenti měli mobilní zařízení s operačním systémem Android.
+Testování použitelnosti se zúčastnilo celkem 11 osob.
+Skupina respondentů byla složena z osob různého pohlaví a věku.
+Všichni respondenti měli mobilní zařízení s~operačním systémem Android.
 
-Testování proběhlo pomocí videohovorů za přítomnosti vývojáře a respondenta.
+Testování proběhlo pomocí videohovorů za přítomnosti vývojáře a~respondenta.
 Každý respondent dostal sadu úkolů dle scénářů
-z přílohy~\ref{chap:test-scenarios}
-a byl seznámen s podstatou herní aplikace.
+z~přílohy~\ref{chap:test-scenarios}
+a~byl seznámen s~podstatou herní aplikace.
 Tyto úkoly popsané scénáři mají za cíl najít či odhalit chyby nebo nedostatky
-v aplikaci z pohledu uživatele.
+v~aplikaci z~pohledu uživatele.
 
 \subsection{Průběh testování}
 
 Scénář~\ref{scen:login} se zabývá přihlášením do aplikace.
-Respondenti neměli s vyhledáním tlačítka přihlášení
-a s vyplněním registrace žádný problém.
-Obrazovka přihlášení a registrace je dle respondentů přehledná a srozumitelná.
+Respondenti neměli s~vyhledáním tlačítka přihlášení
+a~s~vyplněním registrace žádný problém.
+Obrazovka přihlášení a~registrace byla dle respondentů přehledná a~srozumitelná.
 
-Ve scénáři~\ref{scen:about} měli respondenti za úkol zobrazit informace o
-aplikaci.
-Tento úkol splnili všichni bez potíží a po stisku tlačítka \emph{O aplikaci}
-se přesunuli bez komplikací na obrazovku s potřebnými informacemi.
+Ve scénáři~\ref{scen:about} měli respondenti za úkol zobrazit informace
+o~aplikaci.
+Tento úkol splnili všichni bez potíží a~po stisku tlačítka \emph{O~aplikaci}
+se přesunuli bez komplikací na obrazovku s~potřebnými informacemi.
 
-Ve scénáři~\ref{scen:join} nejprve vývojář vytvoří hru a respondent má za úkol
+Ve scénáři~\ref{scen:join} nejprve vývojář vytvoří hru a~respondent má za úkol
 se do této hry připojit pomocí obdrženého speciálního kódu.
 Většina respondentů bez problémů našla tlačítko směřující na obrazovku připojení
 do hry,
 avšak tři respondenti měli menší obtíže dané tlačítko vyhledat.
 Pro dané tlačítko byla proto zvolena vhodnější ikona.
-Na zobrazené obrazovce neměl již žádný z respondentů problém vyplnit kód
-a připojit se do místnosti.
+Na zobrazené obrazovce neměl již žádný z~respondentů problém vyplnit kód
+a~připojit se do místnosti.
 
 Ve scénáři~\ref{scen:create} je obrácený úkol oproti předešlému scénáři.
 Respondent má nyní za úkol vytvořit danou hru.
 Najít příslušné tlačítko nebyl pro žádného respondenta problém
-a respondenti hodnotili velmi kladně výraznost prvku.
-Volba mise kapitoly a následné spuštění hry proběhlo bez komplikací.
+a~respondenti hodnotili velmi kladně výraznost prvku.
+Volba mise kapitoly a~následné spuštění hry proběhlo bez komplikací.
 
-Ve scénáři~\ref{scen:profile} měli respondenti za úkol zobrazit profil a
-statistiky uživatele.
+Ve scénáři~\ref{scen:profile} měli respondenti za úkol zobrazit profil
+a~statistiky uživatele.
 Oba úkoly proběhly bez komplikací.
 Tlačítko pro přesun na příslušnou obrazovku našli všichni respondenti.
 
-Ve scénáři~\ref{scen:logout} bylo úkol odhlášení se z aplikace.
+Ve scénáři~\ref{scen:logout} bylo úkolem odhlášení se z~aplikace.
 Většina respondentů tento úkol správně splnila přechodem na obrazovku menu
-a kliknutím na příslušnou ikonu tlačítka odhlášení.
+a~kliknutím na příslušnou ikonu tlačítka odhlášení.
 Dva respondenti tlačítko neviděli,
-avšak po menší pomoci i oni tlačítko úspěšně našli.
+avšak po menší pomoci i~oni tlačítko úspěšně našli.
 
 Výstup tohoto testování je hodnocen velmi kladně.
-Respondenti aplikaci a její přehlednost hodnotili dobře a ve většině případů
-neměli problém s navigací a vyhledáním potřebných informací.
+Respondenti aplikaci a~její přehlednost hodnotili dobře a~ve většině případů
+neměli problém s~navigací a~vyhledáním potřebných informací.

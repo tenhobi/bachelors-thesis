@@ -1,18 +1,17 @@
 \section{Další platformy}
 
-Framework Flutter momentálně podporuje pouze platformy Android a iOS.
-Platformy jako je web a desktop jsou dostupné stále pouze pro testování.
-Aplikace je díky univerzálnosti frameworku připravena na rozšíření i na další
-platformy.~\cite{flutter_deploy_web}
-
+Framework Flutter momentálně podporuje pouze platformy Android a~iOS.
+Platformy jako je web a~desktop jsou dostupné pro testování.
+Aplikace je díky univerzálnosti frameworku připravena k rozšíření i~na další
+platformy~\cite{flutter_deploy_web}.
 Stejně jako pro mobilní platformy,
-i tyto platformy budou muset nakonfigorovat databázi Cloud Firestore.
+i~tyto platformy budou muset nakonfigorovat databázi Cloud Firestore.
 Potřeba konfigurace ostatních služeb závisí na potřebách jednotlivých balíčků.
 Předpokladem je,
 že části aplikace využívající například senzory,
 budou muset být pro tyto platformy upraveny,
-či zcela vynechány,
+či~zcela vynechány,
 jelikož platformy web ani desktop běžně používanými senzory nedisponují.
 Platforma web se sestaví pomocí příkazu \mintinline{shell}|flutter build web|.
 Sestavení je dostupné ve složce \mintinline{shell}|build/web/|
-a soubory jsou automaticky minifikovány.
+a~soubory jsou automaticky minifikovány.

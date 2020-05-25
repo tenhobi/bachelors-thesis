@@ -1,8 +1,8 @@
 \section{Senzory}
 
-Použití senzorů v herních aplikacích je velmi časté.
+Použití senzorů v~herních aplikacích je velmi časté.
 Senzory totiž mohou dodat aplikaci data,
-která jí pomohou obohatit o detaily,
+která jí pomohou obohatit o~detaily,
 případně na nich může aplikace postavit funkčnost dílčích částí.
 Počet ušlých kroků,
 navigace pomocí kompasu,
@@ -11,77 +11,77 @@ nebo počítání provedených kliků
 --- všechny tyto příklady využívají senzory zařízení.~\cite{sensors}
 
 Mobilní zařízení má několik vestavěných senzorů,
-které měří pohyb, orientaci v prostoru a plno dalších věcí~\cite{sensors}.
+které měří pohyb, orientaci v~prostoru a~plno dalších věcí.
 Každé zařízení může mít rozdílný počet senzorů
-a senzory mohou být buď hardwarové, nebo softwarové~\cite{sensors}.
-Softwarové senzory zpracovávají data z jednoho nebo více hardwarových senzorů
-a imitují očekávaný výstup~\cite{sensors}.
+a~senzory mohou být buď hardwarové, nebo softwarové.
+Softwarové senzory zpracovávají data z~jednoho nebo více hardwarových senzorů
+a~imitují očekávaný výstup~\cite{sensors}.
 Dle zdroje~\cite{sensors} se senzory dělí na tři základní typy:
 
 \begin{description}
-    \item[Senzory pohybu] Snímají otřesy a posuny,
-    tedy zrychlení a rotaci,
+    \item[Senzory pohybu] Snímají otřesy a~posuny,
+    tedy zrychlení a~rotaci,
     pomocí tří os.
     Příkladem je akcelerometr, senzor gravitace, gyroskop
-    a rotační vektorový senzor.
+    a~rotační vektorový senzor.
     \item[Senzory polohy] Snímají fyzickou pozici zařízení.
-    Případem je magnetometr a senzor přiblížení.
+    Případem je magnetometr a~senzor přiblížení.
     \item[Senzory prostředí] Snímají hodnoty prostředí
     jako je teplota, tlak či vlhkost vzduchu.
-    Příkladem je termometr a barometr.
+    Příkladem je termometr a~barometr.
 \end{description}
 
-Pro herní aplikace jsou nejdůležitější senzory pohybu a senzory polohy.
+Pro herní aplikace jsou nejdůležitější senzory pohybu a~senzory polohy.
 Senzory prostředí závisí na datech prostředí~\cite{sensors_android},
 která se nemění tak často,
-a tedy nemají pro hru větší využití.
-Mnoho využítí naopak umožňují senzory pohybu a polohy.
-V násedujících sekcích proto budou popsány senzory akcelerometr, gyroskop
-a senzor přiblížení.
+a~tedy nemají pro hru větší využití.
+Mnoho využítí naopak umožňují senzory pohybu a~polohy.
+V~násedujících sekcích proto budou popsány senzory akcelerometr, gyroskop
+a~senzor přiblížení.
 
 \subsection{Akcelerometr}
 
-Akcelerometr určuje akceleraci v rámci os daného mobilního zařízení
-spolu s gravitací,
-která na toto mobilní zařízení v jednotlivých jeho osách
-působí~\cite{sensors_motion}.
-Z tohoto důvodu akcelerometr naměří výsledky i v případech,
+Akcelerometr určuje akceleraci v~rámci os daného mobilního zařízení
+spolu s~gravitací,
+která na toto mobilní zařízení v~jednotlivých jeho osách
+působí.
+Z~tohoto důvodu akcelerometr naměří výsledky i~v~případech,
 kdy mobilní zařízení například leží na stole,
-konkrétně s hodnotou udanou
+konkrétně s~hodnotou udanou
 gravitační silou $g = -9,81 m/s^2$~\cite{sensors_motion}.
 Tento senzor je tedy vhodný pro detekování pohybu zařízení
-a lze říci,
-že jej obsahují všechna zařízení se systémy Android a iOS.
+a~lze říci,
+že jej obsahují všechna zařízení se systémy Android a~iOS.
 
 \subsection{Gyroskop}
 
-Gyroskop měří pohyb rotace jednotlivých os zařízení~\cite{sensors_motion}.
+Gyroskop měří pohyb rotace jednotlivých os zařízení.
 Oproti akcelerometru tento senzor při nehybném zařízení
 nevydává žádná data,
-senzor totiž měří pouze změnu~\cite{sensors_motion}.
+senzor totiž měří pouze změnu.
 Změna rotace je udávaná jako radiány za sekundu~\cite{sensors_motion}.
 Tento senzor lze využít například pro rotaci ve 3D při 360° pohledu,
-kdy uživatel sedí na otočné židli a otáčením židle prohlíží okolí v aplikaci.
+kdy uživatel sedí na otočné židli a~otáčením židle prohlíží okolí v~aplikaci.
 
 \subsection{Senzor přiblížení}
 
-Senzor přiblížení určuje vzdálenost objektu od zařízení~\cite{sensors_position}.
+Senzor přiblížení určuje vzdálenost objektu od zařízení.
 Senzor je běžně umístěn na přední straně mobilního zařízení
-a určuje absolutní vzdálenost,
+a~určuje absolutní vzdálenost,
 nicméně některé druhy tohoto senzoru určují pouze
-stavy \emph{blízko} a \emph{daleko}.~\cite{sensors_position}
+stavy \emph{blízko} a~\emph{daleko}~\cite{sensors_position}.
 Například systém Android vypíná obrazovku,
-zatímco uživatel telefonuje se zařízením přiloženým u ucha.
+zatímco uživatel telefonuje se zařízením přiloženým u~ucha.
 Tento senzor lze využít například pro snímání vzdálenosti ruky od zařízení,
-nebo v kombinaci s gyroskopem k určení stavu,
-kdy je mobil položený na stole a otočený směrem k němu.
+nebo v~kombinaci s~gyroskopem k~určení stavu,
+kdy je mobil položený na stole a~otočený směrem k~němu.
 
 \subsection{Zhodnocení}
 
 Jak již bylo uvedeno,
-nejvyšší uplatnění v herních aplikacích mají senzory pohybu a polohy.
-V předešlých kapitolách byly popsány senzory,
-které lze běžně v herních aplikacích využít.
-V praktické části práce proto budou moci být použity právě tyto senzory,
+nejvyšší uplatnění v~herních aplikacích mají senzory pohybu a~polohy.
+V~předešlých kapitolách byly popsány senzory,
+které lze běžně v~herních aplikacích využít.
+V~praktické části práce proto budou moci být použity právě tyto senzory,
 které nabízí vhodné rozhraní,
-z volně dostupných balíčků.
+z~volně dostupných balíčků.

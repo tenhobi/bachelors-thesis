@@ -1,33 +1,33 @@
 \section{Multiplatformní framework}
 
-Vývoj mobilních aplikací je dle~\cite{wepc_video_game_statistics} na vzestupu.
-To přináší nároky na vydavatele a vývojáře k rychlejší tvorbě mobilních
-aplikací a her.
-Aplikace pro mobilní zařízení se běžně vytvářejí pomocí programovacích jazyků,
-které jsou úzce spjaty
-s mobilními zařízeními~\cite{dashmagazine_mobile_frameworks}.
-Příkladem takového programovacího jazyka je jazyk Java,
-který se používá pro vývoj nativních aplikací
-v platformě Android~\cite{dashmagazine_mobile_frameworks}.
-Tyto jazyky mají úzkou podporu pro vývoj na daných zařízeních,
-včetně přístupu k hardwarovému rozhraní (kamera, senzory, \dots{}),
-jak uvádí zdroj~\cite{dashmagazine_mobile_frameworks}. 
-
-\begin{figure}[ht!]
+\begin{figure}
     \centering
     \includegraphics[width=\linewidth]{assets/technology-research/framework/platform_sdk.pdf}
     \caption{Schéma frameworku specifického pro platformu~\cite{hackernoon_flutter}}
     \label{fig:framework_platform}
 \end{figure}
 
+Vývoj mobilních aplikací je dle~\cite{wepc_video_game_statistics} na vzestupu.
+To přináší nároky na vydavatele a~vývojáře k~rychlejší tvorbě mobilních
+aplikací a~her.
+Aplikace pro~mobilní zařízení se běžně vytvářejí pomocí programovacích jazyků,
+které jsou úzce spjaty
+s~mobilními zařízeními~\cite{dashmagazine_mobile_frameworks}.
+Příkladem takového programovacího jazyka je jazyk Java,
+který se používá pro vývoj nativních aplikací
+v~platformě Android~\cite{dashmagazine_mobile_frameworks}.
+Tyto jazyky mají úzkou podporu pro vývoj na daných zařízeních,
+včetně přístupu k~hardwarovému rozhraní (kamera, senzory, \dots{}),
+jak uvádí zdroj~\cite{dashmagazine_mobile_frameworks}. 
+
 Snahu urychlit vývoj mobilních aplikací řeší také mobilní frameworky.
 Tyto frameworky jsou tvořeny většinou stejnou společností,
 která také vytváří danou platformu,
-a jsou publikovány jako \emph{Software Development Kit} (dále jen SDK).
+a~jsou publikovány jako \emph{Software Development Kit} (dále jen SDK).
 Pro platformu Android je vyvíjeno Android SDK,
-spolu s podpůrnými programy jako integrované vývojové prostředí
-(dále jen IDE) a emulátory.
-Tyto frameworky jsou díky jejich úzkému propojení a plné kompatabilitě
+spolu s~podpůrnými programy jako integrované vývojové prostředí
+(dále jen IDE) a~emulátory.
+Tyto frameworky jsou díky jejich úzkému propojení a~plné kompatabilitě
 považovány za rychlé,
 avšak mnohdy vyžadují speciální znalosti pro konkrétní platformu.
 Právě cílení výhradně na danou platformu je největší nevýhoda těchto typů
@@ -35,20 +35,7 @@ frameworků.
 Na obrázku~\ref{fig:framework_platform} lze vidět architekturu těchto
 frameworků.~\cite{dashmagazine_mobile_frameworks}
 
-Další snahou pro ještě rychlejší a snadnější vývoj aplikací jsou frameworky
-s podporou multiplatformnosti,
-a tedy frameworky cílící na více platforem~\cite{hackernoon_flutter}.
-To může být pouze cílení na mobilní platformy,
-ale dokonce také i cílení na web, osobní počítače a další.
-Tyto frameworky podporují populární jazyky,
-umožňují sdílet kód mezi jednotlivými platformami
-a v závislosti na architektuře se blíží rychlostí výsledných aplikací
-k aplikacím psaných nativními jazyky~\cite{hackernoon_flutter}.
-Pomocí těchto technologií lze tedy vyvíjet aplikace pohodlně, rychle
-a benefitem \uv{zadarmo} je podpora multiplatformnosti vyvíjené
-aplikace~\cite{dashmagazine_mobile_frameworks}.
-
-\begin{figure}[ht!]
+\begin{figure}
     \centering
     \includegraphics[width=\linewidth]{assets/technology-research/framework/popularity.pdf}
     \caption{Vývoj trendu multiplatformních
@@ -56,13 +43,26 @@ aplikace~\cite{dashmagazine_mobile_frameworks}.
     \label{fig:framework_popularity}
 \end{figure}
 
-V následujících sekcích je vybráno a popsáno několik multiplatformních
+Další snahou pro ještě rychlejší a~snadnější vývoj aplikací jsou frameworky
+s~podporou multiplatformnosti,
+a~tedy frameworky cílící na více platforem~\cite{hackernoon_flutter}.
+To může být pouze cílení na mobilní platformy,
+ale dokonce také i~cílení na~web, osobní počítače a~další.
+Tyto frameworky podporují populární jazyky,
+umožňují sdílet kód mezi jednotlivými platformami
+a~v~závislosti na architektuře se blíží rychlostí výsledných aplikací
+k~aplikacím psaných nativními jazyky~\cite{hackernoon_flutter}.
+Pomocí těchto technologií lze tedy vyvíjet aplikace pohodlně, rychle
+a~benefitem \uv{zadarmo} je podpora multiplatformnosti vyvíjené
+aplikace~\cite{dashmagazine_mobile_frameworks}.
+
+V~následujících sekcích je vybráno a~popsáno několik multiplatformních
 frameworků.
 Tyto frameworky byly vybrány na základě trendů~\cite{framework_popularity}
 na síti Stack Overflow.
 Na obrázku~\ref{fig:framework_popularity} lze vidět reprezentace těchto trendů,
 ve kterých lze vyčíst,
-jak se trend pro daný jazyk vyvíjí v čase.
+jak se trend pro daný jazyk vyvíjí v~čase.
 Nejvíce populární na této síti je tedy framework Flutter,
 který překonal popularitu frameworku React Native,
 avšak oba frameworky si udržují dlouhodobý růst.
@@ -71,60 +71,60 @@ nebo jim dokonce klesá.
 
 \subsection{Ionic}
 
-\begin{figure}[ht!]
+\begin{figure}
     \centering
     \includegraphics[width=\linewidth]{assets/technology-research/framework/webview.pdf}
-    \caption{Schéma architektury s WebView~\cite{hackernoon_flutter}}
+    \caption{Schéma architektury s~WebView~\cite{hackernoon_flutter}}
     \label{fig:framework_webview}
 \end{figure}
 
 První multiplatformní frameworky začaly pro multiplatformnost využívat
 WebView~\cite{hackernoon_flutter}.
 Tyto frameworky aplikaci vykreslují pomocí webových technologií
-a komunikaci s hardwarovým rozhraním řeší pomocí speciálního komunikačního
+a~komunikaci s~hardwarovým rozhraním řeší pomocí speciálního komunikačního
 mostu~\cite{hackernoon_flutter}.
 Taková architektura je vidět na obrázku~\ref{fig:framework_webview}.
-Z tohoto obrázku jde vidět,
+Z~tohoto obrázku jde vidět,
 jak moc je zdrojový kód oddělený od dané platformy.
 
-Jedním z představitelů těchto frameworků je i framework Ionic,
-který je stále značně využívaný i v dnešní době,
-dle trendů z obrázku~\ref{fig:framework_popularity}.
-Framework Ionic využívá jazyky jako HTML, CSS a JavaScript.
-V tomto frameworku je možné vytvořit aplikaci pro mobilní platformy
-Android a iOS.
+Jedním z~představitelů těchto frameworků je i~framework Ionic,
+který je stále značně využívaný i~v~dnešní době,
+dle trendů z~obrázku~\ref{fig:framework_popularity}.
+Framework Ionic využívá jazyky jako HTML, CSS a~JavaScript.
+V~tomto frameworku je možné vytvořit aplikaci pro mobilní platformy
+Android a~iOS.
 Významnou výhodou je,
 že díky využití mobilních technologií,
 které se používají naprosto shodně jako při vývoji webových aplikací,
-se nemusí vývojáři učit nové technologie a přístupy k vývoji,
+se nemusí vývojáři učit nové technologie a~přístupy k~vývoji,
 čímž se také celý proces zrychlí.
-Důsledkem používání webových technologií jsou ale i jejich nevýhody,
+Důsledkem používání webových technologií jsou ale i~jejich nevýhody,
 zejména nižší výkon.~\cite{dashmagazine_mobile_frameworks}
 
-S frameworkem Ionic lze využít také frontend knihovny a frameworky.
-Příkladem jsou knihovny a frameworky React, Angular či Vue.
+S~frameworkem Ionic lze využít také frontend knihovny a~frameworky.
+Příkladem jsou knihovny a~frameworky React, Angular či Vue.
 Součástí je také knihovna komponent UI,
 které se automaticky přizpůsobí dané platformě.
-Součástí jsou také podpůrné konzolové nástroje pro vytváření, produkování a
-testování aplikací.~\cite{ionic}
+Součástí jsou také podpůrné konzolové nástroje pro vytváření, produkování
+a~testování aplikací.~\cite{ionic}
 
 \subsection{React Native}
 
-Další přístup k vývoji multiplatformních aplikací představuje framework
+Další přístup k~vývoji multiplatformních aplikací představuje framework
 React Native.
 Tento framework využívá pomocí komunikačního mostu nativní komponenty platformy
-díky vzorům z reaktivního programování zjednodušuje celkový
+díky vzorům z~reaktivního programování zjednodušuje celkový
 vývoj~\cite{hackernoon_flutter}.
 Framework je založen na populární webové
 knihovně ReactJs~\cite{dashmagazine_mobile_frameworks}.
 Jelikož framework nepoužívá nativní komponenty platformy,
-a tedy ani WebView,
+a~tedy ani WebView,
 jsou aplikace produkované tímto frameworkem
-rychlejší~\cite{dashmagazine_mobile_frameworks}.
+rychlejší.
 Pro popis UI je používán vlastní jazyk založený na XML,
 nazývaný JSX~\cite{dashmagazine_mobile_frameworks}.
 
-\begin{figure}[ht!]
+\begin{figure}
     \centering
     \includegraphics[width=\linewidth]{assets/technology-research/framework/react_native.pdf}
     \caption{Schéma architektury frameworku React Native~\cite{hackernoon_flutter}}
@@ -135,50 +135,50 @@ Framework React Native obsahuje \emph{hot reloading},
 což je vlastnost,
 která umožní vidět všechny změny ihned po jejich změně,
 bez zbytečně zdlouhavého procesu sestavování celé aplikace.
-K dispozici je také velká škála komponent,
+K~dispozici je také velká škála komponent,
 včetně velkého množství komponent od vývojářů třetí strany, 
 které mohou vývojáři volně používat.~\cite{dashmagazine_mobile_frameworks}
 
-Framework byl vytvořen v roce 2015
-společností Facebook,
-která jej od té doby spravuje~\cite{hackernoon_flutter}.
-Za zmíňku stojí populární aplikace,
+Framework byl vytvořen v~roce 2015
+společností Facebook~\cite{hackernoon_flutter},
+která jej od té doby spravuje.
+Za zmínku stojí populární aplikace,
 které framework využívají,
 mezi nimi jsou například mobilní aplikace Facebook, Instagram, Skype, Discord
-a mnoho dalších~\cite{react_native}.
+a~mnoho dalších~\cite{react_native}.
 
 Na obrázku~\ref{fig:framework_react_native} lze vidět schéma architektury
 frameworku React Native.
-Jak lze z obrázku vyčíst,
+Jak lze z~obrázku vyčíst,
 tato architektura,
-oproti architektuře s WebView,
-komunikuje s platformou kompletně přes komunikační most pomocí jazyku
+oproti architektuře s~WebView,
+komunikuje s~platformou kompletně přes komunikační most pomocí jazyku
 JavaScript.
 
 \subsection{Flutter}
 
 Posledním frameworkem je Flutter,
 který je vyvíjený společností Google.
-Tento framework je nejmladším z představených frameworků,
-avšak dle trendů z obrázku~\ref{fig:framework_popularity},
+Tento framework je nejmladším z~představených frameworků,
+avšak dle trendů z~obrázku~\ref{fig:framework_popularity},
 kde je vidět razantní nárůst,
-se jim minimálně snadno vyrovná.
-Framework Flutter přistupuje k multiplatformnosti jinak,
+se jim vyrovná.
+Framework Flutter přistupuje k~multiplatformnosti jinak,
 než ostatní mobilní frameworky.
 Nejenže tento framework nevyužívá programovací jazyk JavaScript,
-což samo o sobě přináší řadu výhod,
-ale také přesouvá starost s vykreslováním z platformy na framework
+což samo o~sobě přináší řadu výhod,
+ale také přesouvá starost s~vykreslováním z~platformy na framework
 \cite{hackernoon_flutter},
-jak lze vidět na obrázku s reprezentací
+jak lze vidět na obrázku s~reprezentací
 architektury~\ref{fig:framework_flutter},
-a také se plně kompiluje do nativního
+a~také se plně kompiluje do nativního
 kódu~\cite{dashmagazine_mobile_frameworks}.
-Podporované nejsou pouze mobilní platformy Android a iOS,
-ale také platformy web a desktop~\cite{flutter}.
+Podporované nejsou pouze mobilní platformy Android a~iOS,
+ale také platformy web a~desktop~\cite{flutter}.
 Platforma web je momentálně dostupná ve verzi beta,
 platforma desktop je dostupná ve verzi alfa~\cite{flutter_web, flutter_desktop}.
 
-\begin{figure}[ht!]
+\begin{figure}
     \centering
     \includegraphics[width=\linewidth]{assets/technology-research/framework/flutter.pdf}
     \caption{Schéma architektury frameworku Flutter~\cite{hackernoon_flutter}}
@@ -187,99 +187,100 @@ platforma desktop je dostupná ve verzi alfa~\cite{flutter_web, flutter_desktop}
 
 Framework Flutter využívá programovací jazyk Dart,
 který umožňuje jak kompilaci \emph{ahead of time} (dále jen AOT),
-tak i kompilaci \emph{just in time} (dále jen JIT)~\cite{hackernoon_flutter}.
+tak i~kompilaci \emph{just in time} (dále jen JIT)~\cite{hackernoon_flutter}.
 Těmito schopnostmi kompilace do nativního ARM kódu je framework schopen
-nemít žádný komunikační most mezi platformou a procesorem,
+nemít žádný komunikační most mezi platformou a~procesorem,
 což umožňuje tvořit rychlejší
-a výkonější aplikace~\cite{dashmagazine_mobile_frameworks}.
+a~výkonější aplikace.
 Aplikace mohou dosahovat až 120 snímků
 za vteřinu~\cite{dashmagazine_mobile_frameworks}.
 Díky možnostem kompilace JIT je také framework schopen poskytnout
 \emph{hot reload},
 který umožní velmi rychle provádět změny stavů aplikace zatímco
-je spuštěna~\cite{hackernoon_flutter}.
+je spuštěna.
 Vydání aplikace jsou vždy kompilovány naopak AOT kompilací,
-která produkuje velmi rychlou a výkonnou aplikaci~\cite{hackernoon_flutter}.
+která produkuje velmi rychlou a~výkonnou aplikaci~\cite{hackernoon_flutter}.
 
 Přesto,
 že je framework Flutter relativně nový,
 existuje řada aplikací,
 které tento framework úspěšně využívají.
-Za zmínku stojí například aplikace Google Ads, Baidu, Hamilton a
-Reflecty~\cite{flutter}.
+Za zmínku stojí například aplikace Google Ads, Baidu, Hamilton
+a~Reflecty~\cite{flutter}.
 
 Tento framework využívá sice widgety (komponenty UI),
 které vypadají jako nativní komponenty pro danou platformu,
-avšak všechny tyto widgety implementuje a udržuje pro vlastní vykreslovací
+avšak všechny tyto widgety implementuje a~udržuje pro vlastní vykreslovací
 engine Skia,
 taktéž od společnosti Google~\cite{flutter}.
 Engine Skia je známý 2D grafický engine,
-který je využíván například v projektech jako Google Chrome~\cite{skia}.
+který je využíván například v~projektech jako Google Chrome~\cite{skia}.
 
 \subsubsection*{Princip frameworku}
 
 Framework Flutter je ve svém principu velmi jednoduchý.
-Jak je uvedeno v dokumentaci frameworku Flutter:
-\emph{\uv{Everything’s a widget}}~\cite{flutter_technical_overview}
+Jak je uvedeno v~dokumentaci frameworku Flutter:
+\emph{\uv{Everything’s a~widget.}}~\cite{flutter_technical_overview}
 Oproti ostatním frameworkům,
 které dělí aplikaci do několika vrstev,
 obsahuje framework Flutter widgety jako základní stavební bloky pro všechno.
-Widgety jsou kompozicí spojovány a společně utváří celek, aplikaci.
-Každý widget zdědí vlastnosti z jeho rodiče v podobě kontextu,
+Widgety jsou kompozicí spojovány a~společně utváří celek, aplikaci.
+Každý widget zdědí vlastnosti od~jeho rodiče v~podobě kontextu,
 se kterým může dále samotný widget pracovat.~\cite{flutter_technical_overview}
 
-Pro skladbu widgetů je upřednosťnována kompozice před rozšířením dědičností.
-Vhodnou skladbou widgetů a jejich kombinací jsou prvky aplikace uspořádány,
-ostylovány, transformovány či jiným způsobem upraveny.
-Například widget \mintinline{dart}|Padding| přidá okolo widgetu odsazení,
-widget \mintinline{dart}|Row| uspořádá widgety--potomky do řádku,
-zatímco widget \mintinline{dart}|Column| uspořádá widgety--potomky
-do sloupce.~\cite{flutter_technical_overview}
-
-\begin{figure}[ht!]
+\begin{figure}
     \centering
     \includegraphics[width=\linewidth]{assets/technology-research/framework/flutter_overview.pdf}
     \caption{Vrstvy frameworku Flutter~\cite{flutter_technical_overview}}
     \label{fig:flutter_layers}
 \end{figure}
 
+Pro skladbu widgetů je upřednosťnována kompozice před rozšířením dědičností.
+Vhodnou skladbou widgetů a~jejich kombinací jsou prvky aplikace uspořádány,
+ostylovány, transformovány či jiným způsobem upraveny.
+Například widget \mintinline{dart}|Padding| přidá okolo widgetu odsazení,
+widget \mintinline{dart}|Row| uspořádá widgety--potomky do řádku,
+zatímco widget \mintinline{dart}|Column| uspořádá widgety--potomky
+do sloupce a widget \mintinline{dart}|Stack| uspořádá widgety--potomky
+přes sebe.~\cite{flutter_technical_overview}\pagebreak
+
 Na obrázku~\ref{fig:flutter_layers} lze vidět uspořádání frameworku do vrstev
 architektury.
 Vrstva frameworku samotného je na úrovni widgetů,
-které píší vývojáři aplikací v jazyce Dart.
+které píší vývojáři aplikací v~jazyce Dart.
 Vrstva enginu ovládá framework na nižší urovni, kompozici widgetů,
-jejich vykreslování a podobně.
-Engine je vyvíjen v programovacích jazycích C a C++.
-A vrstvě zaměřené na požadavky specifické
+jejich vykreslování a~podobně.
+Engine je vyvíjen v~programovacích jazycích C a~C++.
+A~poslední vrstva je zaměřena na požadavky specifické
 platformy.~\cite{flutter_technical_overview}
 
 Pokud se widget potřebuje měnit na základě dynamických faktorů,
 jako je například interakce uživatele nebo tok dat,
-je tento widget označován jako \emph{stateful} (widget se stavem) a je
+je tento widget označován jako \emph{stateful} (widget se stavem) a~je
 reprezentovaný třídou \mintinline{dart}|StatefulWidget|.
-V opačném případě je widget označován jako \emph{stateless} a je 
+V~opačném případě je widget označován jako \emph{stateless} a~je 
 reprezentovaný třídou \mintinline{dart}|StatelessWidget|,
 která má stav neměnný.
 Každý stateful widget má proměnlivý stav \mintinline{dart}|State|
-a kdykoli je stav změněn,
+a~kdykoli je stav změněn,
 je potřeba zavolat metodu \mintinline{dart}|setState()|,
 která signalizuje frameworku,
-že je widget nutno překreslit s novým stavem.~\cite{flutter_technical_overview}
+že je widget nutno překreslit s~novým stavem.~\cite{flutter_technical_overview}
 
 \subsubsection*{Další platformy}
 
 Framework Flutter momentálně vyvíjí také podporu pro
-další platformy jako jsou platformy web a desktop.
+další platformy jako jsou platformy web a~desktop.
 Tyto platformy jsou zatím podporovány pro produkci,
 avšak dle obrázku~\ref{fig:flutter_layers_web} lze vidět,
-že framework Flutter je navržen vhodně k tomu,
-aby tato a další úsilí podpořil.
+že framework Flutter je navržen vhodně k~tomu,
+aby tato a~další úsilí podpořil.
 Spodní specifické vrstvy platformy jsou vyměněny za vykreslování pomocí
 webových technologií,
-což v budoucnu umožní vytvářet aplikace nejen pro platformy Android a iOS,
-ale i již zmíněný web a desktop.~\cite{flutter_web, flutter_desktop} 
+což v~budoucnu umožní vytvářet aplikace nejen pro platformy Android a~iOS,
+ale i~již zmíněný web a~desktop.~\cite{flutter_web, flutter_desktop} 
 
-\begin{figure}[ht!]
+\begin{figure}
     \centering
     \includegraphics[width=\linewidth]{assets/technology-research/framework/flutter_overview_web.pdf}
     \caption{Vrstvy frameworku Flutter pro platformu web~\cite{flutter_web}}
@@ -288,29 +289,29 @@ ale i již zmíněný web a desktop.~\cite{flutter_web, flutter_desktop}
 
 \subsection{Zhodnocení}
 
-Jak je již vidět z obrázku~\ref{fig:framework_popularity},
-nejpopulárnější multiplatformní frameworky jsou frameworky Flutter a
-React Native.
-Přičemž framework Flutter je v porovnání s frameworkem React Native relativně
+Jak je již vidět z~obrázku~\ref{fig:framework_popularity},
+nejpopulárnější multiplatformní frameworky jsou frameworky Flutter
+a~React Native.
+Přičemž framework Flutter je v~porovnání s~frameworkem React Native relativně
 stále nový.
-I přes to má ale dlouhodobě strmější růst v trendu.
+I~přes to má ale dlouhodobě strmější růst v~trendu.
 
 Trend frameworku Ionic dlouhodobě stagnuje, až klesá,
-a navíc kvůli již zmiňovaným nevýhodám,
+a~navíc kvůli již zmiňovaným nevýhodám,
 zejména díky architektuře,
 není až tolik vhodný pro vývoj nových aplikací,
-s předpokladem pro dlouhodobější udržitelnost. 
+s~předpokladem pro dlouhodobější udržitelnost. 
 
-Framework React Native je velmi populární a nabízí skvělé výhody.
-Tento framework je však moc spjat s webovými technologiemi
-a je nutné využívat komunikační most,
-což přináší menší rychlostní i výkonostní nevýhody.
+Framework React Native je velmi populární a~nabízí řadu výhod.
+Tento framework je však moc spjat s~webovými technologiemi
+a~je nutné využívat komunikační most,
+což přináší menší rychlostní i~výkonostní nevýhody.
 Framework Flutter oproti tomu přináší spoustu výhod,
-a jak lze vidět z obrázku~\ref{fig:framework_flutter},
+a~jak lze vidět z~obrázku~\ref{fig:framework_flutter},
 tak také zaručuje svou architekturou stejné zobrazení aplikace na všech
 verzích operačních systémů dané platformy,
 díky vlastnímu vykreslování.
-Oba frameworky jsou zajisté vhodné pro vývoj nové aplikace s důrazem na
-udržitelnost a rozšiřitelnost,
+Oba frameworky jsou zajisté vhodné pro vývoj nové aplikace s~důrazem na
+udržitelnost a~rozšiřitelnost,
 avšak framework Flutter převyšuje svými výhodami,
-a proto bude v praktické části práce využit právě framework Flutter.
+a~proto bude v~praktické části práce využit právě framework Flutter.

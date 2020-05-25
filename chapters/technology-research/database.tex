@@ -4,18 +4,18 @@ Aby aplikace mohla uchovávat data napříč aplikacemi,
 musí využívat některé databázové řešení.
 Databáze je souhrn informací,
 které jsou vhodně uspořádány tak,
-že jsou snadno dostupné a udržovatelné.
+že jsou snadno dostupné a~udržovatelné.
 Oproti jednomuchému ukládání dat do souboru na disku mají databáze hodně výhod.
 Data lze vyhledávat pomocí speciálních dotazů,
 lze je slučovat pomocí spojovacích funkcí,
-jsou tolerantní k chybám
-a může je používat více uživatelů najednou.
-A to všechno při zachování optimální rychlosti.~\cite{database}
+jsou tolerantní k~chybám
+a~může je používat více uživatelů najednou.
+A~to všechno při zachování optimální rychlosti.~\cite{database}
 
-Dle~\cite{sql_nosql} existuje několik typů databází a přístupů k datům,
-přičemž největší rozdíly jsou v tom,
+Dle~\cite{sql_nosql} existuje několik typů databází a~přístupů k~datům,
+přičemž největší rozdíly jsou v~tom,
 jak ukládají který typ dat,
-a jak je k těmto datům umožněno přistupovat.
+a~jak je k~těmto datům umožněno přistupovat.
 \emph{\uv{Relational databases are structured,
 while non-relational databases are document-oriented and
 distributed.}}~\cite{sql_nosql}
@@ -24,69 +24,69 @@ Zatímco Structured Query Language (dále jen SQL) databáze byly donedávna
 preferovaným způsobem databází,
 trendem posledních let jsou Non SQL (dále jen NoSQL) databáze~\cite{sql_nosql}.
 Popis těchto typů databází,
-včetně výhod a nevýhod jednotlivého řešení,
-je uveden v následujících sekcích.
+včetně výhod a~nevýhod jednotlivého řešení,
+je uveden v~následujících sekcích.
 
 \subsection{SQL}
 
-Data v SQL databázích jsou ukládány strukturovaně,
+Data v~SQL databázích jsou ukládány strukturovaně,
 čímž tyto databáze dosahují největších výhod.
-Výhodou je také jejich široká podpora a snadné řešení chyb.
+Výhodou je také jejich široká podpora a~snadné řešení chyb.
 Principem těchto databází jsou vlastnosti,
 které shrnuje ACID (atomičnost, koexistence, izolace, trvanlivost).
-Těmito vlastnostmi databáze redukuje anomálie a chyby způsobené transakcemi.
+Těmito vlastnostmi databáze redukuje anomálie a~chyby způsobené transakcemi.
 Díky dlouhé době,
 za kterou se SQL databáze již používaly,
-existuje spousta nástrojů a doplňků,
-které usnadňují vývoj a řešení případných chyb.
+existuje spousta nástrojů a~doplňků,
+které usnadňují vývoj a~řešení případných chyb.
 Nevýhodou je však náročnější škálování databáze při vývoji aplikace.
 Příkladem je například databáze MySQL.~\cite{sql_nosql}
 
 \subsection{NoSQL}
 
-Data v NoSQL databázích jsou většinou nestrukturovány~\cite{sql_nosql}.
-Tím získávají tyto databáze velký náskok co se flexibility dat a rychlosti
-přístupu týče~\cite{sql_nosql}.
+Data v~NoSQL databázích jsou většinou nestrukturovány.
+Tím získávají tyto databáze velký náskok co se flexibility dat a~rychlosti
+přístupu týče.
 Tyto databáze je vhodné vnímat především jako kolekce,
-které obsahují dokumenty~\cite{sql_nosql}. 
+které obsahují dokumenty. 
 NoSQL databáze jsou vhodné pro ukládání velkého množství nestrukturovaných dat,
-u kterých není nutné předem definovat jejich podobu~\cite{sql_nosql}.
+u~kterých není nutné předem definovat jejich podobu.
 Nevýhodou je však relativní novost tohoto přístupu,
-což znamená i menší počet nástrojů,
-jako jsou nástroje k analýze a řešení problémů~\cite{sql_nosql}.
+což znamená i~menší počet nástrojů,
+jako jsou nástroje k~analýze a~řešení problémů.
 Tyto databáze většinou používají vlastní dotazovací jazyk či jiné standardizace,
-což může vést k problémům při přechodu na jinou databázi~\cite{sql_nosql}.
+což může vést k~problémům při přechodu na jinou databázi~\cite{sql_nosql}.
 Příkladem je například databáze Cloud Firestore~\cite{cloud_firestore}.
 
 \subsection{Firebase: Cloud Firestore}
 
 Firebase je projekt,
-který pomáhá vývojářům s mobilními a webovými aplikacemi.
+který pomáhá vývojářům s~mobilními a~webovými aplikacemi.
 Díky Firebase mohou být aplikace tvořeny rychleji,
-bez času stráveného budováním funkcionalit jako analytika a databáze.
+bez času stráveného budováním funkcionalit jako analytika a~databáze.
 Tyto produkty jsou tvořeny na infrastruktuře Google
-a jsou využívány společnostmi jako jsou The New York Times,
-Duolingo, Alibaba a další.~\cite{firebase}
+a~jsou využívány společnostmi jako jsou The~New York Times,
+Duolingo, Alibaba a~další.~\cite{firebase}
 
-Cloud Firestore je flexibilní NoSQL databáze dostupná v projektu Firebase.
-Tato databáze lehce spolupracuje s ostatními produkty Firebase,
+Cloud Firestore je flexibilní NoSQL databáze dostupná v~projektu Firebase.
+Tato databáze lehce spolupracuje s~ostatními produkty Firebase,
 jako jsou autentizace, správa práv nebo automatické aktualizace dat.
-Spolu s databází je poskytována řada balíčků pro vývoj mobilních a webových
+Spolu s~databází je poskytována řada balíčků pro vývoj mobilních a~webových
 aplikací,
-které poskytují přátelské rozhraní k vývoji s touto databází.
+které poskytují přátelské rozhraní k~vývoji s~touto databází.
 Dostupná je také funkce offline podpory,
 která automaticky ukládá často používané data,
-které je možno používat i bez internetového spojení.
-Data je možné filtrovat pomocí speciálních dotazů na kolekce i dokumenty
-a je možné také tyto dotazy kombinovat a řadit.~\cite{cloud_firestore}
+které je možno používat i~bez internetového spojení.
+Data je možné filtrovat pomocí speciálních dotazů na kolekce i~dokumenty
+a~je možné také tyto dotazy kombinovat a~řadit.~\cite{cloud_firestore}
 
 \subsection{Zhodnocení}
 
 Vývoj herní aplikace je ideální pro využití NoSQL databází.
-V takovéto aplikaci se najde plno příležitostí,
+V~takovéto aplikaci se najde plno příležitostí,
 kde lze využít rysů těchto databází,
 kde by naopak rysy SQL databází působily zbytečné obtíže.
-I když nedisponují vlastnostmi ACID,
+I~když nedisponují vlastnostmi ACID,
 je využití tohodo typu databáze,
 konkrétně databáze Cloud Firestore,
 nejvhodnější pro vývoj praktické části práce,

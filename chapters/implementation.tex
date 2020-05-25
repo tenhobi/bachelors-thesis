@@ -2,15 +2,15 @@
 \label{chap:implementation}
 
 Tato kapitola se zabývá popisem implementace aplikace.
-V následujících podkapitolách jsou popsány použité nástroje,
-použité knihovny a vybrané ukázky.
-Aplikace byla implementována dle návrhu v kapitole~\ref{chap:design}.
+V~následujících podkapitolách jsou popsány použité nástroje,
+použité knihovny a~vybrané ukázky.
+Aplikace byla implementována dle návrhu v~kapitole~\ref{chap:design}.
 
 \section{Použité nástroje}
 
 Během vývoje byly použity nástroje,
-které usnadnily vývoj aplikace či její lazení.
-Pro samotné lazení aplikace byl využit nástroj \emph{scrcpy},
+které usnadnily vývoj aplikace či její ladění.
+Pro samotné ladění aplikace byl využit nástroj \emph{scrcpy},
 který umožní promítat obrazovku mobilního zařízení na obrazovku počítače
 včetně bezdrátového spojení.
 
@@ -28,93 +28,93 @@ scrcpy --window-title "Totally Not Chernobyl" --always-on-top
 \subsection{Verzování}
 
 Během vývoje bylo využito verzovacích nástrojů.
-To je běžná součást každého projektu a slouží k postupnému zaznamenávání změn.
-V této práci byl využit verzovací systém \emph{Git} a webová služba \emph{GitHub},
+To je běžná součást každého projektu a~slouží k~postupnému zaznamenávání změn.
+V~této práci byl využit verzovací systém \emph{Git} a~webová služba \emph{GitHub},
 která nabízí kromě bezplatného umístění repozitáře také doplňkové služby jako
-code coverage, ticket systém, posouzení změn a podobně.
+code coverage, ticket systém, posouzení změn a~podobně.
 
 \subsection{Editor}
 
 Během vývoje aplikace byly využity dva editory.
 Editor IntelliJ IDEA od společnosti JetBrains
-a editor VS Code od společnosti Microsoft.
+a~editor VS Code od společnosti Microsoft.
 Editor IntelliJ IDEA je robustní editor,
-který obsahuje skvělou nápovědu a analýzu kódu.
-Díky výhodám jazyka Dart a frameworku Flutter
-byla však i práce v editoru VS Code velmi příjemná.
-Pro oba editory jsou dostupné v editorech chytré doplňky,
-které využívají integrovaných nástrojů dodávaných s jazykem Dart,
-ale i věci navíc jako poskytování útržků kódu pro usnadnění práce.
+který obsahuje nápovědu a~analýzu kódu.
+Díky výhodám jazyka Dart a~frameworku Flutter
+byla však i~práce v~editoru VS Code snadná.
+Pro oba editory jsou dostupné v~editorech chytré doplňky,
+které využívají integrovaných nástrojů dodávaných s~jazykem Dart,
+ale i~věci navíc jako poskytování útržků kódu pro usnadnění práce.
 
 \section{Použité knihovny}
 
 Při implementaci bylo využito několik knihoven,
 které elegantně řeší dané specifické problémy.
 Mezi nejzajímavější použité knihovny patří knihovny
-\mintinline{Dart}|bloc| a \mintinline{Dart}|flutter_bloc|,
-které poskytují rozhraní knihovny a widgety pro práci s nimi.
+\mintinline{Dart}|bloc| a~\mintinline{Dart}|flutter_bloc|,
+které poskytují rozhraní knihovny a~widgety pro práci s~nimi.
 Knihovna \mintinline{Dart}|easy_localization| řeší překlad uživatelského
 rozhraní aplikace do několika jazyků.
-Uživatel mezi jazyky může přepínat a tím měnit jazyk prvků.
+Uživatel mezi jazyky může přepínat a~tím měnit jazyk prvků.
 Lokalizace může být řešena více způsoby,
-nejjednoduší a jeden z nejvíce efektivních je pomocí vytvoření několika souborů,
+nejjednoduší a~jeden z~nejvíce efektivních je pomocí vytvoření několika souborů,
 například ve formátu \mintinline{shell}|JSON| nebo \mintinline{shell}|YAML|,
-které jednoduše a přehledně umožní definovat slovník překladu.
+které jednoduše a~přehledně umožní definovat slovník překladu.
 Samotná definice ovšem ne vždy stačí.
 Knihovna umožňuje vkládat parametry, které se do daného překladu vloží.
 Knihovna \mintinline{Dart}|google_sign_in| poskytuje jednoduché rozhraní pro
 přihlašování pomocí účtu Google.
 Jelikož jazyk Dart nepodporuje třídy union,
-knihovna \mintinline{Dart}|freezed| poskytuje rozhraní a generátor pro
+knihovna \mintinline{Dart}|freezed| poskytuje rozhraní a~generátor pro
 snadné generování těchto tříd.
 Knihovna \mintinline{Dart}|url_launcher| umožní spouštění webových odkazů
 nehledě na platformu.
-Knihovna \mintinline{Dart}|cloud_firestore| poskytuje rozhraní k práci se
+Knihovna \mintinline{Dart}|cloud_firestore| poskytuje rozhraní k~práci se
 stejnojmennou databází Cloud Firestore.
 Dále je využito knihovny \mintinline{Dart}|effective_dart|,
 která poskytuje souhrn pravidel pro statickou analýzu dle konvencí jazyka Dart.
 
 \section{Dokumentace}
 
-Z implementace byla vytvořena také automatická vývojářská dokumentace.
-Ta je ve formě webové stránky a zobrazuje veřejné rozhraní tříd.
-Komentáře jsou přehledně zobrazeny pomocí nástroje Markdown a obsahují proklik
-na třídy a metody.
+Z~implementace byla vytvořena také automatická vývojářská dokumentace.
+Ta je ve formě webové stránky a~zobrazuje veřejné rozhraní tříd.
+Komentáře jsou přehledně zobrazeny pomocí nástroje Markdown a~obsahují proklik
+na třídy a~metody.
 Tato dokumentace je umístěna na přiloženém datovém CD.
 
 \section{Ukázky vybraných částí}
 
-V následujících sekcích je uvedeno několik ukázek z implementace.
-Každá ukázka reprezentuje určitou část vývoje a popisuje její zajímavosti.
+V~následujících sekcích je uvedeno několik ukázek z~implementace.
+Každá ukázka reprezentuje určitou část vývoje a~popisuje její zajímavosti.
 
 \subsection{Implementace widgetu}
 
-V ukázce kódu~\ref{code:implementation-1} je uvedena reprezentace implementace widgetu
+V~ukázce kódu~\ref{code:implementation-1} je uvedena reprezentace implementace widgetu
 ve frameworku Flutter.
 Implementován je widget pro zobrazení loga aplikace.
-Jedná se o stateless widget,
+Jedná se o~stateless widget,
 což znamená,
-že takovýto widget je zobrazen staticky a nic se v něm nemění.
+že takovýto widget je zobrazen staticky a~nic se v~něm nemění.
 Widget může mít několik vstupních proměnných,
 které využívá,
-a dokonce může využívat i další widgety,
+a~dokonce může využívat i~další widgety,
 které mohou být stateful.
 
-Jak lze z ukázky vidět,
+Jak lze z~ukázky vidět,
 je využito standardních widgetů jako je widget \mintinline{Dart}|Column|,
-který slouží pro uspořádání prvků do sloupce pod sebe a
-widgetu \mintinline{Dart}|Text|,
+který slouží pro uspořádání prvků do sloupce pod sebe
+a~widgetu \mintinline{Dart}|Text|,
 který slouží pro výpis textu.
 Oba widgety mají řadu parametrů,
 které náležitě modifikují jejich styl.
-V ukázce je také vidět,
+V~ukázce je také vidět,
 že je využita metoda \mintinline{Dart}|tr()|,
 která slouží pro vyžádání překladu pomocí knihovny \mintinline{Dart}|easy_localization|.
 
 Zajímavostí jazyka Dart také je,
 že umožňuje vkládat do seznamu podmíněné položky,
 jak lze vidět ve spodní části kódu.
-To umožňuje tvořit více čtivý kód a redukuje množství kódu.
+To umožňuje tvořit více čtivý kód a~redukuje množství kódu.
 
 \begin{listing}
     \caption{Implementace widgetu ve frameworku Flutter}
@@ -162,13 +162,13 @@ class AppLogo extends StatelessWidget {
 
 \subsection{Datová třída}
 
-S využitím knihovny \mintinline{Dart}|freezed| je možné tvořit nejen
+S~využitím knihovny \mintinline{Dart}|freezed| je možné tvořit nejen
 třídy union,
 ale také datové třídy.
 Tyto třídy po vygenerování obsahují kopírující konstruktor,
 metody pro porovnání rovnosti,
-metody pro převod do formátu JSON a podobně.
-Práce s takovouto třídou je tedy velmi snadná.
+metody pro převod do formátu JSON a~podobně.
+Práce s~takovouto třídou je tedy velmi snadná.
 
 \begin{listing}
     \caption{Implementace datové třídy}
