@@ -26,6 +26,9 @@ jobs:
       - name: Run Arara -- Slides
         run: arara slides
 
+      - name: Run Arara -- Cover
+        run: arara cover
+
       - name: Upload Data as Artifact
         uses: actions/upload-artifact@master
         with:
