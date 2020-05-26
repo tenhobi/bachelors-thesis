@@ -29,10 +29,15 @@ scrcpy --window-title "Totally Not Chernobyl" --always-on-top
 
 Během vývoje bylo využito verzovacích nástrojů.
 To je běžná součást každého projektu a~slouží k~postupnému zaznamenávání změn.
-V~této práci byl využit verzovací systém \emph{Git} a~webová služba \emph{GitHub},
-která nabízí kromě bezplatného umístění repozitáře také doplňkové služby jako
-code coverage, ticket systém, posouzení změn a~podobně.
+V~této práci byl využit verzovací systém Git.
 
+Kromě nástroje Git byla využita i~webová služba GitHub.
+Tato webová služba,
+obdobně jako konkurenční řešení (například GitLab),
+nabízí kromě bezplatného umístění repozitáře také doplňkové služby jako jsou
+code coverage, ticket systém, posuzování změn a~podobně.
+
+\pagebreak
 \subsection{Editor}
 
 Během vývoje aplikace byly využity dva editory.
@@ -74,18 +79,40 @@ stejnojmennou databází Cloud Firestore.
 Dále je využito knihovny \mintinline{Dart}|effective_dart|,
 která poskytuje souhrn pravidel pro statickou analýzu dle konvencí jazyka Dart.
 
-\section{Dokumentace}
+\begin{listing}[b!]
+    \caption{Implementace datové třídy}
+    \label{code:implementation-2}
+    \begin{minted}{Dart}
+@freezed
+abstract class User with _$User {
+    const factory User({
+        @required String username,
+        @required String language,
+        @Default(0) int gamesCount,
+        @Default(0) int winGamesCount,
+    }) = _User;
 
-Z~implementace byla vytvořena také automatická vývojářská dokumentace.
-Ta je ve formě webové stránky a~zobrazuje veřejné rozhraní tříd.
-Komentáře jsou přehledně zobrazeny pomocí nástroje Markdown a~obsahují proklik
-na třídy a~metody.
-Tato dokumentace je umístěna na přiloženém datovém CD.
+    factory User.fromJson(Map<String, dynamic> json) =>
+      _$UserFromJson(json);
+}
+    \end{minted}
+\end{listing}
 
 \section{Ukázky vybraných částí}
 
 V~následujících sekcích je uvedeno několik ukázek z~implementace.
 Každá ukázka reprezentuje určitou část vývoje a~popisuje její zajímavosti.
+
+\subsection{Datová třída}
+
+S~využitím knihovny \mintinline{Dart}|freezed| je možné tvořit nejen
+třídy union,
+ale také datové třídy.
+Tyto třídy po vygenerování obsahují kopírující konstruktor,
+metody pro porovnání rovnosti,
+metody pro převod do formátu JSON a~podobně.
+Práce s~takovouto třídou je tedy velmi snadná,
+ukázka jde vidět v kódu~\ref{code:implementation-2}.
 
 \subsection{Implementace widgetu}
 
@@ -160,33 +187,42 @@ class AppLogo extends StatelessWidget {
     \end{minted}
 \end{listing}
 
-\subsection{Datová třída}
-
-S~využitím knihovny \mintinline{Dart}|freezed| je možné tvořit nejen
-třídy union,
-ale také datové třídy.
-Tyto třídy po vygenerování obsahují kopírující konstruktor,
-metody pro porovnání rovnosti,
-metody pro převod do formátu JSON a~podobně.
-Práce s~takovouto třídou je tedy velmi snadná.
-
-\begin{listing}
-    \caption{Implementace datové třídy}
-    \label{code:implementation-2}
-    \begin{minted}{Dart}
-@freezed
-abstract class User with _$User {
-    const factory User({
-        @required String username,
-        @required String language,
-        @Default(0) int gamesCount,
-        @Default(0) int winGamesCount,
-    }) = _User;
-
-    factory User.fromJson(Map<String, dynamic> json) =>
-      _$UserFromJson(json);
-}
-    \end{minted}
-\end{listing}
-
 %\subsection{\todo{Ukázka 3}}
+
+\section{Dokumentace}
+
+Spolu s implementací byla vytvořena i vývojářská a uživatelská dokumentace.
+Obě dokumentace jsou dostupné v příloze~\ref{chap:cd}.
+Vývojářská dokumentace je vytvořena automaticky ze zdrojového kódu aplikace,
+pomocí nástroje \mintinline{shell}|dartdoc|.
+Tento nástroj vytváří dokumentaci ve formě webové aplikace,
+která vývojáře provede implementací podle komentářů z kódu.
+Ikdyž je samotné uživatelské rozhraní velmi přívětivé,
+na základě výsledné aplikace byla vytvořena i uživatelská dokumentace,
+která má za cíl poskytnout uživatelům jednoduchý a jasný návod,
+jak aplikaci ovládat.
+
+\section{Zhodnocení}
+
+Výsledná aplikace \myAppName{} byla úspěšně vytvořena dle analýzy a návrhu.
+Aplikace obsahuje jednoduché uživatelské rozhraní a srozumitelné ovládací prvky.
+Byl implementován univerzální systém,
+který je možné snadno rozšiřovat a používat,
+což bylo jedním z cílů práce.
+Hra obsahuje několik ukázkových předpřipravených misí,
+které je však možné snadno obohatit či přidat další.
+Aplikace je testována několika způsoby,
+díky čemuž je zejména pro uživatele snadno použitelná a bez chyb.
+
+\section{Možnosti rozšíření}
+
+Aplikaci lze v~budoucnu rozšířit mnoha způsoby.
+Jako první možnost k rozšíření se nabízí vylepšení obsahu hry,
+tedy přidání a rozšíření herních misí.
+Další možnosti k rozšíření lze najít v přidání herních modulů,
+které mohou celkový prožitek ze hry velmi obohatit.
+Samozřejmě se nabízí i možnost zcela upravit či rozšířit samotné funkce či
+možnosti hry,
+jako jsou přidání podpory pro další platformy (platformy web a desktop),
+využití více typů senzorů a~práce s nimi
+nebo rozšíření o~další herní módy (mód s~více hráči). 
