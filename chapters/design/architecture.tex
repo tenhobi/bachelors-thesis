@@ -1,3 +1,95 @@
 \section{Architektura}
 
-TODO text
+Návrh architektury je zásadní krok při vývoji aplikace.
+Nevhodně zvolená architektura může znemožnit snadné rozšíření aplikace
+a~její údržbu.
+Při návrhu architektury je proto dbán zřetel na jednoduchost a~univerzálnost.
+Návrh se netýká jen aplikace na nejvyšší úrovni,
+ale i~dílčích částí. 
+V~následujících sekcích jsou popsány navrhované řešení herní smyčky,
+dělení aplikace na oddělené moduly a~využití knihovny Bloc v~aplikaci.
+
+\subsection{Herní smyčka}
+
+Pro herní aplikaci je důležitá herní smyčka,
+která popisuje samotné fungování hry a~věci,
+které je nutné mezi zařízeními sdílet.
+Ve hře je potřeba udržovat informace o~splněných herních modulech,
+splněných akcích a~o~dalších informacích o~hře.
+Některé informace, jako jsou informace o~herních modulech,
+mohou zůstat na zařízení hráče.
+Hráč s~manuálem nepotřebuje,
+a~neměl by,
+vědět všechny informace.
+Tyto informace mohou být v~rámci týmové komunikace předány ústně.
+Díky tomu je možné návrh zjednodušit a~tyto informace nesdílet
+a~udržovat je pouze v~zařízení hráče s~herními moduly.
+
+Důležité informace pro oba hráče jsou informace o~splnění všech modulů,
+což znamená ukončení hry s~výhrou.
+Dále informace o~překročení časového limitu,
+což znamená ukončení hry s~prohrou.
+A~také informace o~splnění akce na daném zařízení,
+resp. splnění akce na obou zařízeních,
+což vede k~odblokování obrazovek a~možnosti pokračovat ve hře.
+Mezi zařízeními budou tedy sdíleny pouze zmíněné informace --
+dokončení hry, překročení času a~společné splnění akce.
+Jelikož není potřeba sdílet většinu informací,
+nejsou na hráče kladeny nároky na rychlost spojení.
+
+Samotné nastavení mise obsahuje seznam modulů,
+které jsou v~misi využity.
+Pro každý modul je zaznamenáno konkrétní nastavení,
+které se aplikuje do hry jak do manuálu, tak i~do podmínek pro splnění modulu.
+Dále obsahuje informaci o~čase k~dokončení hry.
+
+\subsection{Moduly}
+
+Aplikace bude dle architektury Clean Architecture rozdělena
+na úrovni modulů na tři části.
+Tyto moduly obsahují zvlášť prezentační, aplikační a~datovou vrstvu.
+První modul se zaměřuje na obrazovky mimo hru a~její nastavení
+a~řeší autentizaci a~přihlášení.
+Druhý modul se zaměřuje na nastavení hry a~její spuštění a~řeší propojení hráčů.
+Třetí modul se zaměřuje na hru samotnou a~řeší její průběh.
+Kromě těchto specifických modulů je v~obecném kontextu řešeno nastavení
+aplikace,
+které zmíněné moduly využívají.
+
+\subsection{Bloc}
+
+Prezenční vrstvu s~vrstvou aplikační spojují kontrolery knihovny Bloc.
+Ty jsou reprezentovány třídami \mintinline{Dart}{Bloc} a~udržují a~mění stav
+dané části.
+Sdílená třída \mintinline{Dart}{Bloc} je například pro nastavení,
+které je nutné sdílet mezi všemi moduly.
+
+Modul home obsahuje třídu \mintinline{Dart}{Bloc} pro autentizaci a~přihlášení.
+Tyto třídy jsou rozděleny,
+protože zatímco autentizace řeší přepínání obrazovek podle stavu uživatele,
+přihlášení řeší přihlášení samotné na dané obrazovce.
+Protože každý stav dané třídy odpovídal pouze tomu,
+co by měl obsahovat,
+tyto třídy nelze spojit.
+Příkladem je obrazovka přihlašování,
+která se zobrazí pokud stav autentizace je \mintinline{Dart}{unauthenticated},
+avšak může také zobrazit chybu,
+která je reprezentována stavem přihlašování \mintinline{Dart}{failure}.
+Pokud by tento stav byl v~rámci autentizace,
+byl by ztracen kontext.
+
+Modul lobby obsahuje třídu \mintinline{Dart}{Bloc} reprezentující stav
+vytváření hry.
+Jelikož se v~tomto modulu nemění více stavů,
+je přítomen pouze jeden.
+Tomuto stavu se však průběžně mění data jako zvolená mise,
+přítomní hráči a~zda jsou uživatelé připraveni.
+
+Obdobně funguje třída \mintinline{Dart}{Bloc} modulu game,
+která však obsahuje stav i~pro obrazovku ukončené hry se statistikami.
+Navíc má i~stav pro hráče s~manuálem,
+díky kterému se zobrazí informace namísto herních modulů.
+Třída pro hráče s~herními moduly shromažďuje shromažďuje data o~jednotlivých
+modulech a~jejich řešení.
+Tento modul obsahuje ještě speciální třídu \mintinline{Dart}{Bloc} pro akce,
+které mohou překrývat obrazovku samotné hry.

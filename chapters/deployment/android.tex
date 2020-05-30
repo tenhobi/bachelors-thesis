@@ -1,0 +1,32 @@
+\section{Android}
+
+Pro sestavení aplikace na platformě Android je nutné stáhnout a~přidat soubor
+\mintinline{shell}|android/app/google-services.json|,
+který obsahuje nastavení služby databáze Cloud Firestore.
+Aplikaci je vhodné přidat vlastní ikonu,
+která se uloží do složky \mintinline{shell}|android/app/src/main/res/|.
+Pro samotnou distribuci je nutné sestavit aplikaci
+s~podepsaným certifikačním klíčem,
+jinak aplikace nepůjde publikovat v~obchodě Google Play. 
+Tento klíč se vygeneruje pomocí nástroje \mintinline{shell}|keytool|
+a~je nutné na něj odkázat ze souboru \mintinline{shell}|android/key.properties|.
+V~souboru
+\mintinline{shell}|android/app/src/main/AndroidManifest.xml|
+lze také nastavit položku
+\mintinline{shell}|application android:label|
+pro nastavení názvu aplikace.
+V~souboru
+\mintinline{shell}|android/app/build.gradle|
+lze naopak nastavit údaje pro distribuci,
+konkrétně položka \mintinline{shell}|applicationId|
+obsahuje unikátní identifikátor aplikace
+a~položky \mintinline{shell}|versionCode| a~\mintinline{shell}|versionName|
+obsahují název
+a~číslo konkrétního vydání aplikace.~\cite{flutter_deploy_android}
+
+Příkaz \mintinline{shell}|flutter build appbundle| sestaví výslednou aplikaci
+pro distribuci,
+kde \emph{app bundle} je preferovaný formát pro distribuci,
+oproti klasickému formátu \emph{apk}.
+Následně je možné distribuovat aplikaci přes rozhraní Google Play Console
+do obchodu Google Play.

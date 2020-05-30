@@ -1,0 +1,91 @@
+% arara: xelatex: { shell : yes }
+% arara: biber
+% arara: xelatex: { shell : yes }
+% arara: xelatex: { shell : yes }
+
+\documentclass[thesis=B,czech]{template/FITthesis}[2019/12/23]
+
+\usepackage[utf8]{inputenc} % LaTeX source encoded as UTF-8
+\usepackage{dirtree}
+\usepackage{xevlna}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\usepackage[style=iso-numeric]{biblatex}
+\addbibresource{library.bib} 
+
+\usepackage{minted}
+\counterwithin{listing}{chapter}
+\renewcommand{\listingscaption}{Výpis kódu}
+\renewcommand{\listoflistingscaption}{Seznam výpisů kódu}
+
+\input{macros/_all.tex}
+
+%\includeonly{chapters/competitive-apps}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+% NASTAVENI
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+\department{Katedra softwarového inženýrství}
+\title{Kooperativní mobilní multiplatformní hra}
+\authorGN{Jan} %(křestní) jméno (jména) autora
+\authorFN{Bittner} %příjmení autora
+\authorWithDegrees{Jan Bittner} %jméno autora včetně akademických titulů
+\author{Jan Bittner} %jméno autora bez akademických titulů
+\supervisor{Ing. Marek Suchánek}
+\acknowledgements{Rád bych na tomto místě poděkoval vedoucímu práce
+Ing. Markovi \mbox{Suchánkovi} za cenné rady a~přátelský přístup.
+Také bych rád poděkoval své rodině za podporu během studia.
+}
+\abstractCS{Bakalářská práce se zabývá návrhem a~implementací kooperativní
+mobilní hry pro~mobilní operační systémy Android a~iOS
+za~pomoci multiplatformního frameworku Flutter.
+Důraz je kladen na rešerši a~výběr frameworku,
+knihovny pro správu stavů, databáze, senzorů, architektury a~testování.
+Dále je v~práci na základě poznatků z~rešerše provedena analýza, návrh
+a~implementace herních principů, uživatelského rozhraní a~architektury aplikace.
+Výsledkem práce je open-source mobilní hra,
+ve~které hráči vzájemnou komunikací plní cíle misí hry.
+}
+\abstractEN{The bachelor's thesis describes the~design and~implementation
+of~the~cooperative mobile game for~Android and~iOS mobile operating systems
+using the~multi-platform Flutter framework.
+Emphasis is placed on~the~research and~selection of~the~framework,
+state management library, database, sensors, architecture, and~testing.
+Furthermore,
+analysis, designing, and~implementation of~the~game principles, user interface, and~application architecture is performed based on~the~research.
+The result of~this thesis is an~open-source mobile game,
+in which players fulfill the objectives of~the~game's missions
+by~communicating with~each other.
+}
+\placeForDeclarationOfAuthenticity{V~Praze}
+\declarationOfAuthenticityOption{4} %volba Prohlášení
+\keywordsCS{mobilní hra, kooperace,
+state management, multiplatformní framework,
+Flutter, BLoC, Clean Architecture
+}
+\keywordsEN{mobile game, cooperation,
+state management, multi-platform framework,
+Flutter, BLoC, Clean Architecture
+}
+\website{https://github.com/tenhobi/bachelors-thesis} %volitelná URL práce, objeví se v tiráži
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+% OBSAH
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %  
+
+\begin{document}
+\input{parts/introduction.tex}
+\input{chapters/_all.tex}
+\input{parts/conclusion.tex}
+
+{
+    \setlength{\emergencystretch}{3em} 
+    \printbibliography
+}
+
+\appendix
+\input{parts/appendix/_all.tex}
+
+\end{document}

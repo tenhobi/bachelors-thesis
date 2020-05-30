@@ -61,6 +61,7 @@
 \AtEndDocument{\ifdefined\there@is@a@table\label{tab:was:used:in:doc}\fi}
 \DeclareRobustCommand{\listoftablescond}{\@ifundefined{r@tab:was:used:in:doc}{}{\listoftables*}}
 
+\RequirePackage{pdfpages}
 
 % heading numbering (memoir-style settings)
 \setsecnumdepth{subsubsection}
@@ -340,7 +341,7 @@ sp\^ osobom, ktor\'y nezni\v zuje hodnotu Diela (vr\'atane komer\v cn\'eho vyu\v
 \DeclareRobustCommand{\titlepage}{
         \begin{titlingpage}
         \noindent
-        \if\@lang1{\includegraphics[width=0.5\textwidth]{assets/images/cvut-logo-bw}}\else\if\@lang2{\includegraphics[width=0.5\textwidth]{assets/images/cvut-logo-bw}}\else{\includegraphics[width=0.5\textwidth]{assets/images/cvut-logo-bw-en}}\fi\fi
+        \if\@lang1{\includegraphics[width=0.5\textwidth]{template/cvut-logo-bw}}\else\if\@lang2{\includegraphics[width=0.5\textwidth]{template/cvut-logo-bw}}\else{\includegraphics[width=0.5\textwidth]{template/cvut-logo-bw-en}}\fi\fi
         
         \vfill
 		
@@ -471,7 +472,7 @@ sp\^ osobom, ktor\'y nezni\v zuje hodnotu Diela (vr\'atane komer\v cn\'eho vyu\v
 		\noindent \textit{This thesis is school work as defined by Copyright Act of the Czech Republic. It has been submitted at Czech Technical University in Prague, Faculty of Information Technology. The thesis is protected by the Copyright Act and its usage without author's permission is prohibited (with exceptions defined by the Copyright Act).}
 	}\fi\fi
 	
-	\if\@lang1{\subsection*{Odkaz na tuto pr{\' a}ci} \theauthorFN{}, \theauthorGN{}. \textit{\thetitle{}}. \thesistype{}. Praha: {\v C}esk\'e vysok\'e u\v cen\'\i{} technick\'e v~Praze, Fakulta informa{\v c}n{\' i}ch technologi{\' i}, \the\year.\if@websitedefined{ Dostupn\'y tak\'e z~WWW: $\langle$\url{\thewebsite}$\rangle$.}\fi}\else\if\@lang2{\subsection*{Odkaz na t\'uto pr{\' a}cu} \theauthorFN{}, \theauthorGN{}. \textit{\thetitle{}}. \thesistype{}. Praha: {\v C}esk\'e vysok\'e u\v cen\'\i{} technick\'e v~Praze, Fakulta informa{\v c}n{\' i}ch technologi{\' i}, \the\year.\if@websitedefined{ Dostupn\'y aj z~WWW: $\langle$\url{\thewebsite}$\rangle$.}\fi}\else{\subsection*{Citation of this thesis} \theauthorFN{}, \theauthorGN{}. \textit{\thetitle{}}. \thesistype{}. Czech Technical University in Prague, Faculty of Information Technology, \the\year.\if@websitedefined{ Also available from: $\langle$\url{\thewebsite}$\rangle$.}\fi}\fi\fi
+	\if\@lang1{\subsection*{Odkaz na tuto pr{\' a}ci} \theauthorFN{}, \theauthorGN{}. \textit{\thetitle{}}. \thesistype{}. Praha: {\v C}esk\'e vysok\'e u\v cen\'\i{} technick\'e v~Praze, Fakulta informa{\v c}n{\' i}ch \mbox{technologi{\' i}}, \the\year.\if@websitedefined{ Dostupn\'y tak\'e z~WWW: $\langle$\url{\thewebsite}$\rangle$.}\fi}\else\if\@lang2{\subsection*{Odkaz na t\'uto pr{\' a}cu} \theauthorFN{}, \theauthorGN{}. \textit{\thetitle{}}. \thesistype{}. Praha: {\v C}esk\'e vysok\'e u\v cen\'\i{} technick\'e v~Praze, Fakulta informa{\v c}n{\' i}ch technologi{\' i}, \the\year.\if@websitedefined{ Dostupn\'y aj z~WWW: $\langle$\url{\thewebsite}$\rangle$.}\fi}\else{\subsection*{Citation of this thesis} \theauthorFN{}, \theauthorGN{}. \textit{\thetitle{}}. \thesistype{}. Czech Technical University in Prague, Faculty of Information Technology, \the\year.\if@websitedefined{ Also available from: $\langle$\url{\thewebsite}$\rangle$.}\fi}\fi\fi
 }
 
 \DeclareRobustCommand{\abstractpage}{
@@ -488,7 +489,8 @@ sp\^ osobom, ktor\'y nezni\v zuje hodnotu Diela (vr\'atane komer\v cn\'eho vyu\v
 		\ClassError{FITthesis}{Czech keywords unspecified}{Specify the keywords in Czech of your thesis using \keywordsCS command.}
 	\fi
 
-	\vfil
+	\newpage
+	%\vfil
 
 	\if@abstractendefined
 		\chapterstyletitle{Abstract}\theabstracten
@@ -508,7 +510,8 @@ sp\^ osobom, ktor\'y nezni\v zuje hodnotu Diela (vr\'atane komer\v cn\'eho vyu\v
 \renewcommand{\counterwithin}{\@ifstar{\@csinstar}{\@csin}}
 
 	\thispagestyle{empty}
-	\if\@lang1{Sem vlo{\v z}te zad{\' a}n{\' i} Va{\v s}{\' i} pr{\' a}ce.}\else\if\@lang2{Sem vlo{\v z}te zadanie Va{\v s}ej pr{\' a}ce.}\else{Insert here your thesis' task.}\fi\fi
+	%\if\@lang1{Sem vlo{\v z}te zad{\' a}n{\' i} Va{\v s}{\' i} pr{\' a}ce.}\else\if\@lang2{Sem vlo{\v z}te zadanie Va{\v s}ej pr{\' a}ce.}\else{Insert here your thesis' task.}\fi\fi
+	\includepdf[pages={1}]{assets/assignment.pdf}
 
 	\frontmatter
 	\pagestyle{plain}
@@ -532,6 +535,9 @@ sp\^ osobom, ktor\'y nezni\v zuje hodnotu Diela (vr\'atane komer\v cn\'eho vyu\v
 
 	\cleardoublepage
 	\listoftablescond
+
+	\cleardoublepage
+	\listoflistings
 
 	\pagestyle{ruled}
 	\mainmatter

@@ -13,20 +13,27 @@ jobs:
 
       - name: Set up Enviroment
         run: |
-          sudo apt install texlive texlive-xetex texlive-extra-utils texlive-lang-czechslovak
+          sudo apt install texlive texlive-xetex texlive-extra-utils texlive-lang-czechslovak texlive-bibtex-extra
+          sudo apt install biber
           sudo apt install python-pygments
 
-      - name: Run Arara
-        run: arara main
+      - name: Run Arara -- Thesis
+        run: arara thesis
 
       - name: Rename PDF
-        run: mv main.pdf BP_Bittner_Jan.pdf
+        run: mv thesis.pdf BP_Bittner_Jan.pdf
+
+      - name: Run Arara -- Slides
+        run: arara slides
+
+      - name: Run Arara -- Cover
+        run: arara cover
 
       - name: Upload Data as Artifact
         uses: actions/upload-artifact@master
         with:
           name: bp-pdf
-          path: BP_Bittner_Jan.pdf
+          path: ./*.pdf
 
       - name: Cat Log
         if: failure()
