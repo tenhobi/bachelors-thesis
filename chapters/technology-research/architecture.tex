@@ -78,7 +78,13 @@ Poslední vrstva,
 datová vrstva,
 je nejnižší vrstvou,
 která se stará o~manipulaci a~tok dat z~databáze do
-nižších vrstev.~\cite{architecture}
+nižších vrstev.
+V~této architektuře je největší role přikládána databázi
+a~často je tak datová a~aplikační vrstva úzce propojena.
+V~nejhorších případech na datové vrstvě závisí
+i~vrstva prezentační~\cite{architecture}.
+Ukázka přístupu pomocí této architektury je znázorněna ve výpisu
+kódu~\ref{code:architecture-database}.
 
 \begin{listing}
     \caption{Ukázka přístupu zaměřeného na databázi v~jazyce Java~\cite{architecture}}
@@ -98,12 +104,7 @@ implements GetRecentPostsUseCaseContract {
     \end{minted}
 \end{listing}
 
-V~této architektuře je největší role přikládána databázi
-a~často je tak datová a~aplikační vrstva úzce propojena.
-V~nejhorších případech na datové vrstvě závisí
-i~vrstva prezentační~\cite{architecture}.
-Ukázka přístupu pomocí této architektury je znázorněna ve výpisu
-kódu~\ref{code:architecture-database}.
+
 
 \subsection{Architektury zaměřené na doménu}
 
@@ -128,6 +129,7 @@ for as~long as~possible.
 What are the~options that we need to~leave open?
 They are the~details
 that don’t matter.}}~\cite[str.~140]{martin_clean_architecture}
+
 Výhodou architektur zaměřených na doménu také je,
 že díky návrhu samotnému abstrahují implementační detaily do podoby kontraktů.
 Těmto kontraktům může nadále vyhovět několik konkrétních implementací,
@@ -183,6 +185,7 @@ Conway’s law:\linebreak
 The~best structure for a~software system is heavily influenced
 by the~social structure of the~organization that uses it so that
 each software module has one, and only one, reason to change.}}~\cite[str.~57--59]{martin_clean_architecture}
+    \pagebreak
     \item[Open--closed principle] \emph{\uv{Bertrand Meyer made this principle
 famous\linebreak in~the~1980s.
 The gist is that for software systems to be easy to change,
@@ -211,6 +214,7 @@ Rather, details should depend on policies.}}~\cite[str.~57--59]{martin_clean_arc
     \label{fig:the_clean_architecture}
 \end{figure}
 
+\pagebreak
 Princip inverze závislostí je jedním z~nejdůležitějších principů SOLID,
 který Clean Architecture využívá.
 Tento princip říká,
@@ -254,7 +258,7 @@ software.~\cite{the_clean_architecture}
 
 \begin{figure}[t!]
     \centering
-    \includegraphics[width=0.7\linewidth]{assets/technology-research/architecture/reso-coder-clean-architecture.pdf}
+    \includegraphics[width=0.85\linewidth]{assets/technology-research/architecture/reso-coder-clean-architecture.pdf}
     \caption{Schéma Reso Coder's Flutter Clean Architecture Proposal~\cite{reso_coder_clean_architecture}}
     \label{fig:reso_coder_clean_architecture}
 \end{figure}
@@ -271,7 +275,6 @@ ale vertikálně.
 Kód je sice možná lehčí nalézt,
 než u~přístupu rozdělení dle vrstev,
 avšak pro změnu neřeší oddělení dat, domény a~UI.
-\pagebreak[4]
 Dalším z~přístupů je rozdělení kódu jak dle vlastností,
 tak následně dle vrstev,
 což přináší výhody z~obou předešlých

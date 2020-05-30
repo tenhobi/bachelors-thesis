@@ -108,7 +108,7 @@ kódu.~\cite{flutter_state_mgmt_simple}
 
 MobX je knihovna pro správu stavů,
 která implementuje vzor observer.
-Díky jednomuchému rozhraní je vhodná pro začátečníky
+Díky jednoduchému rozhraní je vhodná pro začátečníky
 a~je používána i~ve velkých projektech.
 Dle~\cite{mobx_core_concepts} pracuje knihovna se třemi základními koncepty:
 
@@ -223,7 +223,7 @@ kterými se každá implementace musí řídit,
 přičemž konkrétní prvky implementace jsou přenechány na
 vývojáře.
 Pojmem BLoC také označujeme třídu,
-která uchovává stav dodržuje daný vzor~\cite{googledevelopers_bloc}. 
+která uchovává stav a dodržuje daný vzor~\cite{googledevelopers_bloc}. 
 Dle~\cite{googledevelopers_bloc} těmito pravidly pro návrh jsou:
 
 \begin{enumerate}
@@ -256,6 +256,7 @@ a~testovatelný~\cite{flutterando_analyzing_bloc_mobx}.
 Oproti knihovně Redux si lze z~uvedených pravidel všimnout,
 že už samotný návrhový vzor BLoC pracuje s~více zdroji pro uchování stavu.
 
+\pagebreak
 \subsubsection{Knihovna Bloc}
 
 Jednou z~implementací tohoto vzoru je knihovna Bloc od Felixe
@@ -317,6 +318,7 @@ tříd \mintinline{dart}|Stream| a~\mintinline{dart}|Sink|.
 To umožňuje pro jednu událost snadno vyvolat několik změn
 a~zároveň reagovat na změny stavu asynchronně i~v~UI.
 
+\pagebreak
 \subsection{Zhodnocení}
 
 Vyzdvihování stavu,
