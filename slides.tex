@@ -49,7 +49,7 @@
 \subtitle{Bakalářská práce}
 \institute[FIT ČVUT v~Praze]{Fakulta informačních technologií \\ České vysoké učení technické v~Praze}
 \author[J. Bittner]{Jan Bittner \\ Vedoucí práce: Ing. Marek Suchánek}
-\date{23. 6. 2020 TODOTODOTODO}
+\date{30. 6. 2020}
 \titlegraphic{\includegraphics[width=.1\textwidth]{assets/slides/logo-cvut}}
 
 \begin{document}
@@ -110,6 +110,7 @@
       \end{center}
   \end{frame}
 
+  % TODO: upravit obrázek
   \begin{frame}{Návrh hry}
     \begin{center}
       \includegraphics[width=.9\textwidth]{assets/slides/event-loop}
@@ -120,22 +121,42 @@
     \begin{columns}
       \begin{column}{.25\textwidth}
         \begin{center}
-          \includegraphics[width=.9\textwidth]{assets/slides/screen-0}
+          \includegraphics[width=.9\textwidth]{assets/slides/screen-a1}
         \end{center}
       \end{column}
       \begin{column}{.25\textwidth}
         \begin{center}
-          \includegraphics[width=.9\textwidth]{assets/slides/screen-1}
+          \includegraphics[width=.9\textwidth]{assets/slides/screen-a2}
+        \end{center}
+      \end{column} 
+      \begin{column}{.25\textwidth}
+        \begin{center}
+          \includegraphics[width=.9\textwidth]{assets/slides/screen-a3}
+        \end{center}
+      \end{column}
+    \end{columns}
+  \end{frame}
+
+  \begin{frame}
+    \begin{columns}
+      \begin{column}{.25\textwidth}
+        \begin{center}
+          \includegraphics[width=.9\textwidth]{assets/slides/screen-b1}
         \end{center}
       \end{column}
       \begin{column}{.25\textwidth}
         \begin{center}
-          \includegraphics[width=.9\textwidth]{assets/slides/screen-2}
+          \includegraphics[width=.9\textwidth]{assets/slides/screen-b2}
         \end{center}
       \end{column}
       \begin{column}{.25\textwidth}
         \begin{center}
-          \includegraphics[width=.9\textwidth]{assets/slides/screen-3}
+          \includegraphics[width=.9\textwidth]{assets/slides/screen-b3}
+        \end{center}
+      \end{column}
+      \begin{column}{.25\textwidth}
+        \begin{center}
+          \includegraphics[width=.9\textwidth]{assets/slides/screen-b4}
         \end{center}
       \end{column}
     \end{columns}
@@ -143,9 +164,6 @@
 
   \begin{frame}{Shrnutí}
     \begin{itemize}
-      % TODO -- doladit
-      %\item Rešerše vhodných technologií.
-      %\item Návrh a vytvoření funkčního řešení hry.
       \item Všechny cíle splněny.
       \item Úspěšný návrh a~vytvoření funčního řešení hry.
       \item Úspěšné cílení na snadnou rozšířitelnost.
@@ -170,18 +188,50 @@
   \end{frame}
 
   \begin{frame}[noframenumbering]{Otázky oponenta}
-    Otázka první: Proč?
+    Otázka první:
+    V rámci MobX "generování kódu však není nejrychlější" (str. 20),
+    proč neprobíhá tedy generování jen jednou (např. kompilací, transpilací)?
 
     \vfill
 
-    Odpověď: Prostě proto.
+    Odpověď: MobX je knihovna pro správu stavů,
+    která vyžaduje pro svou funkčnost generovaný kód.
+    Objekty knihoven pro správu stavů jsou prostředníkem mezi
+    prezentační a aplikační vrstvou.
+    Při změnách ve třídách těchto knihoven je nutné opakovaně generovat kód,
+    což způsobuje prodlevu mezi rychlým dodáním změn pomocí
+    vlasnosti hot reload frameworku Flutter.
   \end{frame}
 
   \begin{frame}[noframenumbering]{Otázky oponenta}
-    Otázka druhá: Proč?
+    Otázka druhá:
+    Pokud jsou "data v NoSQL databázích nestrukturovány" (str. 25),
+    jak mohou být efektivnější?
 
     \vfill
 
-    Odpověď: Prostě proto.
+    Odpověď:
+    NoSQL databáze mohou být v jistých případech efektivnější,
+    protože umožňují ukládání dat,
+    které nemají předem definovanou strukturu.
+    Data se také často ukládají denormalizovaná,
+    což umožňuje rychlejší čtení.
+    Tyto databáze (například Cloud Firestore) poskytují přívětivé rozhraní
+    včetně real time query.
+  \end{frame}
+
+  \begin{frame}[noframenumbering]{Otázky oponenta}
+    Otázka třetí: Skutečně "všechna zařízení se systémy Android a iOS" (str. 26) obsahují akcelerometr?
+
+    \vfill
+
+    Odpověď:
+    V kontextu práce, která je mířená na moderní mobilní zařízení
+    (mobily, tablety),
+    obsahují všechna (až na teoretickou množinu výjimek)
+    zařízení se systémy Android a iOS akcelerometr.
+    Tento senzor je totiž velmi univerzální,
+    oproti jiným senzorům (gyroskop) šetrný k baterii
+    a najde uplatnění v široké řadě běžných procesů uživatele (rotace displeje).
   \end{frame}
 \end{document}
