@@ -60,9 +60,7 @@ Licencováno pod [CC BY-SA 4.0](LICENSE).
 
 ## Bachelor's thesis
 
-Please note that the thesis is written in Czech,
-therefore there is no English version yet.
-*The thesis might be translated to English later.*
+Please note that the thesis is written in Czech.
 
 You can find the final version of the PDF in the [releases][] tab.
 
